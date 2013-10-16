@@ -3,7 +3,7 @@ skateshop.directive('customizebar', function() {
 		restrict: 'E',
 		templateUrl: '../../views/customize-bar.html',
 		scope: {
-			sections: '@'
+			sections: '='
 		}
 	}
 });
