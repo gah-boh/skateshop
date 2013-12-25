@@ -2,7 +2,7 @@ skateshop.directive('customizeBar', function() {
 	return {
 		restrict: 'E',
 //		templateUrl: 'views/customize-bar.html',
-		template: '<div class="customize-section" ng-click="toggleActive()" ng-class="{activeSection: title==activeSelection.title}">{{title}}</div>',
+		template: '<div class="customize-section" ng-click="toggleActive()" ng-class="{\'active-section\': title==activeSelection}">{{title}}</div>',
 		replace: true,
 		scope: {
 			title: '@',
@@ -10,7 +10,7 @@ skateshop.directive('customizeBar', function() {
 		},
 		link: function(scope) {
 			scope.toggleActive = function() {
-				scope.activeSelection.title = scope.title;
+				scope.activeSelection = scope.title;
 			};
 		}
 	}

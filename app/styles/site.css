@@ -16,7 +16,7 @@
 	margin-right: 0;
 }
 
-.activeSection {
+.active-section {
 	background-color: #e1dee5;
 }
 
@@ -36,3 +36,10 @@
 	background-color: #fff;
 }
 
+.color-preset {
+	float: left;
+	margin: 5px;
+	width: 50px;
+	height: 50px;
+	border: 5px solid #ffffff;
+}

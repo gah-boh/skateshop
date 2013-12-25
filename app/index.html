@@ -7,10 +7,15 @@
 </head>
 <body ng-app="Skateshop">
 <div ng-controller='CustomizeCtrl as customCtrl'>
-	<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection"></customize-bar>
+	<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection.title"></customize-bar>
 	<div class="customize-area">
 		<div ng-show='customCtrl.selection.title == "Board"'>
 			<div class="board-preset" ng-repeat="preset in customCtrl.boards.presets">{{preset.name}}</div>
+		</div>
+		<div ng-show='customCtrl.selection.title == "Tape"'>
+			<div class="color-preset" ng-repeat="preset in customCtrl.tape.colors"
+									  ng-style="{backgroundColor: preset.hexValue}">
+			</div>
 		</div>
 	</div>
 </div>

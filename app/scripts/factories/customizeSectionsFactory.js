@@ -18,6 +18,22 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 					name: 'cruiser'
 				}
 			]
+		},
+		tape: {
+			colors: [
+				{
+					name: 'black',
+					hexValue: '#000'
+				},
+				{
+					name: 'red',
+					hexValue: '#ff0000'
+				},
+				{
+					name: 'yellow',
+					hexValue: '#ffff00'
+				}
+			]
 		}
 	};
 });

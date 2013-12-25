@@ -8,7 +8,7 @@ describe("customizeBar", function() {
 		$scope = $rootScope;
 		$scope.testTitle = "TestingTitle";
 		$scope.selection = {title: 'Dude'};
-		element = angular.element('<customize-bar title="{{testTitle}}" active-selection="selection"></customize-bar>');
+		element = angular.element('<customize-bar title="{{testTitle}}" active-selection="selection.title"></customize-bar>');
 		$compile(element)($rootScope);
 	}));
 
@@ -17,18 +17,20 @@ describe("customizeBar", function() {
 	});
 
 	it("should have the same initial value for the activeSelection", function() {
-		expect(element.isolateScope().activeSelection.title).toBe($scope.selection.title);
+		expect(element.isolateScope().activeSelection).toBe($scope.selection.title);
 	});
 
 	it("changing the scopes selection.title will change the directives activeSelection.title", function() {
 		var expected = "Please Abide";
 		$scope.selection.title = expected;
-		expect(element.isolateScope().activeSelection.title).toEqual(expected);
+		$scope.$apply();
+		expect(element.isolateScope().activeSelection).toEqual(expected);
 	});
 
 	it("changing the directives activeSelection.title  will change the scopes selection.title", function() {
 		var expected = "Notorious";
-		element.isolateScope().activeSelection.title = expected;
+		element.isolateScope().activeSelection = expected;
+		$scope.$apply();
 		expect($scope.selection.title).toEqual(expected);
 	});
 
@@ -37,7 +39,7 @@ describe("customizeBar", function() {
 		var secondElement;
 
 		beforeEach(inject(function($compile, $rootScope) {
-			secondElement = angular.element('<customize-bar title="secondElement" active-selection="selection"></customize-bar>')
+			secondElement = angular.element('<customize-bar title="secondElement" active-selection="selection.title"></customize-bar>')
 			$compile(secondElement)($rootScope);
 		}));
 
