@@ -8,12 +8,17 @@
 <body ng-app="Skateshop">
 <div ng-controller='CustomizeCtrl as customCtrl'>
 	<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection"></customize-bar>
+	<div class="customize-area">
+		<div ng-show='customCtrl.selection.title == "Board"'>
+			<div class="board-preset" ng-repeat="preset in customCtrl.boards.presets">{{preset.name}}</div>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/factories/customizeSectionsFactory.js"></script>
 <script src="scripts/controllers/customizeCtrl.js"></script>
-<script src="scripts/directives/customizebar.js"></script>
+<script src="scripts/directives/customization.js"></script>
 </body>
 </html>

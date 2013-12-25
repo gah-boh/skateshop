@@ -4,8 +4,20 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 					'Board',
 					'Tape',
 					'Trucks',
-					'Wheels',
-					'Bearings'
-		]
+					'Wheels'
+		],
+		board: {
+			presets: [
+				{
+					name: 'street'
+				},
+				{
+					name: 'longboard pin tail'
+				},
+				{
+					name: 'cruiser'
+				}
+			]
+		}
 	};
 });

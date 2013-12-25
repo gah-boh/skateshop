@@ -1,7 +1,7 @@
 .customize-section {
 	float: left;
-	height: 50px;
-	line-height: 50px;
+	height: 30px;
+	line-height: 30px;
 	width: 100px;
 	text-align: center;
 	margin: 0 1px 0 1px;
@@ -19,3 +19,20 @@
 .activeSection {
 	background-color: #e1dee5;
 }
+
+.customize-area {
+	background-color: #e1dee5;
+	width: 600px;
+	min-height: 100px;
+	padding-top: 20px;
+	clear: left;
+}
+
+.board-preset {
+	float: left;
+	width: 150px;
+	height: 50px;
+	margin: 5px;
+	background-color: #fff;
+}
+
