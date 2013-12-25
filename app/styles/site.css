@@ -15,3 +15,7 @@
 .customize-section:last-of-type {
 	margin-right: 0;
 }
+
+.activeSection {
+	background-color: #e1dee5;
+}

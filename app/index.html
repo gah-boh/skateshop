@@ -6,8 +6,8 @@
 	<link rel="stylesheet" href="styles/site.css"/>
 </head>
 <body ng-app="Skateshop">
-<div ng-controller='CustomizeCtrl'>
-	<customize-bar ng-repeat="section in customizeSections"></customize-bar>
+<div ng-controller='CustomizeCtrl as customCtrl'>
+	<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection"></customize-bar>
 </div>
 
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>

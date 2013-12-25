@@ -1,3 +1,6 @@
-skateshop.controller('CustomizeCtrl', function($scope, CustomizeSectionsFactory) {
-	$scope.customizeSections = CustomizeSectionsFactory.sections;
+skateshop.controller('CustomizeCtrl', function(CustomizeSectionsFactory) {
+	this.customizeSections = CustomizeSectionsFactory.sections;
+	this.selection = {
+		title: this.customizeSections[0]
+	};
 });
