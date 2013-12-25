@@ -1,9 +1,16 @@
-skateshop.directive('customizebar', function() {
+skateshop.directive('customizeBar', function() {
 	return {
 		restrict: 'E',
-		templateUrl: '../../views/customize-bar.html',
+		templateUrl: 'views/customize-bar.html',
+		replace: true,
 		scope: {
-			sections: '='
+		},
+		link: function(scope, element) {
+			scope.isActive = false;
+			scope.toggleVisible = function() {
+				element.addClass("active-section");
+				scope.isActive = !scope.isActive;
+			};
 		}
 	}
 });

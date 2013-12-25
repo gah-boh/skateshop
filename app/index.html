@@ -3,15 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Skateshop 2014</title>
+	<link rel="stylesheet" href="styles/site.css"/>
 </head>
 <body ng-app="Skateshop">
-<header>Stuff goes here</header>
 <div ng-controller='CustomizeCtrl'>
-	<customizebar sections="customizeSections"></customizebar>
+	<customize-bar ng-repeat="section in customizeSections"></customize-bar>
 </div>
 
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script src="scripts/app.js"></script>
+<script src="scripts/factories/customizeSectionsFactory.js"></script>
 <script src="scripts/controllers/customizeCtrl.js"></script>
 <script src="scripts/directives/customizebar.js"></script>
 </body>

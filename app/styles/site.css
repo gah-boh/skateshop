@@ -1,0 +1,17 @@
+.customize-section {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	width: 100px;
+	text-align: center;
+	margin: 0 1px 0 1px;
+	background-color: #8f8c93;
+}
+
+.customize-section:first-of-type {
+	margin-left: 0;
+}
+
+.customize-section:last-of-type {
+	margin-right: 0;
+}

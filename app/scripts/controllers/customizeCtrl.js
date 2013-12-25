@@ -1,9 +1,3 @@
-skateshop.controller('CustomizeCtrl', function($scope) {
-	$scope.customizeSections = [
-		'Board',
-		'Tape',
-		'Trucks',
-		'Wheels',
-		'Bearings'
-	];
+skateshop.controller('CustomizeCtrl', function($scope, CustomizeSectionsFactory) {
+	$scope.customizeSections = CustomizeSectionsFactory.sections;
 });
