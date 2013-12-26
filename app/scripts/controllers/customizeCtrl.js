@@ -5,4 +5,8 @@ skateshop.controller('CustomizeCtrl', function(CustomizeSectionsFactory) {
 	this.selection = {
 		title: this.customizeSections[0]
 	};
+
+	this.selectBoardPreset = function() {
+		console.log('Something happened');
+	};
 });
