@@ -17,15 +17,22 @@ module.exports = function(config) {
 	  'bower_components/angular/angular.js',
 	  'bower_components/angular-mocks/angular-mocks.js',
       'scripts/**/*.js',
-      'tests/*Spec.js'
+      'tests/*Spec.js',
+	  'views/*.html'
     ],
-
 
     // list of files to exclude
     exclude: [
       
     ],
 
+	preprocessors: {
+	  'views/*.html': 'ng-html2js'
+	},
+
+	ngHtml2JsPreprocessor: {
+	  moduleName: 'templates'
+	},
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'

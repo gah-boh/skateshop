@@ -4,12 +4,14 @@ describe("customizeBar", function() {
 		element;
 
 	beforeEach(module("Skateshop"));
+	beforeEach(module('templates'));
 	beforeEach(inject(function($compile, $rootScope) {
 		$scope = $rootScope;
 		$scope.testTitle = "TestingTitle";
 		$scope.selection = {title: 'Dude'};
 		element = angular.element('<customize-bar title="{{testTitle}}" active-selection="selection.title"></customize-bar>');
 		$compile(element)($rootScope);
+		$scope.$digest();
 	}));
 
 	it("should have a title of TestingTitle", function() {
@@ -41,6 +43,7 @@ describe("customizeBar", function() {
 		beforeEach(inject(function($compile, $rootScope) {
 			secondElement = angular.element('<customize-bar title="secondElement" active-selection="selection.title"></customize-bar>')
 			$compile(secondElement)($rootScope);
+			$scope.$digest();
 		}));
 
 		it("after click the scopes selection title should be secondElement", function() {
@@ -58,7 +61,7 @@ describe("customizeBar", function() {
 
 		it("should have the activeSection class when clicked", function() {
 			element[0].click();
-			expect(element.hasClass("activeSection")).toBeTruthy();
+			expect(element.hasClass("active-section")).toBeTruthy();
 		});
 	});
 

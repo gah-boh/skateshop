@@ -1,0 +1,14 @@
+{
+  "name": "skateshop",
+  "version": "0.0.0",
+  "description": "skateshop for Gabo's goals 2014",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "karma-ng-html2js-preprocessor": "~0.1.0"
+  }
+}
