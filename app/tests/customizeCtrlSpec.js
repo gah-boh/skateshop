@@ -13,6 +13,7 @@ describe("Customize Control Spec", function() {
 		$scope.$digest();
 	}));
 
+	// This test is to show an example of how to test and spy from a click
 	it("should call selectBoardPreset() on click", function() {
 		spyOn(element.scope().sut, 'selectBoardPreset').andCallThrough();
 		element.children().eq(0)[0].click();
