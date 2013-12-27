@@ -6,28 +6,34 @@
 	<link rel="stylesheet" href="styles/site.css"/>
 </head>
 <body ng-app="Skateshop">
-<div ng-controller='CustomizeCtrl as customCtrl'>
-	<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection.title"></customize-bar>
-	<div class="customize-area">
-		<div ng-show='customCtrl.selection.title == "Board"'>
-			<div class="board-preset" 
-				ng-repeat="preset in customCtrl.boards.presets"
-				ng-click="customCtrl.selectBoardPreset(preset)">
-				{{preset.name}}
-			</div>
-		</div>
-		<div ng-show='customCtrl.selection.title == "Tape"'>
-			<div class="color-preset" ng-repeat="preset in customCtrl.tape.colors"
-									  ng-style="{backgroundColor: preset.hexValue}">
-			</div>
-		</div>
+<div class="container">
+	<div ng-controller="UnityViewCtrl as unityCtrl">
+		<div class="unity-view"></div>
 	</div>
-</div>
+	<div class="customize-container" ng-controller='CustomizeCtrl as customCtrl'>
+		<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection.title"></customize-bar>
+		<div class="customize-area">
+			<div ng-show='customCtrl.selection.title == "Board"'>
+				<div class="board-preset" 
+					ng-repeat="preset in customCtrl.boards.presets"
+					ng-click="customCtrl.selectBoardPreset(preset)">
+					{{preset.name}}
+				</div>
+			</div>
+			<div ng-show='customCtrl.selection.title == "Tape"'>
+				<div class="color-preset" ng-repeat="preset in customCtrl.tape.colors"
+										  ng-style="{backgroundColor: preset.hexValue}">
+				</div>
+			</div>
+		</div>
+	</div> <!-- End Customize Control -->
+</div> <!-- End Container -->
 
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/factories/customizeSectionsFactory.js"></script>
 <script src="scripts/controllers/customizeCtrl.js"></script>
+<script src="scripts/controllers/unityViewCtrl.js"></script>
 <script src="scripts/directives/customization.js"></script>
 </body>
 </html>

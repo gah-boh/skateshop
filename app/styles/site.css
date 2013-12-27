@@ -1,11 +1,32 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.container {
+	width: 960px;
+	padding: 0;
+	margin: 0 auto 0 auto;
+}
+
+.unity-view {
+	background-color: #f8f8f8;
+	width: 600px;
+	height: 400px;
+	margin: 10px auto 40px auto;
+}
+
+.customize-container {
+	width: 600px;
+	margin: 0 auto 0 auto;
+}
+
 .customize-section {
 	float: left;
 	height: 30px;
 	line-height: 30px;
-	width: 100px;
-	text-align: center;
-	margin: 0 1px 0 1px;
-	background-color: #8f8c93;
+	font-size: 1.15em;
+	margin: 0 1.05em 0 1px;
+	cursor: pointer;
 }
 
 .customize-section:first-of-type {
@@ -17,11 +38,13 @@
 }
 
 .active-section {
-	background-color: #e1dee5;
+	font-size: 1.25em;
+	font-weight: bold;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .customize-area {
-	background-color: #e1dee5;
 	width: 600px;
 	min-height: 100px;
 	padding-top: 20px;
@@ -39,7 +62,15 @@
 .color-preset {
 	float: left;
 	margin: 5px;
-	width: 50px;
-	height: 50px;
-	border: 5px solid #ffffff;
+	width: 25px;
+	height: 25px;
+	border: 5px solid #e8e8e8;
+	border-radius: 25px;
+}
+
+.color-preset:hover {
+	border: 5px solid #a1a1a1;
+	width: 35px;
+	height: 35px;
+	margin: 0 -5px -5px -5px;
 }

@@ -6,6 +6,7 @@ skateshop.controller('UnityViewCtrl', function($scope) {
 	// Events
 	var self = this;
 	$scope.$on('boardPresetSelected', function(event, args) {
+		console.log('Something is happening.');
 		self.updateBoardPreset(args.board);
 	});
 
