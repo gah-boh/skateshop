@@ -53,10 +53,16 @@ body {
 
 .board-preset {
 	float: left;
-	width: 150px;
+	width: 33.33333%;
 	height: 50px;
-	margin: 5px;
 	background-color: #fff;
+}
+
+.board-preset img {
+	padding-right: 10px;
+	display: block;
+	width: 100px;
+	margin: 0 auto 0 auto;
 }
 
 .color-preset {

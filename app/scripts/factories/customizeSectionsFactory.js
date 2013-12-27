@@ -9,13 +9,16 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 		board: {
 			presets: [
 				{
-					name: 'street'
+					name: 'street',
+					imageSource: 'board_icon_street.png'
 				},
 				{
-					name: 'longboard pin tail'
+					name: 'longboard pin tail',
+					imageSource: 'board_icon_longboardPintail.png'
 				},
 				{
-					name: 'cruiser'
+					name: 'cruiser',
+					imageSource: 'board_icon_cruiser.png'
 				}
 			]
 		},

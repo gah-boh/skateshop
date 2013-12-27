@@ -17,7 +17,7 @@
 				<div class="board-preset" 
 					ng-repeat="preset in customCtrl.boards.presets"
 					ng-click="customCtrl.selectBoardPreset(preset)">
-					{{preset.name}}
+					<img ng-src="images/{{ preset.imageSource }}">
 				</div>
 			</div>
 			<div ng-show='customCtrl.selection.title == "Tape"'>
