@@ -1,11 +1,18 @@
 skateshop.controller('UnityViewCtrl', function($scope) {
 
-	var self = this;
+	// Properties
 	this.currentBoard = {};
 
-	this.updateBoardPreset = function(event, options) {
-		self.currentBoard.board = options.board;
+	// Events
+	var self = this;
+	$scope.$on('boardPresetSelected', function(event, args) {
+		self.updateBoardPreset(args.board);
+	});
+
+	// Controller Methods
+	this.updateBoardPreset = function(board) {
+		this.currentBoard.board = board;
 	};
 
-	$scope.$on('boardPresetSelected', this.updateBoardPreset);
+
 });

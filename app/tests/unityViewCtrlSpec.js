@@ -13,7 +13,7 @@ describe("Unity View Ctrl Spec", function() {
 
 	it('boardPresetSelected event should call the updateBoardPreset method', function() {
 		$scope.$broadcast('boardPresetSelected', {board: 20});
-		expect($scope.$on).toHaveBeenCalledWith('boardPresetSelected', sut.updateBoardPreset);
+		expect($scope.$on).toHaveBeenCalled();
 	});
 
 	it("should set the controllers board object", function() {
