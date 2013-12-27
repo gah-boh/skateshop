@@ -12,12 +12,18 @@ describe("Unity View Ctrl Spec", function() {
 	}));
 
 	it('boardPresetSelected event should call the updateBoardPreset method', function() {
-		$scope.$broadcast('boardPresetSelected', {board: 20});
+		$scope.$emit('boardPresetSelected', {board: 20});
 		expect($scope.$on).toHaveBeenCalled();
 	});
 
+	it("boardPresetSelected event should unbind itself when it's going to be destroyed", function() {
+		spyOn(sut, 'deRegisterEvents').andCallThrough();
+		$scope.$destroy();
+		expect(sut.deRegisterEvents).toHaveBeenCalled();
+	});
+
 	it("should set the controllers board object", function() {
-		$scope.$broadcast('boardPresetSelected', {board: 20});
+		$scope.$emit('boardPresetSelected', {board: 20});
 		expect(sut.currentBoard.board).toBe(20);
 	});
 

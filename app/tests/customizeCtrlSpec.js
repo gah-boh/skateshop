@@ -8,7 +8,7 @@ describe("Customize Control Spec", function() {
 	beforeEach(inject(function($compile, $rootScope, $controller) {
 		$scope = $rootScope;
 		element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="board in sut.boards.presets" ng-click="sut.selectBoardPreset(board)"></div></div>');
-		sut = $controller('CustomizeCtrl');
+		sut = $controller('CustomizeCtrl', {$scope: $scope});
 		$compile(element)($scope);
 		$scope.$digest();
 	}));

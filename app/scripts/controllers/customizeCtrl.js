@@ -1,4 +1,4 @@
-skateshop.controller('CustomizeCtrl', function(CustomizeSectionsFactory) {
+skateshop.controller('CustomizeCtrl', function($rootScope, CustomizeSectionsFactory) {
 	this.customizeSections = CustomizeSectionsFactory.sections;
 	this.boards = CustomizeSectionsFactory.board;
 	this.tape = CustomizeSectionsFactory.tape;
@@ -7,6 +7,6 @@ skateshop.controller('CustomizeCtrl', function(CustomizeSectionsFactory) {
 	};
 
 	this.selectBoardPreset = function(boardPreset) {
-
+		$rootScope.$emit('boardPresetSelected', boardPreset);
 	};
 });
