@@ -36,4 +36,8 @@ describe("Board Slider Specs", function() {
 		expect(elementIsolatedScope.updateSlider).toHaveBeenCalled();
 	});
 
+	xit("should de-register the event listeners on destroy", function () {
+
+	});
+
 });

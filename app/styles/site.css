@@ -65,6 +65,7 @@ body {
 	width: 100px;
 	margin: 0 auto 0 auto;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 .color-preset {

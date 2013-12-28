@@ -17,29 +17,37 @@
 			<div ng-show='customCtrl.selection.title == "Board"'>
 				<div class="board-slider customize-sub-section">
 					<span class="customize-sub-section">length:</span>
-					<div board-slider="customCtrl.currentValue"></div>
+					<div board-slider="customCtrl.boardSettings.boardLength"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
 					<span class="customize-sub-section">tail shape:</span>
-					<div board-slider="customCtrl.currentValue"></div>
+					<div board-slider="customCtrl.boardSettings.tailShape"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
 					<span class="customize-sub-section">nose shape:</span>
-					<div board-slider="customCtrl.currentValue"></div>
+					<div board-slider="customCtrl.boardSettings.noseShape"></div>
 				</div>
 				<div class="customize-sub-section">
 					<span class="row customize-sub-section">presets:</span>
 					<div class="board-preset"
 					     ng-repeat="preset in customCtrl.boards.presets"
-					     ng-click="customCtrl.selectBoardPreset(preset)">
+					     ng-click="customCtrl.selectBoardPreset(preset.name)">
 						<img ng-src="images/{{ preset.imageSource }}">
 					</div>
 				</div>
 				<div class="bottom-spacer"></div>
 			</div>
-			<div ng-show='customCtrl.selection.title == "Tape"'>
-				<div class="color-preset" ng-repeat="preset in customCtrl.tape.colors"
-										  ng-style="{backgroundColor: preset.hexValue}">
+			<div ng-show='customCtrl.selection.title == "Grip"'>
+				<div class="customize-sub-section">color:</div>
+				<div class="color-preset" ng-repeat="preset in customCtrl.colors"
+										  ng-style="{backgroundColor: preset.color}">
+				</div>
+			</div>
+			<div ng-show='customCtrl.selection.title == "Wheels"'>
+				<div class="customize-sub-section">wheel:</div>
+				<div class="customize-sub-section">color:</div>
+				<div class="color-preset" ng-repeat="preset in customCtrl.colors"
+										  ng-style="{backgroundColor: preset.color}">
 				</div>
 			</div>
 		</div>
