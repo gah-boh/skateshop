@@ -30,9 +30,9 @@
 				<div class="customize-sub-section">
 					<span class="row customize-sub-section">presets:</span>
 					<div class="board-preset"
-					     ng-repeat="preset in customCtrl.boards.presets"
-					     ng-click="customCtrl.selectBoardPreset(preset.name)">
-						<img ng-src="images/{{ preset.imageSource }}">
+					  ng-repeat="preset in customCtrl.boards.presets">
+						<img ng-src="images/{{ preset.imageSource }}"
+							 ng-click="customCtrl.selectBoardPreset(preset.name)">
 					</div>
 				</div>
 				<div class="bottom-spacer"></div>

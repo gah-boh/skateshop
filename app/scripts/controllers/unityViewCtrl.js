@@ -5,13 +5,9 @@ skateshop.controller('UnityViewCtrl', function($scope, $rootScope) {
 
 	// Events
 	var self = this;
-	var boardPresetEvent = 
+	this.boardPresetEvent = 
 		$rootScope.$on('boardPresetSelected', function(event, args) {
 		self.updateBoardPreset(args.board);
-	});
-
-	$scope.$on('$destroy', function(event) {
-		self.deRegisterEvents();
 	});
 
 	// Controller Methods
@@ -20,7 +16,8 @@ skateshop.controller('UnityViewCtrl', function($scope, $rootScope) {
 	};
 
 	this.deRegisterEvents = function () {
-		boardPresetEvent();
+		self.boardPresetEvent();
 	};
 
+	$scope.$on('$destroy', this.deRegisterEvents);
 });

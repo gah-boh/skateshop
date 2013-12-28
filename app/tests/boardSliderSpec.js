@@ -23,9 +23,14 @@ describe("Board Slider Specs", function() {
 		elementIsolatedScope = element.children().eq(0).isolateScope();
 	}));
 
+	afterEach(function() {
+		$scope.$destroy();
+	});
+
 	it("should change the controller's value when value the update function is called", function() {
-		elementIsolatedScope.update(4);
-		$scope.$digest();
+		$scope.$apply(function() {
+			elementIsolatedScope.update(4);
+		});
 		expect(mockCtrl.currentValue).toBe(4);
 	});
 
@@ -36,8 +41,18 @@ describe("Board Slider Specs", function() {
 		expect(elementIsolatedScope.updateSlider).toHaveBeenCalled();
 	});
 
-	xit("should de-register the event listeners on destroy", function () {
-
-	});
-
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
