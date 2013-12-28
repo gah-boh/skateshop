@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Skateshop 2014</title>
+	<link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery.ui.all.css"/>
 	<link rel="stylesheet" href="styles/site.css"/>
 </head>
 <body ng-app="Skateshop">
@@ -14,11 +15,27 @@
 		<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection.title"></customize-bar>
 		<div class="customize-area">
 			<div ng-show='customCtrl.selection.title == "Board"'>
-				<div class="board-preset" 
-					ng-repeat="preset in customCtrl.boards.presets"
-					ng-click="customCtrl.selectBoardPreset(preset)">
-					<img ng-src="images/{{ preset.imageSource }}">
+				<div class="board-slider customize-sub-section">
+					<span class="customize-sub-section">length:</span>
+					<div board-slider="customCtrl.currentValue"></div>
 				</div>
+				<div class="board-slider customize-sub-section">
+					<span class="customize-sub-section">tail shape:</span>
+					<div board-slider="customCtrl.currentValue"></div>
+				</div>
+				<div class="board-slider customize-sub-section">
+					<span class="customize-sub-section">nose shape:</span>
+					<div board-slider="customCtrl.currentValue"></div>
+				</div>
+				<div class="customize-sub-section">
+					<span class="row customize-sub-section">presets:</span>
+					<div class="board-preset"
+					     ng-repeat="preset in customCtrl.boards.presets"
+					     ng-click="customCtrl.selectBoardPreset(preset)">
+						<img ng-src="images/{{ preset.imageSource }}">
+					</div>
+				</div>
+				<div class="bottom-spacer"></div>
 			</div>
 			<div ng-show='customCtrl.selection.title == "Tape"'>
 				<div class="color-preset" ng-repeat="preset in customCtrl.tape.colors"
@@ -29,6 +46,8 @@
 	</div> <!-- End Customize Control -->
 </div> <!-- End Container -->
 
+<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+<script type="text/javascript" src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/factories/customizeSectionsFactory.js"></script>

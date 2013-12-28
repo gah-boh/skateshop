@@ -14,3 +14,25 @@ skateshop.directive('customizeBar', function() {
 		}
 	}
 });
+
+skateshop.directive('boardSlider', function() {
+	return {
+		restrict: 'A',
+		scope: {
+			boardSlider: '='
+		},
+		link: function (scope, element, attributes) {
+			$(element).slider({
+				min: 0.0,
+				max: 100.0,
+				slide: function(event, ui) {
+					scope.update(ui.value);
+				}
+			});
+
+			scope.update = function(aValue) {
+				scope.boardSlider = aValue;
+			};
+		}
+	};
+});

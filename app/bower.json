@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular": "1.2.6",
-    "angular-mocks": "1.2.6"
+    "angular-mocks": "1.2.6",
+    "jquery-ui": "~1.10.3"
   }
 }

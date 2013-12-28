@@ -3,7 +3,6 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 		sections: [
 					'Board',
 					'Tape',
-					'Trucks',
 					'Wheels'
 		],
 		board: {
