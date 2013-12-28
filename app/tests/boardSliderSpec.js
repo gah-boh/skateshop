@@ -3,6 +3,7 @@ describe("Board Slider Specs", function() {
 	var $rootScope,
 		$scope,
 		element,
+		elementIsolatedScope,
 		mockCtrl;
 
 	beforeEach(module(function($provide) {
@@ -19,17 +20,20 @@ describe("Board Slider Specs", function() {
 		element = angular.element('<div ng-controller="MockCtrl as mockCtrl"><div board-slider="mockCtrl.currentValue"></div></div>');
 		$compile(element)($scope);
 		mockCtrl = element.scope().mockCtrl;
-		$scope.$digest();
+		elementIsolatedScope = element.children().eq(0).isolateScope();
 	}));
 
 	it("should change the controller's value when value the update function is called", function() {
-		element.children().eq(0).isolateScope().update(4);
-		$scope.$apply();
+		elementIsolatedScope.update(4);
+		$scope.$digest();
 		expect(mockCtrl.currentValue).toBe(4);
 	});
 
-	xit("should update the slider value on a model change", function() {
-
+	it("should update the slider value on a model change", function() {
+		spyOn(elementIsolatedScope, 'updateSlider');
+		mockCtrl.currentValue = 10;
+		$scope.$digest();
+		expect(elementIsolatedScope.updateSlider).toHaveBeenCalled();
 	});
 
 });

@@ -22,6 +22,10 @@ skateshop.directive('boardSlider', function() {
 			boardSlider: '='
 		},
 		link: function (scope, element, attributes) {
+			scope.$watch('boardSlider', function(newValue, oldValue) {
+				scope.updateSlider();
+			});
+
 			$(element).slider({
 				min: 0.0,
 				max: 100.0,
@@ -33,6 +37,11 @@ skateshop.directive('boardSlider', function() {
 			scope.update = function(aValue) {
 				scope.boardSlider = aValue;
 			};
+
+			scope.updateSlider = function() {
+				$(element).slider("value", scope.boardSlider);
+			};
+
 		}
 	};
 });
