@@ -28,15 +28,15 @@ skateshop.directive('boardSlider', function() {
 			});
 
 			$(element).slider({
-				min: 0.0,
-				max: 100.0,
+				min: parseFloat(attributes.min) || 0.0,
+				max: parseFloat(attributes.max) || 100.0,
 				slide: function(event, ui) {
 					scope.update(ui.value);
 				}
 			});
 
 			scope.update = function(aValue) {
-				scope.boardSlider = aValue;
+				scope.$apply( scope.boardSlider = aValue );
 			};
 
 			scope.updateSlider = function() {

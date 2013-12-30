@@ -17,7 +17,7 @@ describe("Board Slider Specs", function() {
 	beforeEach(inject(function(_$rootScope_, $compile, $controller) {
 		$rootScope = _$rootScope_;
 		$scope = _$rootScope_.$new();
-		element = angular.element('<div ng-controller="MockCtrl as mockCtrl"><div board-slider="mockCtrl.currentValue"></div></div>');
+		element = angular.element('<div ng-controller="MockCtrl as mockCtrl"><div board-slider="mockCtrl.currentValue" min="45" max="90"></div></div>');
 		$compile(element)($scope);
 		mockCtrl = element.scope().mockCtrl;
 		elementIsolatedScope = element.children().eq(0).isolateScope();
@@ -28,9 +28,7 @@ describe("Board Slider Specs", function() {
 	});
 
 	it("should change the controller's value when value the update function is called", function() {
-		$scope.$apply(function() {
-			elementIsolatedScope.update(4);
-		});
+		elementIsolatedScope.update(4);
 		expect(mockCtrl.currentValue).toBe(4);
 	});
 
@@ -39,6 +37,14 @@ describe("Board Slider Specs", function() {
 		mockCtrl.currentValue = 10;
 		$scope.$digest();
 		expect(elementIsolatedScope.updateSlider).toHaveBeenCalled();
+	});
+
+	it("should have a minimum of 45 as supplied by the element", function() {
+		expect(element.children(0).eq(0).slider("option", "min")).toBe(45);
+	});
+
+	it("should have a maximum of 90 as supplied by the element", function() {
+		expect(element.children(0).eq(0).slider("option", "max")).toBe(90);
 	});
 
 });

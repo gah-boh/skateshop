@@ -16,15 +16,15 @@
 		<div class="customize-area">
 			<div ng-show='customCtrl.selection.title == "Board"'>
 				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">length:</span>
+					<span class="customize-sub-section">length: {{customCtrl.boardSettings.boardLength}}"</span>
 					<div board-slider="customCtrl.boardSettings.boardLength"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">tail shape:</span>
+					<span class="customize-sub-section">tail shape: {{customCtrl.boardSettings.tailShape}}</span>
 					<div board-slider="customCtrl.boardSettings.tailShape"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">nose shape:</span>
+					<span class="customize-sub-section">nose shape: {{customCtrl.boardSettings.noseShape}}</span>
 					<div board-slider="customCtrl.boardSettings.noseShape"></div>
 				</div>
 				<div class="customize-sub-section">
