@@ -16,22 +16,23 @@
 		<div class="customize-area">
 			<div ng-show='customCtrl.selection.title == "Board"'>
 				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">length: {{customCtrl.boardSettings.boardLength}}"</span>
+					<span class="customize-sub-section">length: <span ng-bind="customCtrl.boardSettings.boardLength"></span></span>
 					<div board-slider="customCtrl.boardSettings.boardLength" min="10" max="90"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">tail shape: {{customCtrl.boardSettings.tailShape}}</span>
+					<span class="customize-sub-section">tail shape: <span ng-bind="customCtrl.boardSettings.tailShape"></span></span>
 					<div board-slider="customCtrl.boardSettings.tailShape" min="-50" max="50"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">nose shape: {{customCtrl.boardSettings.noseShape}}</span>
+					<span class="customize-sub-section">nose shape: <span ng-bind="customCtrl.boardSettings.noseShape"></span></span>
 					<div board-slider="customCtrl.boardSettings.noseShape" min="-50" max="50"></div>
 				</div>
 				<div class="customize-sub-section">
 					<span class="row customize-sub-section">presets:</span>
 					<div class="board-preset"
-					  ng-repeat="preset in customCtrl.boards.presets">
-						<img ng-src="images/{{ preset.imageSource }}"
+					     ng-repeat="preset in customCtrl.boards.presets">
+						<img src=""
+                             ng-src="images/{{ preset.imageSource }}"
 							 ng-click="customCtrl.selectBoardPreset(preset.name)">
 					</div>
 				</div>
