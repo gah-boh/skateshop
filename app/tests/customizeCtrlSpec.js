@@ -35,19 +35,38 @@ describe("Customize Control Spec", function() {
 
 		it("passing a preset by name should get the correct boardLength from the factory", function() {
 			sut.loadPreset("street");
-			expect($scope.boardSettings.boardLength).toBe(30);
+			expect(sut.boardSettings.boardLength).toBe(30);
 		});
 		
 		it("passing a preset by name should get the correct noseShape from the factory", function() {
 			sut.loadPreset("street");
-			expect($scope.boardSettings.noseShape).toBe(50);
+			expect(sut.boardSettings.noseShape).toBe(50);
 		});
 
 		it("passing a preset by name should get the correct tailShape from the factory", function() {
 			sut.loadPreset("street");
-			expect($scope.boardSettings.tailShape).toBe(50);
+			expect(sut.boardSettings.tailShape).toBe(50);
 		});
 
 	});
 
+	describe("Changing board parameters", function() {
+		
+	});
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

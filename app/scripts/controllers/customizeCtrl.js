@@ -8,7 +8,7 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 		title: this.customizeSections[0]
 	};
 
-	$scope.boardSettings = {
+	$scope.boardSettings = this.boardSettings = {
 		boardLength: 0,
 		noseShape: 0,
 		tailShape: 0,
@@ -23,12 +23,12 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 
 	this.selectBoardPreset = function(presetName) {
 		this.loadPreset(presetName);
-		$rootScope.$emit('boardPresetSelected', $scope.boardSettings);
+		$rootScope.$emit('boardPresetSelected', this.boardSettings);
 	};
 
 	this.loadPreset = function(presetName) {
 		var preset = filterFilter(this.boardPresets, {name: presetName})[0];
-		angular.extend($scope.boardSettings, preset);
+		angular.extend(this.boardSettings, preset);
 	};
 
 	this.loadPreset("street");
