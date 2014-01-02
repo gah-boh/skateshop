@@ -15,9 +15,9 @@ skateshop.controller('CustomizeCtrl', function(filterFilter, $rootScope, Customi
 		tape: 0
 	};
 
-	this.selectBoardPreset = function(boardPreset) {
-		this.loadPreset(boardPreset);
-		$rootScope.$emit('boardPresetSelected', boardPreset);
+	this.selectBoardPreset = function(presetName) {
+		this.loadPreset(presetName);
+		$rootScope.$emit('boardPresetSelected', this.boardSettings);
 	};
 
 	this.loadPreset = function(presetName) {

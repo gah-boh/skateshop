@@ -9,7 +9,9 @@
 <body ng-app="Skateshop">
 <div class="container">
 	<div ng-controller="UnityViewCtrl as unityCtrl">
-		<div class="unity-view"></div>
+		<div class="unity-view">
+			<div>Board length: </div>
+		</div>
 	</div>
 	<div class="customize-container" ng-controller='CustomizeCtrl as customCtrl'>
 		<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection.title"></customize-bar>
