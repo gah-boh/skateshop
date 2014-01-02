@@ -21,6 +21,18 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 		};
 	});
 
+	$scope.$watch('boardSettings.noseShape', function(newValue, oldValue, scope) {
+		if (newValue !== oldValue) {
+			$rootScope.$emit("boardNoseShape", {noseShape: newValue});
+		};
+	});
+
+	$scope.$watch('boardSettings.tailShape', function(newValue, oldValue, scope) {
+		if (newValue !== oldValue) {
+			$rootScope.$emit("boardTailShape", {tailShape: newValue});
+		};
+	});
+
 	this.selectBoardPreset = function(presetName) {
 		this.loadPreset(presetName);
 	};

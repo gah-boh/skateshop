@@ -52,12 +52,29 @@ describe("Customize Control Spec", function() {
 	});
 
 	describe("Changing board parameters", function() {
+
 		it("changing boardLength should trigger a boardLength event", function() {
 			spyOn($rootScope, "$emit");
 			sut.boardSettings.boardLength = 13;
 			$scope.$digest();
 			expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", {boardLength: 13});
 		});
+
+		it("changing noseShape should trigger a noseShape event", function() {
+			spyOn($rootScope, "$emit");
+			sut.boardSettings.noseShape = 21;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", {noseShape: 21});
+		});
+
+		it("changing tailShape should trigger a tailShape event", function() {
+			spyOn($rootScope, "$emit");
+			sut.boardSettings.tailShape = 43;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", {tailShape: 43});
+		});
+
+
 	});
 
 });
