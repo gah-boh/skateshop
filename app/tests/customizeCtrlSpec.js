@@ -5,8 +5,9 @@ describe("Customize Control Spec", function() {
 		element;
 
 	beforeEach(module('Skateshop'));
-	beforeEach(inject(function($compile, $rootScope, $controller) {
-		$scope = $rootScope;
+	beforeEach(inject(function($compile, _$rootScope_, $controller) {
+		$rootScope = _$rootScope_;
+		$scope = $rootScope.$new();
 		element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="board in sut.boards.presets" ng-click="sut.selectBoardPreset(board)"><img src="" ng-src="images/{{ board.imageSource }}"></div></div>');
 		sut = $controller('CustomizeCtrl as sut', {$scope: $scope});
 		$compile(element)($scope);
@@ -24,7 +25,7 @@ describe("Customize Control Spec", function() {
 
 		it("selectBoardPreset should call loadPreset", function() {
 			spyOn(sut, 'loadPreset');
-			sut.selectBoardPreset("street");
+			sut.selectBoardPreset("cruiser");
 			expect(sut.loadPreset).toHaveBeenCalled();
 		});
 
@@ -34,24 +35,29 @@ describe("Customize Control Spec", function() {
 		});
 
 		it("passing a preset by name should get the correct boardLength from the factory", function() {
-			sut.loadPreset("street");
-			expect(sut.boardSettings.boardLength).toBe(30);
+			sut.loadPreset("cruiser");
+			expect(sut.boardSettings.boardLength).toBe(60);
 		});
 		
 		it("passing a preset by name should get the correct noseShape from the factory", function() {
-			sut.loadPreset("street");
-			expect(sut.boardSettings.noseShape).toBe(50);
+			sut.loadPreset("cruiser");
+			expect(sut.boardSettings.noseShape).toBe(25);
 		});
 
 		it("passing a preset by name should get the correct tailShape from the factory", function() {
-			sut.loadPreset("street");
-			expect(sut.boardSettings.tailShape).toBe(50);
+			sut.loadPreset("cruiser");
+			expect(sut.boardSettings.tailShape).toBe(0);
 		});
 
 	});
 
 	describe("Changing board parameters", function() {
-		
+		it("changing boardLength should trigger a boardLength event", function() {
+			spyOn($rootScope, "$emit");
+			sut.boardSettings.boardLength = 13;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", {boardLength: 13});
+		});
 	});
 
 });

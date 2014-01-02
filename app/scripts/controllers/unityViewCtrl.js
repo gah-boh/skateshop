@@ -6,10 +6,6 @@ skateshop.controller('UnityViewCtrl', function($scope, $rootScope) {
 
 	// Events
 	var self = this;
-	this.boardPresetEvent = 
-		$rootScope.$on('boardPresetSelected', function(event, args) {
-		self.updateBoardPreset(args.board);
-	});
 
 	this.boardLengthEvent = 
 		$rootScope.$on('boardLength', function(event, args) {
@@ -27,10 +23,6 @@ skateshop.controller('UnityViewCtrl', function($scope, $rootScope) {
 	});
 
 	// Controller Methods
-	this.updateBoardPreset = function(board) {
-		this.currentBoard.board = board;
-	};
-
 	this.updateBoardLength = function(boardLength) {
 		this.currentBoard.boardLength = boardLength;
 	};
@@ -44,7 +36,6 @@ skateshop.controller('UnityViewCtrl', function($scope, $rootScope) {
 	};
 
 	this.deRegisterEvents = function () {
-		self.boardPresetEvent();
 		self.boardLengthEvent();
 		self.boardNoseShapeEvent();
 		self.boardTailShapeEvent();

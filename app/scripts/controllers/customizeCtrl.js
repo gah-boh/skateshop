@@ -17,13 +17,12 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 
 	$scope.$watch('boardSettings.boardLength', function(newValue, oldValue, scope) {
 		if (newValue !== oldValue) {
-			console.log("testing");
+			$rootScope.$emit("boardLength", {boardLength: newValue});
 		};
 	});
 
 	this.selectBoardPreset = function(presetName) {
 		this.loadPreset(presetName);
-		$rootScope.$emit('boardPresetSelected', this.boardSettings);
 	};
 
 	this.loadPreset = function(presetName) {

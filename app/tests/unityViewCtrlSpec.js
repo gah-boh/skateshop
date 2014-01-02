@@ -15,25 +15,6 @@ describe("Unity View Ctrl Spec", function() {
 		$scope.$destroy();
 	});
 
-	describe("Presets", function() {
-
-		it('boardPresetSelected event should be registered', function() {
-			expect($scope.$on).toHaveBeenCalledWith('boardPresetSelected', jasmine.any(Function));
-		});
-
-		it("boardPresetSelected event should unbind itself when it's going to be destroyed", function() {
-			spyOn(sut, 'boardPresetEvent').andCallThrough();
-			$scope.$destroy();
-			expect(sut.boardPresetEvent).toHaveBeenCalled();
-		});
-
-		it("should set the controllers board object from the recieved object", function() {
-			$scope.$emit('boardPresetSelected', {board: 20});
-			expect(sut.currentBoard.board).toBe(20);
-		});
-
-	});
-
 	describe("board parameters updated", function() {
 
 		it("should have registered the boardLength event", function() {
