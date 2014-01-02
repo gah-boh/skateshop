@@ -14,6 +14,31 @@ describe("Customize Control Spec", function() {
 		$scope.$digest();
 	}));
 
+	describe("Changing board parameters", function() {
+
+		it("changing boardLength should trigger a boardLength event", function() {
+			spyOn($rootScope, "$emit");
+			sut.boardSettings.boardLength = 13;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", {boardLength: 13});
+		});
+
+		it("changing noseShape should trigger a noseShape event", function() {
+			spyOn($rootScope, "$emit");
+			sut.boardSettings.noseShape = 21;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", {boardNoseShape: 21});
+		});
+
+		it("changing tailShape should trigger a tailShape event", function() {
+			spyOn($rootScope, "$emit");
+			sut.boardSettings.tailShape = 43;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", {boardTailShape: 43});
+		});
+
+	});
+
 	describe("Presets", function() {
 
 		// This test is to show an example of how to test and spy from a click
@@ -49,31 +74,26 @@ describe("Customize Control Spec", function() {
 			expect(sut.boardSettings.tailShape).toBe(0);
 		});
 
-	});
-
-	describe("Changing board parameters", function() {
-
-		it("changing boardLength should trigger a boardLength event", function() {
+		it("calling a preset should call boardLength", function() {
 			spyOn($rootScope, "$emit");
-			sut.boardSettings.boardLength = 13;
+			sut.loadPreset("cruiser");
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", {boardLength: 13});
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", jasmine.any(Object));
 		});
 
-		it("changing noseShape should trigger a noseShape event", function() {
+		it("calling a preset should call boardNoseShape", function() {
 			spyOn($rootScope, "$emit");
-			sut.boardSettings.noseShape = 21;
+			sut.loadPreset("cruiser");
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", {boardNoseShape: 21});
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", jasmine.any(Object));
 		});
 
-		it("changing tailShape should trigger a tailShape event", function() {
+		it("calling a preset should call boardLength", function() {
 			spyOn($rootScope, "$emit");
-			sut.boardSettings.tailShape = 43;
+			sut.loadPreset("cruiser");
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", {boardTailShape: 43});
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", jasmine.any(Object));
 		});
-
 
 	});
 
