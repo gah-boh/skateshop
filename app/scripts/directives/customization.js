@@ -28,8 +28,8 @@ skateshop.directive('boardSlider', function() {
 			});
 
 			$(element).slider({
-				min: parseFloat(attributes.min) || 0.0,
-				max: parseFloat(attributes.max) || 100.0,
+				min: parseInt(attributes.min) || 0.0,
+				max: parseInt(attributes.max) || 100.0,
 				slide: function(event, ui) {
 					scope.update(ui.value);
 				}

@@ -17,16 +17,16 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 				{
 					name: 'longboard pin tail',
 					imageSource: 'board_icon_longboardPintail.png',
-					boardLength: 85,
-					noseShape: 80,
-					tailShape: 10
+					boardLength: 65,
+					noseShape: 0,
+					tailShape: -25
 				},
 				{
 					name: 'cruiser',
 					imageSource: 'board_icon_cruiser.png',
 					boardLength: 60,
-					noseShape: 60,
-					tailShape: 30
+					noseShape: 25,
+					tailShape: 0
 				}
 			]
 		},

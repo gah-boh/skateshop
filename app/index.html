@@ -17,15 +17,15 @@
 			<div ng-show='customCtrl.selection.title == "Board"'>
 				<div class="board-slider customize-sub-section">
 					<span class="customize-sub-section">length: {{customCtrl.boardSettings.boardLength}}"</span>
-					<div board-slider="customCtrl.boardSettings.boardLength"></div>
+					<div board-slider="customCtrl.boardSettings.boardLength" min="10" max="90"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
 					<span class="customize-sub-section">tail shape: {{customCtrl.boardSettings.tailShape}}</span>
-					<div board-slider="customCtrl.boardSettings.tailShape"></div>
+					<div board-slider="customCtrl.boardSettings.tailShape" min="-50" max="50"></div>
 				</div>
 				<div class="board-slider customize-sub-section">
 					<span class="customize-sub-section">nose shape: {{customCtrl.boardSettings.noseShape}}</span>
-					<div board-slider="customCtrl.boardSettings.noseShape"></div>
+					<div board-slider="customCtrl.boardSettings.noseShape" min="-50" max="50"></div>
 				</div>
 				<div class="customize-sub-section">
 					<span class="row customize-sub-section">presets:</span>
