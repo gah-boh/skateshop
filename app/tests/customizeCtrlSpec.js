@@ -64,14 +64,14 @@ describe("Customize Control Spec", function() {
 			spyOn($rootScope, "$emit");
 			sut.boardSettings.noseShape = 21;
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", {noseShape: 21});
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", {boardNoseShape: 21});
 		});
 
 		it("changing tailShape should trigger a tailShape event", function() {
 			spyOn($rootScope, "$emit");
 			sut.boardSettings.tailShape = 43;
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", {tailShape: 43});
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", {boardTailShape: 43});
 		});
 
 

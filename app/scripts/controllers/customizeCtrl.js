@@ -23,13 +23,13 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 
 	$scope.$watch('boardSettings.noseShape', function(newValue, oldValue, scope) {
 		if (newValue !== oldValue) {
-			$rootScope.$emit("boardNoseShape", {noseShape: newValue});
+			$rootScope.$emit("boardNoseShape", {boardNoseShape: newValue});
 		};
 	});
 
 	$scope.$watch('boardSettings.tailShape', function(newValue, oldValue, scope) {
 		if (newValue !== oldValue) {
-			$rootScope.$emit("boardTailShape", {tailShape: newValue});
+			$rootScope.$emit("boardTailShape", {boardTailShape: newValue});
 		};
 	});
 

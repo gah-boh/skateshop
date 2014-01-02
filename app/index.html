@@ -8,9 +8,11 @@
 </head>
 <body ng-app="Skateshop">
 <div class="container">
-	<div ng-controller="UnityViewCtrl as unityCtrl">
+	<div ng-controller="UnityViewCtrl as unityCtrl" ng-cloak>
 		<div class="unity-view">
-			<div>Board length: </div>
+			<div>Board length: {{ unityCtrl.currentBoard.boardLength }}</div>
+			<div>Nose Shape: {{ unityCtrl.currentBoard.boardNoseShape }}</div>
+			<div>Tail Shape: {{ unityCtrl.currentBoard.boardTailShape }}</div>
 		</div>
 	</div>
 	<div class="customize-container" ng-controller='CustomizeCtrl as customCtrl'>
