@@ -1,0 +1,137 @@
+fileFormatVersion: 2
+guid: a2133354aae484771b080c9164fa8e5d
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: BearingWithNut
+    100002: Board
+    100004: Board_Joint_N_Bend1
+    100006: Board_Joint_N_Bend2
+    100008: Board_Joint_N_Bend3
+    100010: Board_Joint_T_Bend2
+    100012: Board_Joint_T_Bend3
+    100014: Board_Joint_X_Root
+    100016: //RootNode
+    100018: Skeleton_Board_Joint_N-L_Pin1
+    100020: Skeleton_Board_Joint_N-L_Pin2
+    100022: Skeleton_Board_Joint_N-R_Pin1
+    100024: Skeleton_Board_Joint_N-R_Pin2
+    100026: Skeleton_Board_Joint_T-L_Pin1
+    100028: Skeleton_Board_Joint_T-L_Pin2
+    100030: Skeleton_Board_Joint_T-R_Pin1
+    100032: Skeleton_Board_Joint_T-R_Pin2
+    100034: Skeleton_Board_Joint_T_Bend1
+    100036: Trucks
+    100038: Wheel_Street
+    100040: Board_Joint_N-L_Pin1
+    100042: Board_Joint_N-L_Pin2
+    100044: Board_Joint_N-R_Pin1
+    100046: Board_Joint_N-R_Pin2
+    100048: Board_Joint_T-L_Pin1
+    100050: Board_Joint_T-L_Pin2
+    100052: Board_Joint_T-R_Pin1
+    100054: Board_Joint_T-R_Pin2
+    100056: Board_Joint_T_Bend1
+    100058: Board_Joint_N_Length
+    100060: Board_Joint_N_Root
+    100062: Board_Joint_T_Length
+    100064: Board_Joint_T_Root
+    400000: BearingWithNut
+    400002: Board
+    400004: Board_Joint_N_Bend1
+    400006: Board_Joint_N_Bend2
+    400008: Board_Joint_N_Bend3
+    400010: Board_Joint_T_Bend2
+    400012: Board_Joint_T_Bend3
+    400014: Board_Joint_X_Root
+    400016: //RootNode
+    400018: Skeleton_Board_Joint_N-L_Pin1
+    400020: Skeleton_Board_Joint_N-L_Pin2
+    400022: Skeleton_Board_Joint_N-R_Pin1
+    400024: Skeleton_Board_Joint_N-R_Pin2
+    400026: Skeleton_Board_Joint_T-L_Pin1
+    400028: Skeleton_Board_Joint_T-L_Pin2
+    400030: Skeleton_Board_Joint_T-R_Pin1
+    400032: Skeleton_Board_Joint_T-R_Pin2
+    400034: Skeleton_Board_Joint_T_Bend1
+    400036: Trucks
+    400038: Wheel_Street
+    400040: Board_Joint_N-L_Pin1
+    400042: Board_Joint_N-L_Pin2
+    400044: Board_Joint_N-R_Pin1
+    400046: Board_Joint_N-R_Pin2
+    400048: Board_Joint_T-L_Pin1
+    400050: Board_Joint_T-L_Pin2
+    400052: Board_Joint_T-R_Pin1
+    400054: Board_Joint_T-R_Pin2
+    400056: Board_Joint_T_Bend1
+    400058: Board_Joint_N_Length
+    400060: Board_Joint_N_Root
+    400062: Board_Joint_T_Length
+    400064: Board_Joint_T_Root
+    2300000: BearingWithNut
+    2300002: Trucks
+    2300004: Wheel_Street
+    3300000: BearingWithNut
+    3300002: Trucks
+    3300004: Wheel_Street
+    4300000: Board
+    4300002: Trucks
+    4300004: Wheel_Street
+    4300006: BearingWithNut
+    7400000: modo_Anim
+    9500000: //RootNode
+    13700000: Board
+    13700002: Trucks
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 
