@@ -12,6 +12,8 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 		boardLength: 0,
 		noseShape: 0,
 		tailShape: 0,
+		noseCurve: 0,
+		tailCurve: 0,
 		tape: 0
 	};
 
@@ -25,6 +27,14 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 
 	$scope.$watch('boardSettings.tailShape', function(newValue, oldValue, scope) {
 			$rootScope.$emit("boardTailShape", {boardTailShape: newValue});
+	});
+
+	$scope.$watch('boardSettings.tailCurve', function(newValue) {
+		$rootScope.$emit("boardTailCurve", {boardTailCurve: newValue});
+	});
+
+	$scope.$watch('boardSettings.noseCurve', function(newValue) {
+		$rootScope.$emit("boardNoseCurve", {boardNoseCurve: newValue});
 	});
 
 	this.selectBoardPreset = function(presetName) {

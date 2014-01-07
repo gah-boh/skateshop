@@ -1,6 +1,7 @@
 describe("Customize Control Spec", function() {
 
-	var	$scope,
+	var	$rootScope,
+		$scope,
 		sut,
 		element;
 
@@ -37,6 +38,20 @@ describe("Customize Control Spec", function() {
 			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", {boardTailShape: 43});
 		});
 
+		it("changing the tail curve should trigger a tailCurve event", function() {
+			spyOn($rootScope, '$emit');
+			sut.boardSettings.tailCurve = 18;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailCurve", {boardTailCurve: 18});
+		});
+
+		it("changing the nose curve should trigger a noseCurve event", function() {
+			spyOn($rootScope, '$emit');
+			sut.boardSettings.noseCurve = 22;
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseCurve", {boardNoseCurve: 22});
+		});
+
 	});
 
 	describe("Presets", function() {
@@ -66,7 +81,7 @@ describe("Customize Control Spec", function() {
 		
 		it("passing a preset by name should get the correct noseShape from the factory", function() {
 			sut.loadPreset("cruiser");
-			expect(sut.boardSettings.noseShape).toBe(25);
+			expect(sut.boardSettings.noseShape).toBe(35);
 		});
 
 		it("passing a preset by name should get the correct tailShape from the factory", function() {

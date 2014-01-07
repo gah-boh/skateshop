@@ -1,0 +1,18 @@
+skateshop.service('UnityObjectFactory', function() {
+
+	var unityObject = null;
+
+	var getUnityObject = function() {
+		return new UnityObject2();
+	};
+
+	function getUnity (selector, webPlayerAddress) {
+		var unity = unityObject || (unityObject = getUnityObject());
+		unity.initPlugin($(selector)[0], webPlayerAddress);
+		return unity.getUnity();
+	}
+
+	return function(selector, webPlayerAddress) {
+		return getUnity(selector, webPlayerAddress);
+	}
+});

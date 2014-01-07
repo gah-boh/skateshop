@@ -11,22 +11,28 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 					name: 'street',
 					imageSource: 'board_icon_street.png',
 					boardLength: 30,
-					noseShape: 50,
-					tailShape: 50
+					noseShape: 0,
+					tailShape: 50,
+					noseCurve: 20,
+					tailCurve: 20
 				},
 				{
 					name: 'longboard pin tail',
 					imageSource: 'board_icon_longboardPintail.png',
 					boardLength: 65,
-					noseShape: 0,
-					tailShape: -25
+					noseShape: 20,
+					tailShape: -25,
+					noseCurve: 0,
+					tailCurve: 5
 				},
 				{
 					name: 'cruiser',
 					imageSource: 'board_icon_cruiser.png',
 					boardLength: 60,
-					noseShape: 25,
-					tailShape: 0
+					noseShape: 35,
+					tailShape: 0,
+					noseCurve: 0,
+					tailCurve: 20
 				}
 			]
 		},

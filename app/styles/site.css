@@ -84,6 +84,17 @@ body {
 	margin: 0 -5px -5px -5px;
 }
 
+.two-slider-wrapper {
+	float: left;
+	width: 100%;
+	margin: 0 auto 0 auto;
+}
+
+.two-slider-wrapper > .board-slider {
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
 .ui-widget-content {
 	border: 1px solid #aaaaaa/*{borderColorContent}*/;
 	background: #000000/*{bgColorContent}*/;
@@ -91,7 +102,7 @@ body {
 }
 
 .ui-slider-horizontal {
-	height: 0.25em;
+	height: 4px;
 	width: 80%;
 	margin: 1.50em auto 1.25em auto;
 }
@@ -128,5 +139,6 @@ body {
 
 .bottom-spacer {
 	height: 15em;
+    clear: both;
 }
 

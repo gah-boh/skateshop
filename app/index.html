@@ -9,11 +9,7 @@
 <body ng-app="Skateshop">
 <div class="container">
 	<div ng-controller="UnityViewCtrl as unityCtrl" ng-cloak>
-		<div class="unity-view">
-			<div>Board length: {{ unityCtrl.currentBoard.boardLength }}</div>
-			<div>Nose Shape: {{ unityCtrl.currentBoard.boardNoseShape }}</div>
-			<div>Tail Shape: {{ unityCtrl.currentBoard.boardTailShape }}</div>
-		</div>
+		<div class="unity-view"></div>
 	</div>
 	<div class="customize-container" ng-controller='CustomizeCtrl as customCtrl'>
 		<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection.title"></customize-bar>
@@ -29,8 +25,18 @@
 				</div>
 				<div class="board-slider customize-sub-section">
 					<span class="customize-sub-section">nose shape: <span ng-bind="customCtrl.boardSettings.noseShape"></span></span>
-					<div board-slider="customCtrl.boardSettings.noseShape" min="-50" max="50"></div>
+					<div board-slider="customCtrl.boardSettings.noseShape" min="0" max="50"></div>
 				</div>
+                <div class="two-slider-wrapper">
+                	<div class="board-slider customize-sub-section">
+						<span class="customize-sub-section">tail curve: <span ng-bind="customCtrl.boardSettings.tailCurve"></span></span>
+						<div board-slider="customCtrl.boardSettings.tailCurve" min="0" max="50"></div>
+					</div>
+                	<div class="board-slider customize-sub-section">
+						<span class="customize-sub-section">nose curve: <span ng-bind="customCtrl.boardSettings.noseCurve"></span></span>
+						<div board-slider="customCtrl.boardSettings.noseCurve" min="0" max="50"></div>
+					</div>
+                </div>
 				<div class="customize-sub-section">
 					<span class="row customize-sub-section">presets:</span>
 					<div class="board-preset"
@@ -61,9 +67,11 @@
 
 <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
 <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="scripts/unity/UnityObject2.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/factories/customizeSectionsFactory.js"></script>
+<script type="text/javascript" src="scripts/factories/unityObjectFactory"></script>
 <script src="scripts/controllers/customizeCtrl.js"></script>
 <script src="scripts/controllers/unityViewCtrl.js"></script>
 <script src="scripts/directives/customization.js"></script>
