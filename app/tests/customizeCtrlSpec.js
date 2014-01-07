@@ -6,6 +6,36 @@ describe("Customize Control Spec", function() {
 		element;
 
 	beforeEach(module('Skateshop'));
+	beforeEach(module(function($provide) {
+		var mockCustomizeSectionsFactory = {
+			sections: ['Board', 'Grip', 'Wheels'],
+			board: {
+				presets: [
+					{
+						name: 'street',
+						imageSource: 'board_icon_street.png',
+						boardLength: 30,
+						noseShape: 0,
+						tailShape: 50,
+						noseCurve: 20,
+						tailCurve: 20
+					},
+					{
+						name: 'cruiser',
+						imageSource: 'board_icon_cruiser.png',
+						boardLength: 60,
+						noseShape: 35,
+						tailShape: 0,
+						noseCurve: 0,
+						tailCurve: 10
+					}
+				]
+			}
+		};
+
+		$provide.value('CustomizeSectionsFactory', mockCustomizeSectionsFactory);
+	}));
+
 	beforeEach(inject(function($compile, _$rootScope_, $controller) {
 		$rootScope = _$rootScope_;
 		$scope = $rootScope.$new();
@@ -93,21 +123,35 @@ describe("Customize Control Spec", function() {
 			spyOn($rootScope, "$emit");
 			sut.loadPreset("cruiser");
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", jasmine.any(Object));
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", {boardLength: 60});
 		});
 
 		it("calling a preset should call boardNoseShape", function() {
 			spyOn($rootScope, "$emit");
 			sut.loadPreset("cruiser");
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", jasmine.any(Object));
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardNoseShape", {boardNoseShape: 35});
 		});
 
-		it("calling a preset should call boardLength", function() {
+		it("calling a preset should call boardTailShape", function() {
 			spyOn($rootScope, "$emit");
 			sut.loadPreset("cruiser");
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", jasmine.any(Object));
+			expect($rootScope.$emit).toHaveBeenCalledWith("boardTailShape", {boardTailShape: 0});
+		});
+
+		it("calling a preset should call boardNoseCurve", function() {
+			spyOn($rootScope, "$emit");
+			sut.loadPreset("cruiser");
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith('boardNoseCurve', {boardNoseCurve: 0});
+		});
+
+		it("calling a preset should call boardTailCurve", function() {
+			spyOn($rootScope, "$emit");
+			sut.loadPreset("cruiser");
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith('boardTailCurve', {boardTailCurve: 10});
 		});
 
 	});
