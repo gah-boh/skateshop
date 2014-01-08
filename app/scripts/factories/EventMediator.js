@@ -38,11 +38,6 @@ mediatorModule.factory('EventMediator', function($rootScope) {
 		}
 	};
 
-	var scopeDestroy = function (destroyedScope) {
-		var scope = destroyedScope.targetScope;
-		unsubscribeAllEvents(scope);
-	};
-
 	return {
 
 		subscribers: subscribers,
@@ -74,12 +69,12 @@ mediatorModule.factory('EventMediator', function($rootScope) {
 			this.removeNullEvents(scope);
 		},
 
-		scopeDestroyer: function(destroyedScope) {
+		scopeDestroy: function(destroyedScope) {
 			this.unsubscribeAllForScope(destroyedScope.targetScope);
 		},
 
 		addDestroyer: function(scope) {
-			scope.$on('$destroy', angular.bind(this, this.scopeDestroyer));
+			scope.$on('$destroy', angular.bind(this, this.scopeDestroy));
 		},
 
 		removeNullEvents: function(scope) {

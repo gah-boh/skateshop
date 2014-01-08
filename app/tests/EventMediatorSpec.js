@@ -58,13 +58,15 @@ describe("Event Mediator", function() {
 	it("will automatically deregister all subscriptions on $destroy", function() {
 		sut.subscribe($scope, eventName, subscriptionSpy);
 		spyOn(sut.subscribers[$scope.$id][0], 'deregistration').andCallThrough();
-		spyOn(sut, 'removeNullEvents');
+		spyOn(sut, 'removeNullEvents'); // Need this to stop event from being removed and not lose the spy.
 		$scope.$destroy();
 		expect(sut.subscribers[$scope.$id][0].deregistration).toHaveBeenCalled();
 	});
 
-	xit("will remove the events from the container", function() {
-
+	it("will remove the events from the container", function() {
+		sut.subscribe($scope, eventName, subscriptionSpy);
+		$scope.$destroy();
+		expect(sut.subscribers[$scope.$id].length).toBe(0);
 	});
 
 });
