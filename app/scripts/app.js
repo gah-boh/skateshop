@@ -1,2 +1,2 @@
-var skateshop = angular.module('Skateshop', []);
+var skateshop = angular.module('Skateshop', ['SpagEventMediator']);
 

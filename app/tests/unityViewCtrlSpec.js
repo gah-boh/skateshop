@@ -1,8 +1,10 @@
 describe("Unity View Ctrl Spec", function() {
 
-	var $scope,
+	var $rootScope,
+		$scope,
 		sut,
-		mockUnityObjectFactory;
+		mockUnityObjectFactory,
+		mediator;
 
 	beforeEach(module(function($provide) {
 		mockUnityObjectFactory = function(){
@@ -13,9 +15,11 @@ describe("Unity View Ctrl Spec", function() {
 		$provide.value('UnityObjectFactory', mockUnityObjectFactory);
 	}));
 	beforeEach(module('Skateshop'));
-	beforeEach(inject(function($rootScope, $controller) {
-		$scope = $rootScope;
-		spyOn($scope, '$on').andCallThrough();
+	beforeEach(inject(function(_$rootScope_, $controller, EventMediator) {
+		$rootScope = _$rootScope_;
+		$scope = $rootScope.$new();
+		mediator = EventMediator;
+		spyOn($rootScope, '$on').andCallThrough();
 		sut = $controller('UnityViewCtrl as sut', {$scope: $scope});
 		$scope.$digest();
 	}));
@@ -24,16 +28,23 @@ describe("Unity View Ctrl Spec", function() {
 		$scope.$destroy();
 	});
 
-	describe("board parameters updated", function() {
+	describe("board events", function() {
 
 		it("should have registered the boardLength event", function() {
-			expect($scope.$on).toHaveBeenCalledWith('boardLength', jasmine.any(Function))
+			expect($rootScope.$on).toHaveBeenCalledWith('boardLength', jasmine.any(Function))
+		});
+
+		it("should call the updateBoardLength on the boardLength event", function() {
+			spyOn(sut, 'updateBoardLength');
+			$rootScope.$emit('boardLength', {boardLength: 35});
+			expect(sut.updateBoardLength).toHaveBeenCalled();
 		});
 
 		it("boardLength event should deregister on destroy", function() {
-			spyOn(sut, 'boardLengthEvent').andCallThrough();
+			spyOn(sut, 'updateBoardLength');
 			$scope.$destroy();
-			expect(sut.boardLengthEvent).toHaveBeenCalled();
+			$rootScope.$emit('boardLength', {boardLength: 35});
+			expect(sut.updateBoardLength).not.toHaveBeenCalled();
 		});
 
 		it("should send message to unity to update current board length", function() {
@@ -42,13 +53,20 @@ describe("Unity View Ctrl Spec", function() {
 		});
 
 		it("should have registered the boardNoseShape event", function() {
-			expect($scope.$on).toHaveBeenCalledWith('boardNoseShape', jasmine.any(Function))
+			expect($rootScope.$on).toHaveBeenCalledWith('boardNoseShape', jasmine.any(Function))
+		});
+
+		it("should call the updateNoseShape function on the boardNoseShape event", function() {
+			spyOn(sut, 'updateBoardNoseShape');
+			$rootScope.$emit('boardNoseShape', {boardNoseShape: 35});
+			expect(sut.updateBoardNoseShape).toHaveBeenCalledWith(35);
 		});
 
 		it("boardNoseShape event should deregister on destroy", function() {
-			spyOn(sut, 'boardNoseShapeEvent').andCallThrough();
+			spyOn(sut, 'updateBoardNoseShape');
 			$scope.$destroy();
-			expect(sut.boardNoseShapeEvent).toHaveBeenCalled();
+			$rootScope.$emit('boardNoseShape', {boardNoseShape: 35});
+			expect(sut.updateBoardNoseShape).not.toHaveBeenCalled();
 		});
 
 		it("should send unity message to update the nose shape", function() {
@@ -57,13 +75,20 @@ describe("Unity View Ctrl Spec", function() {
 		});
 
 		it("should have registered the boardTailShape event", function() {
-			expect($scope.$on).toHaveBeenCalledWith('boardTailShape', jasmine.any(Function))
+			expect($rootScope.$on).toHaveBeenCalledWith('boardTailShape', jasmine.any(Function))
+		});
+
+		it("should call the updateTailShape function on the boardTailShape event", function() {
+			spyOn(sut, 'updateBoardTailShape');
+			$rootScope.$emit('boardTailShape', {boardTailShape: 35});
+			expect(sut.updateBoardTailShape).toHaveBeenCalledWith(35);
 		});
 
 		it("boardTailShape event should deregister on destroy", function() {
-			spyOn(sut, 'boardTailShapeEvent').andCallThrough();
+			spyOn(sut, 'updateBoardTailShape');
 			$scope.$destroy();
-			expect(sut.boardTailShapeEvent).toHaveBeenCalled();
+			$rootScope.$emit('boardTailShape', {boardTailShape: 35});
+			expect(sut.updateBoardTailShape).not.toHaveBeenCalled();
 		});
 
 		it("should send unity a message to update the tail shape", function() {
@@ -72,13 +97,20 @@ describe("Unity View Ctrl Spec", function() {
 		});
 
 		it("should have registered the nose curve event", function() {
-			expect($scope.$on).toHaveBeenCalledWith('boardNoseCurve', jasmine.any(Function));
+			expect($rootScope.$on).toHaveBeenCalledWith('boardNoseCurve', jasmine.any(Function));
+		});
+
+		it("should call the updateNoseCurve function on the boardNoseCurve event", function() {
+			spyOn(sut, 'updateBoardNoseCurve');
+			$rootScope.$emit('boardNoseCurve', {boardNoseCurve: 12});
+			expect(sut.updateBoardNoseCurve).toHaveBeenCalledWith(12);
 		});
 
 		it("boardNoseCurve event should deregister on destroy", function() {
-			spyOn(sut, 'boardNoseCurveEvent');
+			spyOn(sut, 'updateBoardNoseCurve');
 			$scope.$destroy();
-			expect(sut.boardNoseCurveEvent).toHaveBeenCalled();
+			$rootScope.$emit('boardNoseCurve', {boardNoseCurve: 12});
+			expect(sut.updateBoardNoseCurve).not.toHaveBeenCalled();
 		});
 
 		it("should tell unity to update the nose curve", function(){
@@ -87,13 +119,20 @@ describe("Unity View Ctrl Spec", function() {
 		});
 
 		it("should have registered the tail curve event", function() {
-			expect($scope.$on).toHaveBeenCalledWith('boardTailCurve', jasmine.any(Function));
+			expect($rootScope.$on).toHaveBeenCalledWith('boardTailCurve', jasmine.any(Function));
+		});
+
+		it("should call the updateBoardTailCurve function on boardTailCurve event", function() {
+			spyOn(sut, 'updateBoardTailCurve');
+			$rootScope.$emit('boardTailCurve', {boardTailCurve: 53});
+			expect(sut.updateBoardTailCurve).toHaveBeenCalledWith(53);
 		});
 
 		it("boardTailCurve event should deregister on destroy", function() {
-			spyOn(sut, 'boardTailCurveEvent');
+			spyOn(sut, 'updateBoardTailCurve');
 			$scope.$destroy();
-			expect(sut.boardTailCurveEvent).toHaveBeenCalled();
+			$rootScope.$emit('boardTailCurve', {boardTailCurve: 53});
+			expect(sut.updateBoardTailCurve).not.toHaveBeenCalled();
 		});
 
 		it("should send unity a message to update the tail curve", function() {

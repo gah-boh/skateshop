@@ -81,8 +81,13 @@ mediatorModule.factory('EventMediator', function($rootScope) {
 			subscribers[scope.$id] = subscribers[scope.$id].filter(function(eventObj) {
 				return eventObj.isLive;
 			});
-		}
+		},
 
+		getEventDeregistrator: function(scope, eventName) {
+			return subscribers[scope.$id].filter(function(eventObj) {
+				return eventObj.eventName === eventName;
+			})[0].deregistration;
+		}
 
 	};
 });

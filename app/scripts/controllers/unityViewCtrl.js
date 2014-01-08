@@ -1,4 +1,4 @@
-skateshop.controller('UnityViewCtrl', function($scope, $rootScope, UnityObjectFactory) {
+skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory) {
 
 	// Properties
 	this.unity = UnityObjectFactory(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
@@ -6,28 +6,23 @@ skateshop.controller('UnityViewCtrl', function($scope, $rootScope, UnityObjectFa
 	// Events
 	var self = this;
 
-	this.boardLengthEvent = 
-		$rootScope.$on('boardLength', function(event, args) {
+	EventMediator.subscribe($scope, 'boardLength', function(event, args) {
 		self.updateBoardLength(args.boardLength);
 	});
 
-	this.boardNoseShapeEvent = 
-		$rootScope.$on('boardNoseShape', function(event, args) {
+	EventMediator.subscribe($scope, 'boardNoseShape', function(event, args) {
 		self.updateBoardNoseShape(args.boardNoseShape)
 	});
 
-	this.boardTailShapeEvent = 
-		$rootScope.$on('boardTailShape', function(event, args) {
+	EventMediator.subscribe($scope, 'boardTailShape', function(event, args) {
 		self.updateBoardTailShape(args.boardTailShape);
 	});
 
-	this.boardNoseCurveEvent =
-		$rootScope.$on('boardNoseCurve', function(event, args) {
+	EventMediator.subscribe($scope, 'boardNoseCurve', function(event, args) {
 			self.updateBoardNoseCurve(args.boardNoseCurve);
 	});
 
-	this.boardTailCurveEvent =
-		$rootScope.$on('boardTailCurve', function(event, args) {
+	EventMediator.subscribe($scope, 'boardTailCurve', function(event, args) {
 			self.updateBoardTailCurve(args.boardTailCurve);
 	});
 
@@ -52,13 +47,4 @@ skateshop.controller('UnityViewCtrl', function($scope, $rootScope, UnityObjectFa
 		this.unity.SendMessage('Skateboard', 'BendTail', boardTailCurve);
 	};
 
-	this.deRegisterEvents = function () {
-		self.boardLengthEvent();
-		self.boardNoseShapeEvent();
-		self.boardTailShapeEvent();
-		self.boardNoseCurveEvent();
-		self.boardTailCurveEvent();
-	};
-
-	$scope.$on('$destroy', self.deRegisterEvents);
 });

@@ -69,6 +69,12 @@ describe("Event Mediator", function() {
 		expect(sut.subscribers[$scope.$id].length).toBe(0);
 	});
 
+	it("should return the event deregistration function for the given scope and event name", function() {
+		sut.subscribe($scope, eventName, subscriptionSpy);
+		var expected = sut.getEventDeregistrator($scope, eventName);
+		expect(expected).toBe(sut.subscribers[$scope.$id][0].deregistration);
+	});
+
 });
 
 
