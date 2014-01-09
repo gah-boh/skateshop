@@ -15,7 +15,7 @@ describe("Event Mediator", function() {
 	}));
 
 	beforeEach(function() {
-		subscriptionSpy = jasmine.createSpy('subscriptionSpy'),
+		subscriptionSpy = jasmine.createSpy('subscriptionSpy');
 		eventName = 'MockEvent';
 	});
 
@@ -29,6 +29,12 @@ describe("Event Mediator", function() {
 		sut.subscribe($scope, eventName, subscriptionSpy);
 		sut.emit(eventName);
 		expect(subscriptionSpy).toHaveBeenCalled();
+	});
+
+	it("should call the event with the given arguments when the event is emmited", function() {
+		sut.subscribe($scope, eventName, subscriptionSpy);
+		sut.emit(eventName, "An Argument");
+		expect(subscriptionSpy).toHaveBeenCalledWith(jasmine.any(Object), "An Argument");
 	});
 
 	it("should deregister the event from the subscribers object on deregister", function() {

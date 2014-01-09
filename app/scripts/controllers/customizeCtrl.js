@@ -1,4 +1,4 @@
-skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter, CustomizeSectionsFactory) {
+skateshop.controller('CustomizeCtrl', function($scope, EventMediator, filterFilter, CustomizeSectionsFactory) {
 	this.customizeSections = CustomizeSectionsFactory.sections;
 	this.boards = CustomizeSectionsFactory.board;
 	this.colors = CustomizeSectionsFactory.colors;
@@ -19,7 +19,7 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 
 	angular.forEach(this.boardSettings, function(value, key) {
 		$scope.$watch('boardSettings.' + key, function(newValue) {
-			$rootScope.$emit(key, newValue);
+			EventMediator.emit(key, newValue);
 		});
 	});
 

@@ -50,8 +50,8 @@ mediatorModule.factory('EventMediator', function($rootScope) {
 			addSubscription(scope, eventName, eventFunction);
 		},
 
-		emit: function(eventName) {
-			$rootScope.$emit(eventName);
+		emit: function(eventName, args) {
+			$rootScope.$emit(eventName, args);
 		},
 
 		unsubscribe: function(scope, eventName) {
