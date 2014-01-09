@@ -61,7 +61,7 @@ describe("Customize Control Spec", function() {
 
 			// This test is to show an example of how to test and spy from a click
 			it("should call selectBoardPreset() on click", function() {
-				spyOn(element.scope().sut, 'selectBoardPreset').andCallThrough();
+				spyOn(element.scope().sut, 'selectBoardPreset');
 				element.children().eq(0)[0].click();
 				expect(element.scope().sut.selectBoardPreset).toHaveBeenCalled();
 			});
@@ -168,20 +168,24 @@ describe("Customize Control Spec", function() {
 					{
 						name: 'street',
 						imageSource: 'board_icon_street.png',
-						boardLength: 30,
-						noseShape: 0,
-						tailShape: 50,
-						noseCurve: 20,
-						tailCurve: 20
+						presetSettings: {
+							boardLength: 30,
+							noseShape: 0,
+							tailShape: 50,
+							noseCurve: 20,
+							tailCurve: 20
+						}
 					},
 					{
 						name: 'cruiser',
 						imageSource: 'board_icon_cruiser.png',
-						boardLength: 60,
-						noseShape: 35,
-						tailShape: 0,
-						noseCurve: 0,
-						tailCurve: 10
+						presetSettings: {
+							boardLength: 60,
+							noseShape: 35,
+							tailShape: 0,
+							noseCurve: 0,
+							tailCurve: 10
+						}
 					}
 				]
 			},

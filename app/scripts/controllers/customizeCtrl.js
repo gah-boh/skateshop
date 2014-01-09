@@ -29,7 +29,7 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 
 	this.loadPreset = function(presetName) {
 		var preset = filterFilter(this.boardPresets, {name: presetName})[0];
-		angular.extend(this.boardSettings, preset);
+		angular.extend(this.boardSettings, preset.presetSettings);
 	};
 
 	this.changeGripColor = function(color) {
