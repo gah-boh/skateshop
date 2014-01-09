@@ -7,23 +7,23 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 	var self = this;
 
 	EventMediator.subscribe($scope, 'boardLength', function(event, args) {
-		self.updateBoardLength(args.boardLength);
+		self.updateBoardLength(args);
 	});
 
-	EventMediator.subscribe($scope, 'boardNoseShape', function(event, args) {
-		self.updateBoardNoseShape(args.boardNoseShape)
+	EventMediator.subscribe($scope, 'noseShape', function(event, args) {
+		self.updateBoardNoseShape(args)
 	});
 
-	EventMediator.subscribe($scope, 'boardTailShape', function(event, args) {
-		self.updateBoardTailShape(args.boardTailShape);
+	EventMediator.subscribe($scope, 'tailShape', function(event, args) {
+		self.updateBoardTailShape(args);
 	});
 
-	EventMediator.subscribe($scope, 'boardNoseCurve', function(event, args) {
-			self.updateBoardNoseCurve(args.boardNoseCurve);
+	EventMediator.subscribe($scope, 'noseCurve', function(event, args) {
+			self.updateBoardNoseCurve(args);
 	});
 
-	EventMediator.subscribe($scope, 'boardTailCurve', function(event, args) {
-			self.updateBoardTailCurve(args.boardTailCurve);
+	EventMediator.subscribe($scope, 'tailCurve', function(event, args) {
+			self.updateBoardTailCurve(args);
 	});
 
 	// Controller Methods

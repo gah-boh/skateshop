@@ -17,25 +17,31 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 		tape: 0
 	};
 
-	$scope.$watch('boardSettings.boardLength', function(newValue, oldValue, scope) {
-			$rootScope.$emit("boardLength", {boardLength: newValue});
+	angular.forEach(this.boardSettings, function(value, key) {
+		$scope.$watch('boardSettings.' + key, function(newValue) {
+			$rootScope.$emit(key, newValue);
+		});
 	});
 
-	$scope.$watch('boardSettings.noseShape', function(newValue, oldValue, scope) {
-			$rootScope.$emit("boardNoseShape", {boardNoseShape: newValue});
-	});
-
-	$scope.$watch('boardSettings.tailShape', function(newValue, oldValue, scope) {
-			$rootScope.$emit("boardTailShape", {boardTailShape: newValue});
-	});
-
-	$scope.$watch('boardSettings.tailCurve', function(newValue) {
-		$rootScope.$emit("boardTailCurve", {boardTailCurve: newValue});
-	});
-
-	$scope.$watch('boardSettings.noseCurve', function(newValue) {
-		$rootScope.$emit("boardNoseCurve", {boardNoseCurve: newValue});
-	});
+//	$scope.$watch('boardSettings.boardLength', function(newValue, oldValue, scope) {
+//			$rootScope.$emit("boardLength", {boardLength: newValue});
+//	});
+//
+//	$scope.$watch('boardSettings.noseShape', function(newValue, oldValue, scope) {
+//			$rootScope.$emit("boardNoseShape", {boardNoseShape: newValue});
+//	});
+//
+//	$scope.$watch('boardSettings.tailShape', function(newValue, oldValue, scope) {
+//			$rootScope.$emit("boardTailShape", {boardTailShape: newValue});
+//	});
+//
+//	$scope.$watch('boardSettings.tailCurve', function(newValue) {
+//		$rootScope.$emit("boardTailCurve", {boardTailCurve: newValue});
+//	});
+//
+//	$scope.$watch('boardSettings.noseCurve', function(newValue) {
+//		$rootScope.$emit("boardNoseCurve", {boardNoseCurve: newValue});
+//	});
 
 	this.selectBoardPreset = function(presetName) {
 		this.loadPreset(presetName);
@@ -44,6 +50,10 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 	this.loadPreset = function(presetName) {
 		var preset = filterFilter(this.boardPresets, {name: presetName})[0];
 		angular.extend(this.boardSettings, preset);
+	};
+
+	this.changeGripColor = function(color) {
+		console.log(color);
 	};
 
 	this.loadPreset("street");

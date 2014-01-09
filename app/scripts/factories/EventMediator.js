@@ -18,8 +18,8 @@ mediatorModule.factory('EventMediator', function($rootScope) {
 	};
 
 	var removeEvent = function(eventObj) {
-			eventObj.deregistration();
-			eventObj.isLive = false;
+		eventObj.deregistration();
+		eventObj.isLive = false;
 	};
 
 	var unsubscribeEvent = function(scope, eventName) {
