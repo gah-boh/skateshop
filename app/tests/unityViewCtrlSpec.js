@@ -42,9 +42,11 @@ describe("Unity View Ctrl Spec", function() {
 
 		it("boardLength event should deregister on destroy", function() {
 			spyOn(sut, 'updateBoardLength');
+			$rootScope.$emit('boardLength', 35);
+			expect(sut.updateBoardLength).toHaveBeenCalled();
 			$scope.$destroy();
 			$rootScope.$emit('boardLength', 35);
-			expect(sut.updateBoardLength).not.toHaveBeenCalled();
+			expect(sut.updateBoardLength.calls.length).toEqual(1);
 		});
 
 		it("should send message to unity to update current board length", function() {
@@ -64,9 +66,10 @@ describe("Unity View Ctrl Spec", function() {
 
 		it("boardNoseShape event should deregister on destroy", function() {
 			spyOn(sut, 'updateBoardNoseShape');
+			$rootScope.$emit('noseShape', 35);
 			$scope.$destroy();
 			$rootScope.$emit('noseShape', 35);
-			expect(sut.updateBoardNoseShape).not.toHaveBeenCalled();
+			expect(sut.updateBoardNoseShape.calls.length).toEqual(1);
 		});
 
 		it("should send unity message to update the nose shape", function() {
@@ -86,9 +89,11 @@ describe("Unity View Ctrl Spec", function() {
 
 		it("boardTailShape event should deregister on destroy", function() {
 			spyOn(sut, 'updateBoardTailShape');
+			$rootScope.$emit('tailShape', 35);
+			expect(sut.updateBoardTailShape).toHaveBeenCalledWith(35);
 			$scope.$destroy();
 			$rootScope.$emit('tailShape', 35);
-			expect(sut.updateBoardTailShape).not.toHaveBeenCalled();
+			expect(sut.updateBoardTailShape.calls.length).toEqual(1)
 		});
 
 		it("should send unity a message to update the tail shape", function() {
@@ -106,12 +111,13 @@ describe("Unity View Ctrl Spec", function() {
 			expect(sut.updateBoardNoseCurve).toHaveBeenCalledWith(12);
 		});
 
-		// TODO: These tests should have two expectations one to check that event was called... so they're not too brittle
 		it("boardNoseCurve event should deregister on destroy", function() {
 			spyOn(sut, 'updateBoardNoseCurve');
+			$rootScope.$emit('noseCurve', 12);
+			expect(sut.updateBoardNoseCurve).toHaveBeenCalledWith(12);
 			$scope.$destroy();
 			$rootScope.$emit('noseCurve', 12);
-			expect(sut.updateBoardNoseCurve).not.toHaveBeenCalled();
+			expect(sut.updateBoardNoseCurve.calls.length).toEqual(1);
 		});
 
 		it("should tell unity to update the nose curve", function(){
@@ -131,9 +137,11 @@ describe("Unity View Ctrl Spec", function() {
 
 		it("boardTailCurve event should deregister on destroy", function() {
 			spyOn(sut, 'updateBoardTailCurve');
+			$rootScope.$emit('tailCurve', 53);
+			expect(sut.updateBoardTailCurve).toHaveBeenCalledWith(53);
 			$scope.$destroy();
 			$rootScope.$emit('tailCurve', 53);
-			expect(sut.updateBoardTailCurve).not.toHaveBeenCalled();
+			expect(sut.updateBoardTailCurve.calls.length).toEqual(1);
 		});
 
 		it("should send unity a message to update the tail curve", function() {
