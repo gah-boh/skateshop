@@ -36,6 +36,36 @@ ModelImporter:
     100060: Board_Joint_N_Root
     100062: Board_Joint_T_Length
     100064: Board_Joint_T_Root
+    100066: StreetWheel_L_N_Loc
+    100068: StreetWheel_L_T_Loc
+    100070: StreetWheel_R_N_Loc
+    100072: StreetWheel_R_T_Loc
+    100074: Truck_L_N_Loc
+    100076: Truck_L_T_Loc
+    100078: Truck_R_N_Loc
+    100080: Truck_R_T_Loc
+    100082: WheelStreet_L_Nose
+    100084: WheelStreet_L_Tail
+    100086: WheelStreet_R_Nose
+    100088: WheelStreet_R_Tail
+    100090: 'Board_Joint_N-L_Pin1 '
+    100092: 'Board_Joint_N-R_Pin1 '
+    100094: 'Board_Joint_N_Bend1 '
+    100096: 'Board_Joint_N_Bend2 '
+    100098: 'Board_Joint_N_Length '
+    100100: 'Board_Joint_N_Root '
+    100102: 'Board_Joint_T-L_Pin1 '
+    100104: 'Board_Joint_T-R_Pin1 '
+    100106: 'Board_Joint_T_Bend1 '
+    100108: 'Board_Joint_T_Bend2 '
+    100110: 'Board_Joint_T_Length '
+    100112: 'Board_Joint_T_Root '
+    100114: Grip
+    100116: Bearings_L_Nose
+    100118: Bearings_L_Tail
+    100120: Bearings_R_Nose
+    100122: BearingsStreet_R_Tail
+    100124: Texture Group
     400000: BearingWithNut
     400002: Board
     400004: Board_Joint_N_Bend1
@@ -69,22 +99,78 @@ ModelImporter:
     400060: Board_Joint_N_Root
     400062: Board_Joint_T_Length
     400064: Board_Joint_T_Root
+    400066: StreetWheel_L_N_Loc
+    400068: StreetWheel_L_T_Loc
+    400070: StreetWheel_R_N_Loc
+    400072: StreetWheel_R_T_Loc
+    400074: Truck_L_N_Loc
+    400076: Truck_L_T_Loc
+    400078: Truck_R_N_Loc
+    400080: Truck_R_T_Loc
+    400082: WheelStreet_L_Nose
+    400084: WheelStreet_L_Tail
+    400086: WheelStreet_R_Nose
+    400088: WheelStreet_R_Tail
+    400090: 'Board_Joint_N-L_Pin1 '
+    400092: 'Board_Joint_N-R_Pin1 '
+    400094: 'Board_Joint_N_Bend1 '
+    400096: 'Board_Joint_N_Bend2 '
+    400098: 'Board_Joint_N_Length '
+    400100: 'Board_Joint_N_Root '
+    400102: 'Board_Joint_T-L_Pin1 '
+    400104: 'Board_Joint_T-R_Pin1 '
+    400106: 'Board_Joint_T_Bend1 '
+    400108: 'Board_Joint_T_Bend2 '
+    400110: 'Board_Joint_T_Length '
+    400112: 'Board_Joint_T_Root '
+    400114: Grip
+    400116: Bearings_L_Nose
+    400118: Bearings_L_Tail
+    400120: Bearings_R_Nose
+    400122: BearingsStreet_R_Tail
+    400124: Texture Group
     2300000: BearingWithNut
     2300002: Trucks
     2300004: Wheel_Street
+    2300006: WheelStreet_L_Nose
+    2300008: WheelStreet_L_Tail
+    2300010: WheelStreet_R_Nose
+    2300012: WheelStreet_R_Tail
+    2300014: Bearings_L_Nose
+    2300016: Bearings_L_Tail
+    2300018: Bearings_R_Nose
+    2300020: BearingsStreet_R_Tail
     3300000: BearingWithNut
     3300002: Trucks
     3300004: Wheel_Street
+    3300006: WheelStreet_L_Nose
+    3300008: WheelStreet_L_Tail
+    3300010: WheelStreet_R_Nose
+    3300012: WheelStreet_R_Tail
+    3300014: Bearings_L_Nose
+    3300016: Bearings_L_Tail
+    3300018: Bearings_R_Nose
+    3300020: BearingsStreet_R_Tail
     4300000: Board
     4300002: Trucks
     4300004: Wheel_Street
     4300006: BearingWithNut
+    4300008: WheelStreet_L_Tail
+    4300010: WheelStreet_L_Nose
+    4300012: WheelStreet_R_Nose
+    4300014: WheelStreet_R_Tail
+    4300016: Grip
+    4300018: Bearings_L_Tail
+    4300020: Bearings_L_Nose
+    4300022: Bearings_R_Nose
+    4300024: BearingsStreet_R_Tail
     7400000: modo_Anim
     9500000: //RootNode
     13700000: Board
     13700002: Trucks
+    13700004: Grip
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:

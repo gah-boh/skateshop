@@ -30,11 +30,33 @@ describe("Customize Control Spec", function() {
 						tailCurve: 10
 					}
 				]
-			}
+			},
+			colors: [
+				{
+					name: 'black',
+					color: 'rgb(0, 0, 0)'
+				},
+				{
+					name: 'gray',
+					color: 'rgb(125, 125, 125)'
+				},
+				{
+					name: 'red',
+					color: 'rgb(150, 0, 0)'
+				},
+				{
+					name: 'yellow',
+					color: 'rgb(200, 200, 0)'
+				}
+			]
 		};
 
 		$provide.value('CustomizeSectionsFactory', mockCustomizeSectionsFactory);
 	}));
+
+	describe("Board Controls", function() {
+
+	});
 
 	beforeEach(inject(function($compile, _$rootScope_, $controller) {
 		$rootScope = _$rootScope_;
