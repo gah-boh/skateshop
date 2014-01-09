@@ -1,4 +1,4 @@
-skateshop.controller('CustomizeCtrl', function($scope, EventMediator, filterFilter, CustomizeSectionsFactory) {
+skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory) {
 	this.customizeSections = CustomizeSectionsFactory.sections;
 	this.boards = CustomizeSectionsFactory.board;
 	this.colors = CustomizeSectionsFactory.colors;
