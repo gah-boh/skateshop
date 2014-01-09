@@ -23,26 +23,6 @@ skateshop.controller('CustomizeCtrl', function($rootScope, $scope, filterFilter,
 		});
 	});
 
-//	$scope.$watch('boardSettings.boardLength', function(newValue, oldValue, scope) {
-//			$rootScope.$emit("boardLength", {boardLength: newValue});
-//	});
-//
-//	$scope.$watch('boardSettings.noseShape', function(newValue, oldValue, scope) {
-//			$rootScope.$emit("boardNoseShape", {boardNoseShape: newValue});
-//	});
-//
-//	$scope.$watch('boardSettings.tailShape', function(newValue, oldValue, scope) {
-//			$rootScope.$emit("boardTailShape", {boardTailShape: newValue});
-//	});
-//
-//	$scope.$watch('boardSettings.tailCurve', function(newValue) {
-//		$rootScope.$emit("boardTailCurve", {boardTailCurve: newValue});
-//	});
-//
-//	$scope.$watch('boardSettings.noseCurve', function(newValue) {
-//		$rootScope.$emit("boardNoseCurve", {boardNoseCurve: newValue});
-//	});
-
 	this.selectBoardPreset = function(presetName) {
 		this.loadPreset(presetName);
 	};
