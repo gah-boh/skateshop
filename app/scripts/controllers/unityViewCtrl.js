@@ -52,7 +52,7 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 	};
 
 	this.updateGripColor = function(gripColor) {
-		this.unity.SendMessage('Grip', 'ChangeColor', gripColor);
+		this.unity.SendMessage('Grip', 'ChangeColor', gripColor[0], gripColor[1], gripColor[2]);
 	};
 
 });

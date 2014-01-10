@@ -9,6 +9,6 @@ public class ColorControl : MonoBehaviour {
 
 	void ChangeColor(int red, int blue, int green) {
 		Material mat = renderer.material;
-//		mat.SetColor ();
+		mat.SetColor (new Color(red, blue, green));
 	}
 }
