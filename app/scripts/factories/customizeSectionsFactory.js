@@ -45,11 +45,11 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 		colors: [
 			{
 				name: 'black',
-				color: 'rgb(0, 0, 0)'
+				color: 'rgb(37, 37, 37)'
 			},
 			{
 				name: 'gray',
-				color: 'rgb(125, 125, 125)'
+				color: 'rgb(90, 90, 90)'
 			},
 			{
 				name: 'red',

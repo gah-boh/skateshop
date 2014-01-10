@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 using System.Collections;
 
 public class ColorControl : MonoBehaviour {
 
-	void Awake() {
+	void Start() {
 
 	}
 
-	void ChangeColor(int red, int blue, int green) {
+	void ChangeColor(string colorString) {
 		Material mat = renderer.material;
-		mat.SetColor (new Color(red, blue, green));
+//		float[] color = Array.ConvertAll(colorString.Split(','), float.Parse);
+		float[] color = colorString.Split (',').Select (x => float.Parse (x)).ToArray ();
+		mat.SetColor ("_Color", new Color(color[0], color[1], color[2]));
 	}
 }

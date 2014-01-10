@@ -172,7 +172,7 @@ describe("Unity View Ctrl Spec", function() {
 
 		it("should send unity a message to update the grip color", function() {
 			$scope.$emit('gripColor', [1, 0.5, 1]);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Grip', 'ChangeColor', 1, 0.5, 1);
+			expect(sut.unity.SendMessage).toHaveBeenCalledWith('/Skateboard/Grip', 'ChangeColor', [1, 0.5, 1].toString());
 		});
 
 	});

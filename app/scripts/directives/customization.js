@@ -60,7 +60,8 @@ skateshop.directive('colorSelector', function() {
 
 			scope.formatRGB = function(rgb) {
 				return rgb.map(function(channelValue) {
-					return parseInt(channelValue) / 255;
+					var rawValue = parseInt(channelValue) / 255;
+					return Math.round(rawValue*Math.pow(10,2))/Math.pow(10,2);
 				});
 			};
 
