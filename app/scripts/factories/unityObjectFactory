@@ -1,6 +1,5 @@
 skateshop.service('UnityObjectFactory', function() {
 
-	// TODO: check that this is only getting called once.
 	var unityObject = new UnityObject2();
 
 	var initUnity = function (selector, webPlayerAddress) {
