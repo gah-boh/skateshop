@@ -1,4 +1,4 @@
-ddescribe("Preset Mapper", function() {
+describe("Preset Mapper", function() {
 
 	var sut,
 		mockObject;

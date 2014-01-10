@@ -1,8 +1,8 @@
-skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory) {
+skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory, PresetMapper) {
 	this.customizeSections = CustomizeSectionsFactory.sections;
 	this.boards = CustomizeSectionsFactory.board;
 	this.colors = CustomizeSectionsFactory.colors;
-	this.boardPresets = {};
+	this.boardPresets = PresetMapper.mapTo('name', this.boards.presets);
 
 	this.selection = {
 		title: this.customizeSections[0]
@@ -22,17 +22,6 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 			EventMediator.emit(key, newValue);
 		});
 	});
-
-	this.mapPresets = function(presets) {
-		var mappedPresets = {};
-		for (var i = 0; i < presets.length; i++) {
-			var currentPreset = presets[i];
-			mappedPresets[currentPreset.name] = currentPreset;
-		}
-		return mappedPresets;
-	};
-
-	this.boardPresets = this.mapPresets(CustomizeSectionsFactory.board.presets);
 
 	this.selectBoardPreset = function(presetName) {
 		this.loadPreset(presetName);
