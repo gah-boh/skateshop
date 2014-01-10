@@ -151,6 +151,30 @@ describe("Unity View Ctrl Spec", function() {
 			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BendTail', 53);
 		});
 
+		it("should have registered the grip color event", function() {
+			expect($rootScope.$on).toHaveBeenCalledWith('gripColor', jasmine.any(Function));
+		});
+
+		it("should call the updateGripColor function on gripColor event", function() {
+			spyOn(sut, 'updateGripColor');
+			$rootScope.$emit('gripColor', [1, 0.5, 1]);
+			expect(sut.updateGripColor).toHaveBeenCalledWith([1, 0.5, 1]);
+		});
+
+		it("gripColor event should deregister on destroy", function() {
+			spyOn(sut, 'updateGripColor');
+			$rootScope.$emit('gripColor', [1, 0.5, 1]);
+			expect(sut.updateGripColor).toHaveBeenCalledWith([1, 0.5, 1]);
+			$scope.$destroy();
+			$rootScope.$emit('gripColor', [1, 0.5, 1]);
+			expect(sut.updateGripColor.calls.length).toEqual(1);
+		});
+
+		it("should send unity a message to update the grip color", function() {
+			$scope.$emit('gripColor', [1, 0.5, 1]);
+			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Grip', 'ChangeColor', [1, 0.5, 1]);
+		});
+
 	});
 
 });

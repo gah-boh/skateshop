@@ -19,11 +19,15 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 	});
 
 	EventMediator.subscribe($scope, 'noseCurve', function(event, args) {
-			self.updateBoardNoseCurve(args);
+		self.updateBoardNoseCurve(args);
 	});
 
 	EventMediator.subscribe($scope, 'tailCurve', function(event, args) {
-			self.updateBoardTailCurve(args);
+		self.updateBoardTailCurve(args);
+	});
+
+	EventMediator.subscribe($scope, 'gripColor', function(event, args) {
+		self.updateGripColor(args);
 	});
 
 	// Controller Methods
@@ -45,6 +49,10 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 
 	this.updateBoardTailCurve = function(boardTailCurve) {
 		this.unity.SendMessage('Skateboard', 'BendTail', boardTailCurve);
+	};
+
+	this.updateGripColor = function(gripColor) {
+		this.unity.SendMessage('Grip', 'ChangeColor', gripColor);
 	};
 
 });
