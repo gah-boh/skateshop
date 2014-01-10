@@ -1,7 +1,7 @@
 skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory) {
 
 	// Properties
-	this.unity = UnityObjectFactory(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
+	this.unity = UnityObjectFactory.getUnity(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
 
 	// Events
 	var self = this;

@@ -1,0 +1,3 @@
+skateshop.service('PresetMapper', function() {
+
+});

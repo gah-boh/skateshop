@@ -3,12 +3,12 @@ skateshop.service('UnityObjectFactory', function() {
 	// TODO: check that this is only getting called once.
 	var unityObject = new UnityObject2();
 
-	function getUnity (selector, webPlayerAddress) {
+	var initUnity = function (selector, webPlayerAddress) {
 		unityObject.initPlugin($(selector)[0], webPlayerAddress);
 		return unityObject.getUnity();
-	}
+	};
 
-	return function(selector, webPlayerAddress) {
-		return getUnity(selector, webPlayerAddress);
+	this.getUnity = function(selector, webPlayerAddress) {
+		return initUnity(selector, webPlayerAddress);
 	}
 });

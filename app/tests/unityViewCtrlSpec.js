@@ -7,10 +7,12 @@ describe("Unity View Ctrl Spec", function() {
 		mediator;
 
 	beforeEach(module(function($provide) {
-		mockUnityObjectFactory = function(){
-			return {
-				SendMessage: jasmine.createSpy("unity send message spy")
-			};
+		mockUnityObjectFactory = {
+			getUnity: function(){
+				return {
+					SendMessage: jasmine.createSpy("unity send message spy")
+				}
+			}
 		};
 		$provide.value('UnityObjectFactory', mockUnityObjectFactory);
 	}));
