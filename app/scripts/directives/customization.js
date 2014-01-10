@@ -50,13 +50,27 @@ skateshop.directive('boardSlider', function() {
 skateshop.directive('colorSelector', function() {
 	return {
 		restrict: 'A',
+		template: '<div ng-click="colorSelected()"></div>',
+		replace: true,
 		scope: {
-			colorSelector: '@'
+			colorSelector: '@',
+			onSelect: '&'
 		},
 		link: function(scope, element, attributes) {
+
+			scope.formatRGB = function(rgb) {
+				return rgb.map(function(channelValue) {
+					return parseInt(channelValue) / 255;
+				});
+			};
+
+			scope.colorSelected= function() {
+				scope.onSelect({selectedColor: scope.itemColor});
+			};
+
 			element.css('background-color', scope.colorSelector);
 			var results = /rgb\((\d+), (\d+), (\d+)/.exec(scope.colorSelector);
-			scope.color = [parseInt(results[1]), parseInt(results[2]), parseInt(results[3])];
+			scope.itemColor = scope.formatRGB(results.splice(1));
 		}
 	};
 });
