@@ -57,7 +57,7 @@ skateshop.factory("CustomizeSectionsFactory", function() {
 			},
 			{
 				name: 'yellow',
-				color: 'rgb(200, 200, 0)'
+				color: 'rgb(100, 100, 0)'
 			}
 		]
 	};
