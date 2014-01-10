@@ -47,6 +47,20 @@ skateshop.directive('boardSlider', function() {
 	};
 });
 
+skateshop.directive('colorSelector', function() {
+	return {
+		restrict: 'A',
+		scope: {
+			colorSelector: '@'
+		},
+		link: function(scope, element, attributes) {
+			element.css('background-color', scope.colorSelector);
+			var results = /rgb\((\d+), (\d+), (\d+)/.exec(scope.colorSelector);
+			scope.color = [parseInt(results[1]), parseInt(results[2]), parseInt(results[3])];
+		}
+	};
+});
+
 
 
 
