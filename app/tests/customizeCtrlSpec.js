@@ -133,10 +133,10 @@ describe("Customize Control Spec", function() {
 
 	describe("Grip Color", function() {
 
-		beforeEach(inject(function($compile, _$rootScope_, $controller) {
+		beforeEach(inject(function($compile, _$rootScope_) {
 			$rootScope = _$rootScope_;
 			$scope = $rootScope.$new();
-			element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="preset in sut.colors" ng-style="{backgroundColor: preset.color}" ng-click="sut.changeGripColor(preset.color)"></div>');
+			element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="preset in sut.colors" ng-style="{backgroundColor: preset.color}" ng-click="sut.changeGripColor([1, 1, 1])"></div>');
 			$compile(element)($scope);
 			sut = element.scope().sut;
 			$scope.$digest();
@@ -155,7 +155,14 @@ describe("Customize Control Spec", function() {
 		it("should call changeGripColor with the correct values", function() {
 			spyOn(sut, "changeGripColor");
 			element.children().eq(0)[0].click();
-			expect(sut.changeGripColor).toHaveBeenCalledWith("rgb(0, 0, 0)");
+			expect(sut.changeGripColor).toHaveBeenCalledWith([1, 1, 1]);
+		});
+
+		it("should emit an event through the $watch when changeGripColor is called", function() {
+			spyOn($rootScope, '$emit');
+			sut.changeGripColor([0.5, 0.5, 0.5]);
+			$scope.$digest();
+			expect($rootScope.$emit).toHaveBeenCalledWith('gripColor', [0.5, 0.5, 0.5]);
 		});
 
 	});

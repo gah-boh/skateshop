@@ -14,7 +14,7 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 		tailShape: 0,
 		noseCurve: 0,
 		tailCurve: 0,
-		tape: 0
+		gripColor: 0
 	};
 
 	angular.forEach(this.boardSettings, function(value, key) {
@@ -33,7 +33,7 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 	};
 
 	this.changeGripColor = function(color) {
-		console.log(color);
+		this.boardSettings.gripColor = color;
 	};
 
 	this.changeWheelsColor = function(color) {
