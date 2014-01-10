@@ -36,6 +36,10 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 		console.log(color);
 	};
 
+	this.changeWheelsColor = function(color) {
+		console.log('Wheel Color: ' + color);
+	};
+
 	this.loadPreset("street");
 
 });

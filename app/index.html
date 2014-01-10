@@ -51,14 +51,16 @@
 			<div ng-show='customCtrl.selection.title == "Grip"'>
 				<div class="customize-sub-section">color:</div>
 				<div class="color-preset" ng-repeat="preset in customCtrl.colors"
-										  ng-style="{backgroundColor: preset.color}">
+                                          color-selector="{{preset.color}}"
+                                          on-select="customCtrl.changeGripColor(selectedColor)">
 				</div>
 			</div>
 			<div ng-show='customCtrl.selection.title == "Wheels"'>
 				<div class="customize-sub-section">wheel:</div>
 				<div class="customize-sub-section">color:</div>
 				<div class="color-preset" ng-repeat="preset in customCtrl.colors"
-										  ng-style="{backgroundColor: preset.color}">
+                                          color-selector="{{preset.color}}"
+                                          on-select="customCtrl.changeWheelsColor(selectedColor)">
 				</div>
 			</div>
 		</div>
