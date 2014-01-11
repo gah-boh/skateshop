@@ -175,6 +175,30 @@ describe("Unity View Ctrl Spec", function() {
 			expect(sut.unity.SendMessage).toHaveBeenCalledWith('/Skateboard/Grip', 'ChangeColor', [1, 0.5, 1].toString());
 		});
 
+		it("should have registered the wheels color event", function() {
+			expect($rootScope.$on).toHaveBeenCalledWith('wheelsColor', jasmine.any(Function));
+		});
+
+		it("should call the updateWheelsColor function on gripColor event", function() {
+			spyOn(sut, 'updateWheelsColor');
+			$rootScope.$emit('wheelsColor', [1, 0.5, 1]);
+			expect(sut.updateWheelsColor).toHaveBeenCalledWith([1, 0.5, 1]);
+		});
+
+		it("wheelsColor event should deregister on destroy", function() {
+			spyOn(sut, 'updateWheelsColor');
+			$rootScope.$emit('wheelsColor', [1, 0.5, 1]);
+			expect(sut.updateWheelsColor).toHaveBeenCalledWith([1, 0.5, 1]);
+			$scope.$destroy();
+			$rootScope.$emit('wheelsColor', [1, 0.5, 1]);
+			expect(sut.updateWheelsColor.calls.length).toEqual(1);
+		});
+
+		it("should send unity a message to update the wheels color", function() {
+			$scope.$emit('wheelsColor', [1, 0.5, 1]);
+			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheelsColor', [1, 0.5, 1].toString());
+		});
+
 	});
 
 });

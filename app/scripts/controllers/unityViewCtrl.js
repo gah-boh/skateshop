@@ -30,6 +30,10 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 		self.updateGripColor(args);
 	});
 
+	EventMediator.subscribe($scope, 'wheelsColor', function(event, args) {
+		self.updateWheelsColor(args);
+	});
+
 	// Controller Methods
 	this.updateBoardLength = function(boardLength) {
 		this.unity.SendMessage('Skateboard', 'BoardLength', boardLength);
@@ -53,6 +57,11 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 
 	this.updateGripColor = function(gripColor) {
 		this.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', gripColor.toString());
+	};
+
+	this.updateWheelsColor = function(wheelsColor) {
+		this.unity.SendMessage('Skateboard', 'ChangeWheelsColor', wheelsColor.toString());
+
 	};
 
 });
