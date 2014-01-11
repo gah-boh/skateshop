@@ -7,61 +7,31 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 	var self = this;
 
 	EventMediator.subscribe($scope, 'boardLength', function(event, args) {
-		self.updateBoardLength(args);
+		self.unity.SendMessage('Skateboard', 'BoardLength', args);
 	});
 
 	EventMediator.subscribe($scope, 'noseShape', function(event, args) {
-		self.updateBoardNoseShape(args)
+		self.unity.SendMessage('Skateboard', 'NoseShape', args);
 	});
 
 	EventMediator.subscribe($scope, 'tailShape', function(event, args) {
-		self.updateBoardTailShape(args);
+		self.unity.SendMessage('Skateboard', 'TailShape', args);
 	});
 
 	EventMediator.subscribe($scope, 'noseCurve', function(event, args) {
-		self.updateBoardNoseCurve(args);
+		self.unity.SendMessage('Skateboard', 'BendNose', args);
 	});
 
 	EventMediator.subscribe($scope, 'tailCurve', function(event, args) {
-		self.updateBoardTailCurve(args);
+		self.unity.SendMessage('Skateboard', 'BendTail', args);
 	});
 
 	EventMediator.subscribe($scope, 'gripColor', function(event, args) {
-		self.updateGripColor(args);
+		self.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', args.toString());
 	});
 
 	EventMediator.subscribe($scope, 'wheelsColor', function(event, args) {
-		self.updateWheelsColor(args);
+		self.unity.SendMessage('Skateboard', 'ChangeWheelsColor', args.toString());
 	});
-
-	// Controller Methods
-	this.updateBoardLength = function(boardLength) {
-		this.unity.SendMessage('Skateboard', 'BoardLength', boardLength);
-	};
-
-	this.updateBoardNoseShape = function (boardNoseShape) {
-		this.unity.SendMessage('Skateboard', 'NoseShape', boardNoseShape);
-	};
-
-	this.updateBoardTailShape = function (boardTailShape) {
-		this.unity.SendMessage('Skateboard', 'TailShape', boardTailShape);
-	};
-
-	this.updateBoardNoseCurve = function(boardNoseCurve) {
-		this.unity.SendMessage('Skateboard', 'BendNose', boardNoseCurve);
-	};
-
-	this.updateBoardTailCurve = function(boardTailCurve) {
-		this.unity.SendMessage('Skateboard', 'BendTail', boardTailCurve);
-	};
-
-	this.updateGripColor = function(gripColor) {
-		this.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', gripColor.toString());
-	};
-
-	this.updateWheelsColor = function(wheelsColor) {
-		this.unity.SendMessage('Skateboard', 'ChangeWheelsColor', wheelsColor.toString());
-
-	};
 
 });
