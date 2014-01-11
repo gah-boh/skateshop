@@ -1,17 +1,10 @@
 skateshop.factory("CustomizeSectionsFactory", function() {
-	var parseColor = function(color) {
-		var results = /rgb\((\d+), (\d+), (\d+)/.exec(color);
-		return results.splice(1);
-	};
 
 	return {
 
-		getFormattedColor: function(rgb) {
-			var color = parseColor(rgb);
-			return color.map(function(channelValue) {
-				var rawValue = parseInt(channelValue) / 255;
-				return Math.round(rawValue*Math.pow(10,2))/Math.pow(10,2);
-			});
+		getFormattedColor: function(color) {
+			var results = /rgb\((\d+), (\d+), (\d+)/.exec(color);
+			return results.splice(1);
 		},
 
 		sections: [
