@@ -5,9 +5,8 @@ public class WheelColorControl : MonoBehaviour {
 
 	private GameObject[] wheels;
 	private ColorControl colorControl;
-
-	// Use this for initialization
-	void Start () {
+	
+	void Awake () {
 		wheels = GameObject.FindGameObjectsWithTag ("WheelMesh");
 		colorControl = new ColorControl ();
 	}

@@ -4,9 +4,8 @@ using System.Collections;
 public class GripColorControl : MonoBehaviour {
 
 	private ColorControl colorControl;
-	
-	// Use this for initialization
-	void Start () {
+
+	void Awake () {
 		colorControl = new ColorControl ();
 	}
 	
