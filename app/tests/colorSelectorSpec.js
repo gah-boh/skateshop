@@ -30,11 +30,6 @@ describe("Color Selector", function() {
 			expect(sut.itemColor).toEqual([1, 1, 1]);
 		});
 
-		it("formatRGB should return the correct values for red", function() {
-			var result = sut.formatRGB([64, 0, 0]);
-			expect(result).toEqual([0.25, 0, 0]);
-		});
-
 	});
 
 	describe("scope communication", function() {

@@ -14,8 +14,8 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 		tailShape: 0,
 		noseCurve: 0,
 		tailCurve: 0,
-		gripColor: [0.14, 0.14, 0.14],
-		wheelsColor: [0.14, 0.14, 0.14]
+		gripColor: CustomizeSectionsFactory.getFormattedColor(this.colors[0].color),
+		wheelsColor: CustomizeSectionsFactory.getFormattedColor(this.colors[3].color)
 	};
 
 	angular.forEach(this.boardSettings, function(value, key) {

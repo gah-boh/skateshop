@@ -7,10 +7,9 @@ describe("Customize Control Spec", function() {
 
 	beforeEach(module('Skateshop'));
 
-	// TODO: Need to cleanup the use of the element instance of the control and the compiled one.
 	describe("Board Controls", function() {
 
-		beforeEach(inject(function($compile, _$rootScope_, $controller) {
+		beforeEach(inject(function($compile, _$rootScope_) {
 			$rootScope = _$rootScope_;
 			$scope = $rootScope.$new();
 			element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="board in sut.boards.presets" ng-click="sut.selectBoardPreset(board)"><img src="" ng-src="images/{{ board.imageSource }}"></div></div>');
@@ -203,6 +202,7 @@ describe("Customize Control Spec", function() {
 	beforeEach(module(function($provide) {
 		var mockCustomizeSectionsFactory = {
 			sections: ['Board', 'Grip', 'Wheels'],
+			getFormattedColor: jasmine.createSpy("getFormattedColorSpy"),
 			board: {
 				presets: [
 					{
