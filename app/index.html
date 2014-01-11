@@ -55,7 +55,7 @@
                                           color-selector="{{preset.color}}"
                                           on-select="customCtrl.changeGripColor(selectedColor)">
 				</div>
-				<input type="text" color-picker />
+				<input type="text" color-picker="customCtrl.boardSettings.gripColor" />
 			</div>
 			<div ng-show='customCtrl.selection.title == "Wheels"'>
 				<div class="customize-sub-section">wheel:</div>
@@ -64,6 +64,7 @@
                                           color-selector="{{preset.color}}"
                                           on-select="customCtrl.changeWheelsColor(selectedColor)">
 				</div>
+                <input type="text" color-picker="customCtrl.boardSettings.wheelsColor" />
 			</div>
 		</div>
 	</div> <!-- End Customize Control -->
