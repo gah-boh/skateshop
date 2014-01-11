@@ -1,4 +1,4 @@
-skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory) {
+skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory, ColorService) {
 
 	// Properties
 	this.unity = UnityObjectFactory.getUnity(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
@@ -27,11 +27,13 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 	});
 
 	EventMediator.subscribe($scope, 'gripColor', function(event, args) {
-		self.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', args.toString());
+		var formattedColor = ColorService.formatRGB(args).toString();
+		self.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', formattedColor);
 	});
 
 	EventMediator.subscribe($scope, 'wheelsColor', function(event, args) {
-		self.unity.SendMessage('Skateboard', 'ChangeWheelsColor', args.toString());
+		var formattedColor = ColorService.formatRGB(args).toString();
+		self.unity.SendMessage('Skateboard', 'ChangeWheelsColor', formattedColor);
 	});
 
 });

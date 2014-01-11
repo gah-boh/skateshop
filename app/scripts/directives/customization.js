@@ -58,20 +58,15 @@ skateshop.directive('colorSelector', function() {
 		},
 		link: function(scope, element, attributes) {
 
-			scope.formatRGB = function(rgb) {
-				return rgb.map(function(channelValue) {
-					var rawValue = parseInt(channelValue) / 255;
-					return Math.round(rawValue*Math.pow(10,2))/Math.pow(10,2);
-				});
-			};
-
 			scope.colorSelected= function() {
 				scope.onSelect({selectedColor: scope.itemColor});
 			};
 
 			element.css('background-color', scope.colorSelector);
 			var results = /rgb\((\d+), (\d+), (\d+)/.exec(scope.colorSelector);
-			scope.itemColor = scope.formatRGB(results.splice(1));
+			scope.itemColor = results.map(function(inValue) {
+				return parseInt(inValue);
+			}).splice(1);
 		}
 	};
 });

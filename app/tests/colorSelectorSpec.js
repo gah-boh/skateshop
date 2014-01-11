@@ -27,7 +27,7 @@ describe("Color Selector", function() {
 		});
 
 		it("color should return the color's background color with normalized values", function() {
-			expect(sut.itemColor).toEqual([1, 1, 1]);
+			expect(sut.itemColor).toEqual([255, 255, 255]);
 		});
 
 	});
@@ -51,7 +51,7 @@ describe("Color Selector", function() {
 
 		it("should call the given function with the internal color values", function() {
 			element[0].click();
-			expect($scope.color).toEqual([1, 1, 1]);
+			expect($scope.color).toEqual([255, 255, 255]);
 		});
 	});
 
