@@ -1,39 +1,39 @@
 skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory, ColorService) {
 
+	var unityViewCtrl = this;
+
 	// Properties
 	this.unity = UnityObjectFactory.getUnity(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
 
 	// Events
-	var self = this;
-
 	EventMediator.subscribe($scope, 'boardLength', function(event, args) {
-		self.unity.SendMessage('Skateboard', 'BoardLength', args);
+		unityViewCtrl.unity.SendMessage('Skateboard', 'BoardLength', args);
 	});
 
 	EventMediator.subscribe($scope, 'noseShape', function(event, args) {
-		self.unity.SendMessage('Skateboard', 'NoseShape', args);
+		unityViewCtrl.unity.SendMessage('Skateboard', 'NoseShape', args);
 	});
 
 	EventMediator.subscribe($scope, 'tailShape', function(event, args) {
-		self.unity.SendMessage('Skateboard', 'TailShape', args);
+		unityViewCtrl.unity.SendMessage('Skateboard', 'TailShape', args);
 	});
 
 	EventMediator.subscribe($scope, 'noseCurve', function(event, args) {
-		self.unity.SendMessage('Skateboard', 'BendNose', args);
+		unityViewCtrl.unity.SendMessage('Skateboard', 'BendNose', args);
 	});
 
 	EventMediator.subscribe($scope, 'tailCurve', function(event, args) {
-		self.unity.SendMessage('Skateboard', 'BendTail', args);
+		unityViewCtrl.unity.SendMessage('Skateboard', 'BendTail', args);
 	});
 
 	EventMediator.subscribe($scope, 'gripColor', function(event, args) {
 		var formattedColor = ColorService.formatRGB(args).toString();
-		self.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', formattedColor);
+		unityViewCtrl.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', formattedColor);
 	});
 
 	EventMediator.subscribe($scope, 'wheelsColor', function(event, args) {
 		var formattedColor = ColorService.formatRGB(args).toString();
-		self.unity.SendMessage('Skateboard', 'ChangeWheelsColor', formattedColor);
+		unityViewCtrl.unity.SendMessage('Skateboard', 'ChangeWheelsColor', formattedColor);
 	});
 
 });

@@ -1,46 +1,49 @@
 skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory, PresetMapper) {
-	this.customizeSections = CustomizeSectionsFactory.sections;
-	this.boards = CustomizeSectionsFactory.board;
-	this.colors = CustomizeSectionsFactory.colors;
-	this.boardPresets = PresetMapper.mapTo('name', this.boards.presets);
 
-	this.selection = {
-		title: this.customizeSections[0]
+	var customizeCtrl = this;
+
+	customizeCtrl.customizeSections = CustomizeSectionsFactory.sections;
+	customizeCtrl.boards = CustomizeSectionsFactory.board;
+	customizeCtrl.colors = CustomizeSectionsFactory.colors;
+	customizeCtrl.boardPresets = PresetMapper.mapTo('name', customizeCtrl.boards.presets);
+
+	customizeCtrl.selection = {
+		title: customizeCtrl.customizeSections[0]
 	};
 
-	$scope.boardSettings = this.boardSettings = {
+	$scope.boardSettings = customizeCtrl.boardSettings = {
 		boardLength: 0,
 		noseShape: 0,
 		tailShape: 0,
 		noseCurve: 0,
 		tailCurve: 0,
-		gripColor: CustomizeSectionsFactory.getFormattedColor(this.colors[0].color),
-		wheelsColor: CustomizeSectionsFactory.getFormattedColor(this.colors[3].color)
+		gripColor: CustomizeSectionsFactory.getFormattedColor(customizeCtrl.colors[0].color),
+		wheelsColor: CustomizeSectionsFactory.getFormattedColor(customizeCtrl.colors[3].color)
 	};
 
-	angular.forEach(this.boardSettings, function(value, key) {
+	angular.forEach(customizeCtrl.boardSettings, function(value, key) {
 		$scope.$watch('boardSettings.' + key, function(newValue) {
 			EventMediator.emit(key, newValue);
 		});
 	});
 
-	this.selectBoardPreset = function(presetName) {
-		this.loadPreset(presetName);
+	customizeCtrl.selectBoardPreset = function(presetName) {
+		customizeCtrl.loadPreset(presetName);
 	};
 
-	this.loadPreset = function(presetName) {
-		var preset = this.boardPresets[presetName];
-		angular.extend(this.boardSettings, preset.presetSettings);
+	customizeCtrl.loadPreset = function(presetName) {
+		var preset = customizeCtrl.boardPresets[presetName];
+		angular.extend(customizeCtrl.boardSettings, preset.presetSettings);
 	};
 
-	this.changeGripColor = function(color) {
-		this.boardSettings.gripColor = color;
+	customizeCtrl.changeGripColor = function(color) {
+		customizeCtrl.boardSettings.gripColor = color;
 	};
 
-	this.changeWheelsColor = function(color) {
-		this.boardSettings.wheelsColor = color;
+	customizeCtrl.changeWheelsColor = function(color) {
+		customizeCtrl.boardSettings.wheelsColor = color;
 	};
 
-	this.loadPreset("street");
+	customizeCtrl.loadPreset("street");
 
 });
