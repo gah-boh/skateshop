@@ -54,12 +54,12 @@ skateshop.directive('colorSelector', function() {
 		replace: true,
 		scope: {
 			colorSelector: '@',
-			onSelect: '&'
+			selection: '&onSelect'
 		},
 		link: function(scope, element, attributes) {
 
 			scope.colorSelected= function() {
-				scope.onSelect({selectedColor: scope.itemColor});
+				scope.selection({selectedColor: scope.itemColor});
 			};
 
 			element.css('background-color', scope.colorSelector);
