@@ -30,12 +30,5 @@ describe("Color Picker Directive", function() {
 			expect($rootScope.gripColor).toEqual([1, 1, 1]);
 		});
 
-		xit("should normalize the array", function() {
-			var spy = { toRgb: function(){} };
-			spyOn(spy, 'toRgb').andReturn({r: 255, g: 255, b: 255, a: 1});
-			sut.colorChanged(spy);
-			expect($rootScope.gripColor).toEqual([1, 1, 1]);
-		});
-
 	});
 });
