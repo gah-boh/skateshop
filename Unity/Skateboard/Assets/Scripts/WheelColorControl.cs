@@ -12,7 +12,7 @@ public class WheelColorControl : MonoBehaviour {
 		colorControl = new ColorControl ();
 	}
 	
-	void ChangeColor (string color) {
+	void ChangeWheelColor (string color) {
 		colorControl.ChangeColor (wheel, color);
 	}
 }
