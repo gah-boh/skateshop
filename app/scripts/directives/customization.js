@@ -27,7 +27,7 @@ skateshop.directive('boardSlider', function() {
 				scope.updateSlider();
 			});
 
-			$(element).slider({
+			element.slider({
 				min: parseInt(attributes.min) || 0.0,
 				max: parseInt(attributes.max) || 100.0,
 				slide: function(event, ui) {
