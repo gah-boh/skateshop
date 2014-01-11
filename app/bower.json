@@ -18,6 +18,7 @@
     "angular": "1.2.6",
     "angular-mocks": "1.2.6",
     "jquery": "~2.0.3",
-    "jquery-ui": "~1.10.3"
+    "jquery-ui": "~1.10.3",
+    "spectrum": "~1.2.0"
   }
 }
