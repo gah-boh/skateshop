@@ -59,7 +59,11 @@
 			</div>
 			<div ng-show='customCtrl.selection.title == "Wheels"'>
 				<div class="customize-sub-section">wheel:</div>
-				<div class="customize-sub-section">color:</div>
+				<div class="wheel-preset" ng-repeat="wheel in customCtrl.wheels">
+					<img src="" alt="{{wheel.name}}" ng-click="customCtrl.changeWheel(wheel.name)"
+						 							 ng-src="images/{{wheel.imageSource}}">
+				</div>
+				<div class="row customize-sub-section">color:</div>
 				<div class="color-preset" ng-repeat="preset in customCtrl.colors"
                                           color-selector="{{preset.color}}"
                                           on-select="customCtrl.changeWheelsColor(selectedColor)">

@@ -84,6 +84,14 @@ body {
 	margin: 0 -5px -5px -5px;
 }
 
+.wheel-preset {
+	float: left;
+}
+
+.wheel-preset img {
+	width: 50px;
+}
+
 .two-slider-wrapper {
 	float: left;
 	width: 100%;
@@ -129,6 +137,10 @@ body {
 .customize-sub-section {
 	color: #bfbfbf;
 	margin-bottom: 0.8em;
+}
+
+.sp-replacer {
+	float: left;
 }
 
 .row {
