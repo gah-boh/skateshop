@@ -12,13 +12,16 @@ describe("Customize Control Spec", function() {
 		beforeEach(inject(function($compile, _$rootScope_) {
 			$rootScope = _$rootScope_;
 			$scope = $rootScope.$new();
-			element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="board in sut.boards.presets" ng-click="sut.selectBoardPreset(board)"><img src="" ng-src="images/{{ board.imageSource }}"></div></div>');
-			$compile(element)($scope);
-			sut = element.scope().sut;
-			$scope.$digest();
 		}));
 
 		describe("Changing board parameters", function() {
+
+			beforeEach(inject(function($compile) {
+				element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="board in sut.boards.presets" ng-click="sut.selectBoardPreset(board)"><img src="" ng-src="images/{{ board.imageSource }}"></div></div>');
+				$compile(element)($scope);
+				sut = element.scope().sut;
+				$scope.$digest();
+			}));
 
 			it("changing boardLength should trigger a boardLength event", function() {
 				spyOn($rootScope, "$emit");
@@ -58,6 +61,13 @@ describe("Customize Control Spec", function() {
 		});
 
 		describe("Presets", function() {
+
+			beforeEach(inject(function($compile) {
+				element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="board in sut.boards.presets" ng-click="sut.selectBoardPreset(board)"><img src="" ng-src="images/{{ board.imageSource }}"></div></div>');
+				$compile(element)($scope);
+				sut = element.scope().sut;
+				$scope.$digest();
+			}));
 
 			// This test is to show an example of how to test and spy from a click
 			it("should call selectBoardPreset() on click", function() {
@@ -167,34 +177,41 @@ describe("Customize Control Spec", function() {
 
 	});
 
-	describe("Wheel Color", function() {
+	describe("Wheels", function() {
 
 		beforeEach(inject(function($compile, _$rootScope_) {
 			$rootScope = _$rootScope_;
 			$scope = $rootScope.$new();
-			element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="preset in sut.colors" ng-style="{backgroundColor: preset.color}" ng-click="sut.changeWheelsColor([1, 1, 1])"></div>');
-			$compile(element)($scope);
-			sut = element.scope().sut;
-			$scope.$digest();
 		}));
 
-		it("should call the changeWheelsColor method on click", function() {
-			spyOn(sut, "changeWheelsColor");
-			element.children().eq(0)[0].click();
-			expect(sut.changeWheelsColor).toHaveBeenCalled();
-		});
+		describe("Wheel Color", function() {
 
-		it("should call changeWheelsColor with the correct values", function() {
-			spyOn(sut, "changeWheelsColor");
-			element.children().eq(0)[0].click();
-			expect(sut.changeWheelsColor).toHaveBeenCalledWith([1, 1, 1]);
-		});
+			beforeEach(inject(function($compile) {
+				element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="preset in sut.colors" ng-style="{backgroundColor: preset.color}" ng-click="sut.changeWheelsColor([1, 1, 1])"></div>');
+				$compile(element)($scope);
+				sut = element.scope().sut;
+				$scope.$digest();
+			}));
 
-		it("should emit an event through the $watch when changeWheelsColor is called", function() {
-			spyOn($rootScope, '$emit');
-			sut.changeWheelsColor([0.5, 0.5, 0.5]);
-			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith('wheelsColor', [0.5, 0.5, 0.5]);
+			it("should call the changeWheelsColor method on click", function() {
+				spyOn(sut, "changeWheelsColor");
+				element.children().eq(0)[0].click();
+				expect(sut.changeWheelsColor).toHaveBeenCalled();
+			});
+
+			it("should call changeWheelsColor with the correct values", function() {
+				spyOn(sut, "changeWheelsColor");
+				element.children().eq(0)[0].click();
+				expect(sut.changeWheelsColor).toHaveBeenCalledWith([1, 1, 1]);
+			});
+
+			it("should emit an event through the $watch when changeWheelsColor is called", function() {
+				spyOn($rootScope, '$emit');
+				sut.changeWheelsColor([0.5, 0.5, 0.5]);
+				$scope.$digest();
+				expect($rootScope.$emit).toHaveBeenCalledWith('wheelsColor', [0.5, 0.5, 0.5]);
+			});
+
 		});
 
 	});
