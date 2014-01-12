@@ -214,6 +214,49 @@ describe("Customize Control Spec", function() {
 
 		});
 
+		describe("Wheel Selection", function() {
+
+			describe("UI Elements", function() {
+
+				beforeEach(inject(function($compile) {
+					element = angular.element('<div ng-controller="CustomizeCtrl as sut"><div ng-repeat="wheel in sut.wheels" ng-click="sut.changeWheel(wheel.name)"></div>');
+					$compile(element)($scope);
+					sut = element.scope().sut;
+					$scope.$digest();
+				}));
+
+				it("controller should have wheels defined", function() {
+					expect(sut.wheels).toBeDefined();
+				});
+
+				it("should call changeWheel on click", function() {
+					spyOn(sut, 'changeWheel');
+					element.children().eq(0).click();
+					expect(sut.changeWheel).toHaveBeenCalled();
+				});
+
+				it("should pass the wheel name to changeWheel method", function() {
+					spyOn(sut, 'changeWheel');
+					element.children().eq(1).click();
+					expect(sut.changeWheel).toHaveBeenCalledWith('medium');
+				});
+
+			});
+
+			describe("in controller", function() {
+
+				beforeEach(inject(function($controller) {
+					sut = $controller('CustomizeCtrl', {$scope: $scope});
+				}));
+
+				it("should change the wheel on the boardSettings", function() {
+					sut.changeWheel('medium');
+					expect($scope.boardSettings.wheels).toEqual('medium');
+				});
+			});
+
+		});
+
 	});
 
 	beforeEach(module(function($provide) {

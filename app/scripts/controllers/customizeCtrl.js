@@ -6,6 +6,7 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 	customizeCtrl.boards = CustomizeSectionsFactory.board;
 	customizeCtrl.colors = CustomizeSectionsFactory.colors;
 	customizeCtrl.boardPresets = CustomizeSectionsFactory.mappedPresets('name');
+	customizeCtrl.wheels = CustomizeSectionsFactory.wheels;
 
 	customizeCtrl.selection = {
 		title: customizeCtrl.customizeSections[0]
@@ -18,6 +19,7 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 		noseCurve: 0,
 		tailCurve: 0,
 		gripColor: CustomizeSectionsFactory.getFormattedColor(customizeCtrl.colors[0].color),
+		wheels: null,
 		wheelsColor: CustomizeSectionsFactory.getFormattedColor(customizeCtrl.colors[3].color)
 	};
 
@@ -38,6 +40,10 @@ skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeS
 
 	customizeCtrl.changeGripColor = function(color) {
 		customizeCtrl.boardSettings.gripColor = color;
+	};
+
+	customizeCtrl.changeWheel = function(wheelName) {
+		customizeCtrl.boardSettings.wheels = wheelName;
 	};
 
 	customizeCtrl.changeWheelsColor = function(color) {
