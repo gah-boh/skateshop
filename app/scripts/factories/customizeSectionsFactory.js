@@ -71,6 +71,20 @@ skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
 				name: 'yellow',
 				color: 'rgb(100, 100, 0)'
 			}
+		],
+		wheels: [
+			{
+				name: 'small',
+				imageSource: 'wheel_icon_smallWheel.png'
+			},
+			{
+				name: 'medium',
+				imageSource: 'wheel_icon_mediumWheel.png'
+			},
+			{
+				name: 'large',
+				imageSource: 'wheel_icon_largeWheel.png'
+			}
 		]
 	};
 });

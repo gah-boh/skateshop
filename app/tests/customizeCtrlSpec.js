@@ -266,6 +266,20 @@ describe("Customize Control Spec", function() {
 					}
 				]
 			},
+			wheels: [
+				{
+					name: 'small',
+					imageSource: 'wheel_icon_smallWheel.png'
+				},
+				{
+					name: 'medium',
+					imageSource: 'wheel_icon_mediumWheel.png'
+				},
+				{
+					name: 'large',
+					imageSource: 'wheel_icon_largeWheel.png'
+				}
+			],
 			colors: [
 				{
 					name: 'black',
