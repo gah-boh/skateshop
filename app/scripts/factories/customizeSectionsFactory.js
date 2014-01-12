@@ -1,6 +1,11 @@
-skateshop.factory("CustomizeSectionsFactory", function() {
+skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
 
 	return {
+	// customizeCtrl.boardPresets = PresetMapper.mapTo('name', customizeCtrl.boards.presets);
+
+		mappedPresets: function(mapName) {
+			return PresetMapper.mapTo(mapName, this.board.presets);
+		},
 
 		getFormattedColor: function(color) {
 			var results = /rgb\((\d+), (\d+), (\d+)/.exec(color);

@@ -1,11 +1,11 @@
-skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory, PresetMapper) {
+skateshop.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory) {
 
 	var customizeCtrl = this;
 
 	customizeCtrl.customizeSections = CustomizeSectionsFactory.sections;
 	customizeCtrl.boards = CustomizeSectionsFactory.board;
 	customizeCtrl.colors = CustomizeSectionsFactory.colors;
-	customizeCtrl.boardPresets = PresetMapper.mapTo('name', customizeCtrl.boards.presets);
+	customizeCtrl.boardPresets = CustomizeSectionsFactory.mappedPresets('name');
 
 	customizeCtrl.selection = {
 		title: customizeCtrl.customizeSections[0]

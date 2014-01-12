@@ -203,6 +203,32 @@ describe("Customize Control Spec", function() {
 		var mockCustomizeSectionsFactory = {
 			sections: ['Board', 'Grip', 'Wheels'],
 			getFormattedColor: jasmine.createSpy("getFormattedColorSpy"),
+			mappedPresets: function() {
+				return {
+					street: {
+						name: 'street',
+						imageSource: 'board_icon_street.png',
+						presetSettings: {
+							boardLength: 30,
+							noseShape: 0,
+							tailShape: 50,
+							noseCurve: 20,
+							tailCurve: 20
+						}
+					},
+					cruiser: {
+						name: 'cruiser',
+						imageSource: 'board_icon_cruiser.png',
+						presetSettings: {
+							boardLength: 60,
+							noseShape: 35,
+							tailShape: 0,
+							noseCurve: 0,
+							tailCurve: 10
+						}
+					}
+				}
+			},
 			board: {
 				presets: [
 					{
@@ -217,14 +243,25 @@ describe("Customize Control Spec", function() {
 						}
 					},
 					{
+						name: 'longboard pin tail',
+						imageSource: 'board_icon_longboardPintail.png',
+						presetSettings: {
+							boardLength: 45,
+							noseShape: 50,
+							tailShape: -45,
+							noseCurve: 0,
+							tailCurve: 5
+						}
+					},
+					{
 						name: 'cruiser',
 						imageSource: 'board_icon_cruiser.png',
 						presetSettings: {
-							boardLength: 60,
+							boardLength: 33,
 							noseShape: 35,
 							tailShape: 0,
 							noseCurve: 0,
-							tailCurve: 10
+							tailCurve: 20
 						}
 					}
 				]
