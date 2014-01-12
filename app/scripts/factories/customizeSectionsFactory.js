@@ -27,7 +27,8 @@ skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
 						noseShape: 0,
 						tailShape: 50,
 						noseCurve: 20,
-						tailCurve: 20
+						tailCurve: 20,
+						wheels: 'small'
 					}
 				},
 				{
@@ -38,7 +39,8 @@ skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
 						noseShape: 50,
 						tailShape: -45,
 						noseCurve: 0,
-						tailCurve: 5
+						tailCurve: 5,
+						wheels: 'large'
 					}
 				},
 				{
@@ -49,7 +51,8 @@ skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
 						noseShape: 35,
 						tailShape: 0,
 						noseCurve: 0,
-						tailCurve: 20
+						tailCurve: 20,
+						wheels: 'medium'
 					}
 				}
 			]
