@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BoardController : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class BoardController : MonoBehaviour {
 	private Vector3 noseLengthZero;
 
 	private Wheels streetWheels;
+	private Wheels mediumWheels;
+	private Wheels largeWheels;
 
 	// Use this for initialization
 	void Awake () {
@@ -29,17 +32,63 @@ public class BoardController : MonoBehaviour {
 		noseLengthZero = new Vector3(noseLength.localPosition.x, noseLength.localPosition.y, noseLength.localPosition.z);
 		WheelsFactory wheelsFactory = new WheelsFactory ();
 		streetWheels = wheelsFactory.CreateStreetWheels ();
+		mediumWheels = wheelsFactory.CreateMediumWheels ();
+		largeWheels = wheelsFactory.CreateLargeWheels ();
 	}
 
 	void Start() {
-		ConnectStreetWheels ();
+		ConnectAllWheels ();
+		HideWheels (mediumWheels);
+		HideWheels (largeWheels);
 	}
 
-	void ConnectStreetWheels() {
-		streetWheels.noseL.transform.parent = noseTruckLeft;
-		streetWheels.noseR.transform.parent = noseTruckRight;
-		streetWheels.tailL.transform.parent = tailTruckLeft;
-		streetWheels.tailR.transform.parent = tailTruckRight;
+	void ConnectAllWheels() {
+		Wheels[] wheels = {streetWheels, mediumWheels, largeWheels};
+		foreach( Wheels wheel in wheels) {
+			wheel.noseL.transform.parent = noseTruckLeft;
+			wheel.noseR.transform.parent = noseTruckRight;
+			wheel.tailL.transform.parent = tailTruckLeft;
+			wheel.tailR.transform.parent = tailTruckRight;
+		}
+	}
+
+	void HideWheels (Wheels wheels) {
+		showHideChildrenMesh (wheels.noseL, false);
+		showHideChildrenMesh (wheels.noseR, false);
+		showHideChildrenMesh (wheels.tailL, false);
+		showHideChildrenMesh (wheels.tailR, false);
+	}
+
+	void showHideChildrenMesh (GameObject parent, bool isVisible) {
+		MeshFilter[] meshes = parent.GetComponentsInChildren<MeshFilter>();
+		foreach (MeshFilter mesh in meshes) {
+			mesh.renderer.enabled = isVisible;
+		}
+	}
+
+	void ShowWheels (Wheels wheels) {
+		showHideChildrenMesh (wheels.noseL, true);
+		showHideChildrenMesh (wheels.noseR, true);
+		showHideChildrenMesh (wheels.tailL, true);
+		showHideChildrenMesh (wheels.tailR, true);
+	}
+
+	void ChangeWheels (string wheels) {
+		if (wheels == "street") {
+			ShowWheels (streetWheels);
+			HideWheels (mediumWheels);
+			HideWheels (largeWheels);
+		}
+		else if (wheels == "medium") {
+			ShowWheels (mediumWheels);
+			HideWheels (streetWheels);
+			HideWheels (largeWheels);
+		}
+		else if (wheels == "large") {
+			ShowWheels (largeWheels);
+			HideWheels (streetWheels);
+			HideWheels (mediumWheels);
+		}
 	}
 
 	void BendTail(float bendValue) {

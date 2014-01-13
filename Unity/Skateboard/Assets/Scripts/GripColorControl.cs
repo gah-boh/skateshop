@@ -6,7 +6,7 @@ public class GripColorControl : MonoBehaviour {
 	private ColorControl colorControl;
 
 	void Awake () {
-		colorControl = new ColorControl ();
+		colorControl = gameObject.AddComponent("ColorControl") as ColorControl;
 	}
 	
 	void ChangeColor (string color) {

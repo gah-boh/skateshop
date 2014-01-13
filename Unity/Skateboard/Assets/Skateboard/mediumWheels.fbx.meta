@@ -1,0 +1,109 @@
+fileFormatVersion: 2
+guid: 2d35d5ba574244044b5f535759107d53
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: BearingsMedium_L_Nose
+    100002: BearingsMedium_L_Tail
+    100004: BearingsMedium_R_Nose
+    100006: BearingsMedium_R_Tail
+    100008: MediumWheel_L_N_Loc
+    100010: MediumWheel_L_T_Loc
+    100012: MediumWheel_R_N_Loc
+    100014: MediumWheel_R_T_Loc
+    100016: //RootNode
+    100018: WheelMedium_L_Nose
+    100020: WheelMedium_L_Tail
+    100022: WheelMedium_R_Nose
+    100024: WheelMedium_R_Tail
+    400000: BearingsMedium_L_Nose
+    400002: BearingsMedium_L_Tail
+    400004: BearingsMedium_R_Nose
+    400006: BearingsMedium_R_Tail
+    400008: MediumWheel_L_N_Loc
+    400010: MediumWheel_L_T_Loc
+    400012: MediumWheel_R_N_Loc
+    400014: MediumWheel_R_T_Loc
+    400016: //RootNode
+    400018: WheelMedium_L_Nose
+    400020: WheelMedium_L_Tail
+    400022: WheelMedium_R_Nose
+    400024: WheelMedium_R_Tail
+    2300000: BearingsMedium_L_Nose
+    2300002: BearingsMedium_L_Tail
+    2300004: BearingsMedium_R_Nose
+    2300006: BearingsMedium_R_Tail
+    2300008: WheelMedium_L_Nose
+    2300010: WheelMedium_L_Tail
+    2300012: WheelMedium_R_Nose
+    2300014: WheelMedium_R_Tail
+    3300000: BearingsMedium_L_Nose
+    3300002: BearingsMedium_L_Tail
+    3300004: BearingsMedium_R_Nose
+    3300006: BearingsMedium_R_Tail
+    3300008: WheelMedium_L_Nose
+    3300010: WheelMedium_L_Tail
+    3300012: WheelMedium_R_Nose
+    3300014: WheelMedium_R_Tail
+    4300000: BearingsMedium_R_Tail
+    4300002: WheelMedium_R_Tail
+    4300004: WheelMedium_L_Tail
+    4300006: BearingsMedium_L_Tail
+    4300008: BearingsMedium_R_Nose
+    4300010: WheelMedium_R_Nose
+    4300012: WheelMedium_L_Nose
+    4300014: BearingsMedium_L_Nose
+    7400000: modo_Anim
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 

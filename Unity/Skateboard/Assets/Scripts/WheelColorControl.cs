@@ -8,7 +8,7 @@ public class WheelColorControl : MonoBehaviour {
 	
 	void Awake () {
 		wheels = GameObject.FindGameObjectsWithTag ("WheelMesh");
-		colorControl = new ColorControl ();
+		colorControl = gameObject.AddComponent("ColorControl") as ColorControl;
 	}
 	
 	void ChangeWheelsColor (string color) {
