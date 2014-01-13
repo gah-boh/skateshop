@@ -74,7 +74,7 @@ public class BoardController : MonoBehaviour {
 	}
 
 	void ChangeWheels (string wheels) {
-		if (wheels == "street") {
+		if (wheels == "small") {
 			ShowWheels (streetWheels);
 			HideWheels (mediumWheels);
 			HideWheels (largeWheels);
