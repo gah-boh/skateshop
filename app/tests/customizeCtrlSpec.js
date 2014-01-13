@@ -253,6 +253,14 @@ describe("Customize Control Spec", function() {
 					sut.changeWheel('medium');
 					expect($scope.boardSettings.wheels).toEqual('medium');
 				});
+
+				it("should emit and event through the $watch when wheels are changed", function() {
+					spyOn($rootScope, '$emit');
+					sut.changeWheel('medium');
+					$scope.$digest();
+					expect($rootScope.$emit).toHaveBeenCalledWith('wheels', 'medium');
+				});
+
 			});
 
 		});

@@ -31,6 +31,10 @@ skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjec
 		unityViewCtrl.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', formattedColor);
 	});
 
+	EventMediator.subscribe($scope, 'wheels', function(event, args) {
+		unityViewCtrl.unity.SendMessage('Skateboard', 'ChangeWheels', args);
+	});
+
 	EventMediator.subscribe($scope, 'wheelsColor', function(event, args) {
 		var formattedColor = ColorService.formatRGB(args).toString();
 		unityViewCtrl.unity.SendMessage('Skateboard', 'ChangeWheelsColor', formattedColor);

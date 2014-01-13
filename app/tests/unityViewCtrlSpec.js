@@ -221,6 +221,27 @@ describe("Unity View Ctrl Spec", function() {
 
 		});
 
+		describe("Wheel Selection", function() {
+
+			it("should register the wheel change event", function() {
+				expect($rootScope.$on).toHaveBeenCalledWith('wheels', jasmine.any(Function));
+			});
+
+			it("should call the unity object to change the wheels", function() {
+				$rootScope.$emit('wheels', 'medium');
+				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheels', 'medium');
+			})
+
+			it("should deregister the wheels event on destroy", function() {
+				$rootScope.$emit('wheels', 'medium');
+				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheels', 'medium');
+				$scope.$destroy();
+				$rootScope.$emit('wheels', 'medium');
+				expect(sut.unity.SendMessage.calls.length).toBe(1);
+			});
+
+		});
+
 	});
 
 });
