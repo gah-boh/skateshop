@@ -3,9 +3,17 @@ describe("Customize Control Spec", function() {
 	var	$rootScope,
 		$scope,
 		sut,
-		element;
+		element,
+		mockMediator;
 
 	beforeEach(module('Skateshop'));
+
+	beforeEach(module(function($provide){
+		mockMediator = {
+			emit: jasmine.createSpy('Mediator Emit Spy')
+		};
+		$provide.value('EventMediator', mockMediator);
+	}));
 
 	describe("Board Controls", function() {
 
@@ -24,38 +32,33 @@ describe("Customize Control Spec", function() {
 			}));
 
 			it("changing boardLength should trigger a boardLength event", function() {
-				spyOn($rootScope, "$emit");
 				sut.boardSettings.boardLength = 13;
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", 13);
+				expect(mockMediator.emit).toHaveBeenCalledWith("boardLength", 13);
 			});
 
 			it("changing noseShape should trigger a noseShape event", function() {
-				spyOn($rootScope, "$emit");
 				sut.boardSettings.noseShape = 21;
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("noseShape", 21);
+				expect(mockMediator.emit).toHaveBeenCalledWith("noseShape", 21);
 			});
 
 			it("changing tailShape should trigger a tailShape event", function() {
-				spyOn($rootScope, "$emit");
 				sut.boardSettings.tailShape = 43;
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("tailShape", 43);
+				expect(mockMediator.emit).toHaveBeenCalledWith("tailShape", 43);
 			});
 
 			it("changing the tail curve should trigger a tailCurve event", function() {
-				spyOn($rootScope, '$emit');
 				sut.boardSettings.tailCurve = 18;
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("tailCurve", 18);
+				expect(mockMediator.emit).toHaveBeenCalledWith("tailCurve", 18);
 			});
 
 			it("changing the nose curve should trigger a noseCurve event", function() {
-				spyOn($rootScope, '$emit');
 				sut.boardSettings.noseCurve = 22;
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("noseCurve", 22);
+				expect(mockMediator.emit).toHaveBeenCalledWith("noseCurve", 22);
 			});
 
 		});
@@ -103,38 +106,33 @@ describe("Customize Control Spec", function() {
 			});
 
 			it("calling a preset should call boardLength", function() {
-				spyOn($rootScope, "$emit");
 				sut.loadPreset("cruiser");
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("boardLength", 60);
+				expect(mockMediator.emit).toHaveBeenCalledWith("boardLength", 60);
 			});
 
 			it("calling a preset should call noseShape", function() {
-				spyOn($rootScope, "$emit");
 				sut.loadPreset("cruiser");
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("noseShape", 35);
+				expect(mockMediator.emit).toHaveBeenCalledWith("noseShape", 35);
 			});
 
 			it("calling a preset should call tailShape", function() {
-				spyOn($rootScope, "$emit");
 				sut.loadPreset("cruiser");
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith("tailShape", 0);
+				expect(mockMediator.emit).toHaveBeenCalledWith("tailShape", 0);
 			});
 
 			it("calling a preset should call noseCurve", function() {
-				spyOn($rootScope, "$emit");
 				sut.loadPreset("cruiser");
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith('noseCurve', 0);
+				expect(mockMediator.emit).toHaveBeenCalledWith('noseCurve', 0);
 			});
 
 			it("calling a preset should call tailCurve", function() {
-				spyOn($rootScope, "$emit");
 				sut.loadPreset("cruiser");
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith('tailCurve', 10);
+				expect(mockMediator.emit).toHaveBeenCalledWith('tailCurve', 10);
 			});
 
 		});
@@ -169,10 +167,9 @@ describe("Customize Control Spec", function() {
 		});
 
 		it("should emit an event through the $watch when changeGripColor is called", function() {
-			spyOn($rootScope, '$emit');
 			sut.changeGripColor([0.5, 0.5, 0.5]);
 			$scope.$digest();
-			expect($rootScope.$emit).toHaveBeenCalledWith('gripColor', [0.5, 0.5, 0.5]);
+			expect(mockMediator.emit).toHaveBeenCalledWith('gripColor', [0.5, 0.5, 0.5]);
 		});
 
 	});
@@ -206,10 +203,9 @@ describe("Customize Control Spec", function() {
 			});
 
 			it("should emit an event through the $watch when changeWheelsColor is called", function() {
-				spyOn($rootScope, '$emit');
 				sut.changeWheelsColor([0.5, 0.5, 0.5]);
 				$scope.$digest();
-				expect($rootScope.$emit).toHaveBeenCalledWith('wheelsColor', [0.5, 0.5, 0.5]);
+				expect(mockMediator.emit).toHaveBeenCalledWith('wheelsColor', [0.5, 0.5, 0.5]);
 			});
 
 		});
@@ -255,10 +251,9 @@ describe("Customize Control Spec", function() {
 				});
 
 				it("should emit and event through the $watch when wheels are changed", function() {
-					spyOn($rootScope, '$emit');
 					sut.changeWheel('medium');
 					$scope.$digest();
-					expect($rootScope.$emit).toHaveBeenCalledWith('wheels', 'medium');
+					expect(mockMediator.emit).toHaveBeenCalledWith('wheels', 'medium');
 				});
 
 			});
