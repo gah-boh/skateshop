@@ -79,13 +79,12 @@ body {
 
 .color-preset:hover {
 	border: 5px solid #a1a1a1;
-	width: 35px;
-	height: 35px;
-	margin: 0 -5px -5px -5px;
 }
 
 .wheel-preset {
 	float: left;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
 .wheel-preset img {
@@ -141,6 +140,8 @@ body {
 
 .sp-replacer {
 	float: left;
+    margin-top: 6px;
+    margin-left: 5px;
 }
 
 .row {
