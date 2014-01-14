@@ -23,8 +23,8 @@ body {
 .customize-section {
 	float: left;
 	height: 30px;
-	line-height: 30px;
-	font-size: 1.15em;
+	line-height: 1.25em;
+	font-size: 1.25em;
 	margin: 0 1.05em 0 1px;
 	cursor: pointer;
 }
@@ -38,7 +38,8 @@ body {
 }
 
 .active-section {
-	font-size: 1.25em;
+	font-size: 1.45em;
+    line-height: 0.95em;
 	font-weight: bold;
 	overflow: hidden;
 	white-space: nowrap;
@@ -142,6 +143,7 @@ body {
 	float: left;
     margin-top: 6px;
     margin-left: 5px;
+    border: none;
 }
 
 .row {
