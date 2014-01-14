@@ -5,7 +5,7 @@ describe("Unity View Ctrl Spec", function() {
 		sut,
 		mockUnityObjectFactory,
 		mockColorService,
-		mediator;
+		mockMediator;
 
 	beforeEach(module('Skateshop'));
 
@@ -21,17 +21,20 @@ describe("Unity View Ctrl Spec", function() {
 			formatRGB: function() {}
 		};
 
+		mockMediator = {
+			subscribe: jasmine.createSpy('Mediator subscribe Spy')
+		};
+
 		module(function($provide) {
 			$provide.value('UnityObjectFactory', mockUnityObjectFactory);
 			$provide.value('ColorService', mockColorService);
+			$provide.value('EventMediator', mockMediator);
 		});
 	});
-	beforeEach(inject(function(_$rootScope_, $controller, EventMediator) {
+	beforeEach(inject(function(_$rootScope_, $controller) {
 		$rootScope = _$rootScope_;
 		$scope = $rootScope.$new();
-		mediator = EventMediator;
-		spyOn($rootScope, '$on').andCallThrough();
-		sut = $controller('UnityViewCtrl as sut', {$scope: $scope});
+		sut = $controller('UnityViewCtrl', {$scope: $scope});
 		$scope.$digest();
 	}));
 
@@ -42,116 +45,52 @@ describe("Unity View Ctrl Spec", function() {
 	describe("board events", function() {
 
 		it("should have registered the boardLength event", function() {
-			expect($rootScope.$on).toHaveBeenCalledWith('boardLength', jasmine.any(Function))
-		});
-
-		it("should call the updateBoardLength on the boardLength event", function() {
-			$rootScope.$emit('boardLength', 35);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BoardLength', 35);
-		});
-
-		it("boardLength event should deregister on destroy", function() {
-			$rootScope.$emit('boardLength', 35);
-			expect(sut.unity.SendMessage).toHaveBeenCalled();
-			$scope.$destroy();
-			$rootScope.$emit('boardLength', 35);
-			expect(sut.unity.SendMessage.calls.length).toEqual(1);
+			expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'boardLength', sut.changeBoardLength);
 		});
 
 		it("should send message to unity to update current board length", function() {
-			$scope.$emit('boardLength', 35);
+			sut.changeBoardLength(null, 35);
 			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BoardLength', 35);
 		});
 
 		it("should have registered the noseShape event", function() {
-			expect($rootScope.$on).toHaveBeenCalledWith('noseShape', jasmine.any(Function))
-		});
-
-		it("should call the updateNoseShape on unity objon the noseShape event", function() {
-			$rootScope.$emit('noseShape', 35);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'NoseShape', 35);
-		});
-
-		it("boardNoseShape event should deregister on destroy", function() {
-			$rootScope.$emit('noseShape', 35);
-			$scope.$destroy();
-			$rootScope.$emit('noseShape', 35);
-			expect(sut.unity.SendMessage.calls.length).toEqual(1);
+			expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'noseShape', sut.changeNoseShape);
 		});
 
 		it("should send unity message to update the nose shape", function() {
-			$scope.$emit('noseShape', 35);
+			sut.changeNoseShape(null, 35);
 			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'NoseShape', 35);
 		});
 
 		it("should have registered the tailShape event", function() {
-			expect($rootScope.$on).toHaveBeenCalledWith('tailShape', jasmine.any(Function))
-		});
-
-		it("should call the updateTailShape function on the boardTailShape event", function() {
-			$rootScope.$emit('tailShape', 35);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'TailShape', 35);
-		});
-
-		it("boardTailShape event should deregister on destroy", function() {
-			$rootScope.$emit('tailShape', 35);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'TailShape', 35);
-			$scope.$destroy();
-			$rootScope.$emit('tailShape', 35);
-			expect(sut.unity.SendMessage.calls.length).toEqual(1)
+			expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'tailShape', sut.changeTailShape);
 		});
 
 		it("should send unity a message to update the tail shape", function() {
-			$scope.$emit('tailShape', 35);
+			sut.changeTailShape(null, 35);
 			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'TailShape', 35);
 		});
 
 		it("should have registered the nose curve event", function() {
-			expect($rootScope.$on).toHaveBeenCalledWith('noseCurve', jasmine.any(Function));
+			expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'noseCurve', sut.changeNoseCurve);
 		});
 
-		it("should call the updateNoseCurve function on the boardNoseCurve event", function() {
-			$rootScope.$emit('noseCurve', 12);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BendNose', 12);
-		});
-
-		it("boardNoseCurve event should deregister on destroy", function() {
-			$rootScope.$emit('noseCurve', 12);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BendNose', 12);
-			$scope.$destroy();
-			$rootScope.$emit('noseCurve', 12);
-			expect(sut.unity.SendMessage.calls.length).toEqual(1);
-		});
-
-		it("should tell unity to update the nose curve", function(){
-			$scope.$emit('noseCurve', 12);
+		it("should tell unity to update the nose curve", function() {
+			sut.changeNoseCurve(null, 12);
 			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BendNose', 12);
 		});
 
 		it("should have registered the tail curve event", function() {
-			expect($rootScope.$on).toHaveBeenCalledWith('tailCurve', jasmine.any(Function));
-		});
-
-		it("should call the updateBoardTailCurve function on boardTailCurve event", function() {
-			$rootScope.$emit('tailCurve', 53);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BendTail', 53);
-		});
-
-		it("boardTailCurve event should deregister on destroy", function() {
-			$rootScope.$emit('tailCurve', 53);
-			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BendTail', 53);
-			$scope.$destroy();
-			$rootScope.$emit('tailCurve', 53);
-			expect(sut.unity.SendMessage.calls.length).toEqual(1);
+			expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'tailCurve', sut.changeTailCurve);
 		});
 
 		it("should send unity a message to update the tail curve", function() {
-			$scope.$emit('tailCurve', 53);
+			sut.changeTailCurve(null, 53);
 			expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'BendTail', 53);
 		});
 
 		it("should have registered the grip color event", function() {
-			expect($rootScope.$on).toHaveBeenCalledWith('gripColor', jasmine.any(Function));
+			expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'gripColor', sut.changeGripColor);
 		});
 
 		describe("gripColor", function() {
@@ -160,27 +99,14 @@ describe("Unity View Ctrl Spec", function() {
 				spyOn(mockColorService, 'formatRGB').andReturn('1,0.5,1');
 			});
 
-			it("should call the updateGripColor function on gripColor event", function() {
-				$rootScope.$emit('gripColor', [255, 127, 255]);
+			it("should send unity a message to update the grip color", function() {
+				sut.changeGripColor(null, [255, 127, 255]);
 				expect(sut.unity.SendMessage).toHaveBeenCalledWith('/Skateboard/Grip', 'ChangeColor', '1,0.5,1');
 			});
 
 			it("should call the ColorService to format the values", function() {
-				$rootScope.$emit('gripColor', [255, 127, 255]);
+				sut.changeGripColor(null, [255, 127, 255]);
 				expect(mockColorService.formatRGB).toHaveBeenCalledWith([255, 127, 255]);
-			});
-
-			it("event should deregister on destroy", function() {
-				$rootScope.$emit('gripColor', [1, 0.5, 1]);
-				expect(sut.unity.SendMessage).toHaveBeenCalledWith('/Skateboard/Grip', 'ChangeColor', '1,0.5,1');
-				$scope.$destroy();
-				$rootScope.$emit('gripColor', [1, 0.5, 1]);
-				expect(sut.unity.SendMessage.calls.length).toEqual(1);
-			});
-
-			it("should send unity a message to update the grip color", function() {
-				$scope.$emit('gripColor', [1, 0.5, 1]);
-				expect(sut.unity.SendMessage).toHaveBeenCalledWith('/Skateboard/Grip', 'ChangeColor', [1, 0.5, 1].toString());
 			});
 
 		});
@@ -192,30 +118,16 @@ describe("Unity View Ctrl Spec", function() {
 			});
 
 			it("should have registered the wheels color event", function() {
-				expect($rootScope.$on).toHaveBeenCalledWith('wheelsColor', jasmine.any(Function));
-			});
-
-			it("should call the updateWheelsColor function on gripColor event", function() {
-				$rootScope.$emit('wheelsColor', [1, 0.5, 1]);
-				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheelsColor', [1, 0.5, 1].toString());
+				expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'wheelsColor', sut.changeWheelsColor);
 			});
 
 			it("should call the ColorService to format the values", function() {
-				$rootScope.$emit('wheelsColor', [255, 127, 255]);
+				sut.changeWheelsColor(null, [255, 127, 255]);
 				expect(mockColorService.formatRGB).toHaveBeenCalledWith([255, 127, 255]);
 			});
 
-
-			it("wheelsColor event should deregister on destroy", function() {
-				$rootScope.$emit('wheelsColor', [1, 0.5, 1]);
-				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheelsColor', [1, 0.5, 1].toString());
-				$scope.$destroy();
-				$rootScope.$emit('wheelsColor', [1, 0.5, 1]);
-				expect(sut.unity.SendMessage.calls.length).toEqual(1);
-			});
-
 			it("should send unity a message to update the wheels color", function() {
-				$scope.$emit('wheelsColor', [1, 0.5, 1]);
+				sut.changeWheelsColor(null, [1, 0.5, 1]);
 				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheelsColor', [1, 0.5, 1].toString());
 			});
 
@@ -224,21 +136,13 @@ describe("Unity View Ctrl Spec", function() {
 		describe("Wheel Selection", function() {
 
 			it("should register the wheel change event", function() {
-				expect($rootScope.$on).toHaveBeenCalledWith('wheels', jasmine.any(Function));
+				expect(mockMediator.subscribe).toHaveBeenCalledWith($scope, 'wheels', sut.changeWheels);
 			});
 
 			it("should call the unity object to change the wheels", function() {
-				$rootScope.$emit('wheels', 'medium');
+				sut.changeWheels(null, 'medium');
 				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheels', 'medium');
 			})
-
-			it("should deregister the wheels event on destroy", function() {
-				$rootScope.$emit('wheels', 'medium');
-				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheels', 'medium');
-				$scope.$destroy();
-				$rootScope.$emit('wheels', 'medium');
-				expect(sut.unity.SendMessage.calls.length).toBe(1);
-			});
 
 		});
 
