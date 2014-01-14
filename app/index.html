@@ -9,36 +9,31 @@
 </head>
 <body ng-app="Skateshop">
 <div class="container">
-	<div ng-controller="UnityViewCtrl as unityCtrl" ng-cloak>
-		<div class="unity-view"></div>
-	</div>
 	<div class="customize-container" ng-controller='CustomizeCtrl as customCtrl'>
 		<customize-bar ng-repeat="section in customCtrl.customizeSections" title="{{section}}" active-selection="customCtrl.selection.title"></customize-bar>
 		<div class="customize-area">
-			<div ng-show='customCtrl.selection.title == "Board"'>
-				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">length: <span ng-bind="customCtrl.boardSettings.boardLength"></span></span>
-					<div board-slider="customCtrl.boardSettings.boardLength" min="10" max="90"></div>
-				</div>
-				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">tail shape: <span ng-bind="customCtrl.boardSettings.tailShape"></span></span>
-					<div board-slider="customCtrl.boardSettings.tailShape" min="-50" max="50"></div>
-				</div>
-				<div class="board-slider customize-sub-section">
-					<span class="customize-sub-section">nose shape: <span ng-bind="customCtrl.boardSettings.noseShape"></span></span>
-					<div board-slider="customCtrl.boardSettings.noseShape" min="0" max="50"></div>
-				</div>
-                <div class="two-slider-wrapper">
-                	<div class="board-slider customize-sub-section">
-						<span class="customize-sub-section">tail curve: <span ng-bind="customCtrl.boardSettings.tailCurve"></span></span>
-						<div board-slider="customCtrl.boardSettings.tailCurve" min="0" max="50"></div>
-					</div>
-                	<div class="board-slider customize-sub-section">
-						<span class="customize-sub-section">nose curve: <span ng-bind="customCtrl.boardSettings.noseCurve"></span></span>
-						<div board-slider="customCtrl.boardSettings.noseCurve" min="0" max="50"></div>
-					</div>
+			<div class="board-section" ng-show='customCtrl.selection.title == "Board"'>
+                <div class="board-slider customize-sub-section">
+                    <span class="customize-sub-section">tail curve: <span ng-bind="customCtrl.boardSettings.tailCurve"></span></span>
+                    <div board-slider="customCtrl.boardSettings.tailCurve" min="0" max="50"></div>
                 </div>
-				<div class="customize-sub-section">
+                <div class="board-slider customize-sub-section">
+                    <span class="customize-sub-section">nose curve: <span ng-bind="customCtrl.boardSettings.noseCurve"></span></span>
+                    <div board-slider="customCtrl.boardSettings.noseCurve" min="0" max="50"></div>
+                </div>
+                <div class="board-slider customize-sub-section">
+                    <span class="customize-sub-section">tail shape: <span ng-bind="customCtrl.boardSettings.tailShape"></span></span>
+                    <div board-slider="customCtrl.boardSettings.tailShape" min="-50" max="50"></div>
+                </div>
+                <div class="board-slider customize-sub-section">
+                    <span class="customize-sub-section">nose shape: <span ng-bind="customCtrl.boardSettings.noseShape"></span></span>
+                    <div board-slider="customCtrl.boardSettings.noseShape" min="0" max="50"></div>
+                </div>
+                <div class="board-slider full-width customize-sub-section">
+                    <span class="customize-sub-section">length: <span ng-bind="customCtrl.boardSettings.boardLength"></span></span>
+                    <div board-slider="customCtrl.boardSettings.boardLength" min="10" max="90"></div>
+                </div>
+				<div class="board-preset-container">
 					<span class="row customize-sub-section">presets:</span>
 					<div class="board-preset"
 					     ng-repeat="preset in customCtrl.boards.presets">
@@ -47,7 +42,6 @@
 							 ng-click="customCtrl.selectBoardPreset(preset.name)">
 					</div>
 				</div>
-				<div class="bottom-spacer"></div>
 			</div>
 			<div ng-show='customCtrl.selection.title == "Grip"'>
 				<div class="customize-sub-section">color:</div>
@@ -72,6 +66,9 @@
 			</div>
 		</div>
 	</div> <!-- End Customize Control -->
+    <div ng-controller="UnityViewCtrl as unityCtrl">
+        <div class="unity-view"></div>
+    </div>
 </div> <!-- End Container -->
 
 <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>

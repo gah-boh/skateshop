@@ -3,20 +3,22 @@ body {
 }
 
 .container {
-	width: 960px;
+	width: 80%;
 	padding: 0;
-	margin: 0 auto 0 auto;
+	margin: 5% 10% 0 10%;
 }
 
 .unity-view {
+    float: left;
 	background-color: #fcfcfc;
-	width: 600px;
+	width: 60%;
 	height: 400px;
 	margin: 10px auto 40px auto;
 }
 
 .customize-container {
-	width: 600px;
+    float: left;
+	width: 40%;
 	margin: 0 auto 0 auto;
 }
 
@@ -46,7 +48,6 @@ body {
 }
 
 .customize-area {
-	width: 600px;
 	min-height: 100px;
 	padding-top: 20px;
 	clear: left;
@@ -84,12 +85,14 @@ body {
 
 .wheel-preset {
 	float: left;
-    margin-right: 20px;
     cursor: pointer;
+    width: 33.333333%;
 }
 
 .wheel-preset img {
 	width: 50px;
+    display: block;
+    margin: 0 auto 0 0;
 }
 
 .two-slider-wrapper {
@@ -131,7 +134,15 @@ body {
 
 .board-slider {
 	float: left;
-	width: 33.333333%;
+	width: 50%;
+}
+
+.board-slider.full-width {
+    width: 100%;
+}
+
+.board-slider.full-width .ui-slider-horizontal {
+    width: 90%;
 }
 
 .customize-sub-section {
@@ -156,4 +167,5 @@ body {
 	height: 15em;
     clear: both;
 }
+
 
