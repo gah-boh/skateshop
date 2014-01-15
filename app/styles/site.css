@@ -124,7 +124,11 @@ body {
 	top: -0.75em;
 }
 
-.ui-state-active, .ui-slider-horizontal .ui-slider-handle, .ui-widget-content .ui-state-active, .ui-state-default .ui-state-hover {
+.ui-slider-handle:focus {
+	outline: none;
+}
+
+.ui-slider-horizontal .ui-slider-handle, .ui-state-default.ui-state-focus.ui-state-active {
 	background: #6b000c;
 }
 
