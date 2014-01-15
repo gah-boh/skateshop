@@ -1,61 +1,65 @@
-var UnityViewCtrlModule = angular.module('Skateshop.Controllers.UnityViewCtrl', ['SpagEventMediator', 'Skateshop.Services.UnityObject', 'Skateshop.Services.ColorService']);
+(function() {
 
-UnityViewCtrlModule.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory, ColorService) {
+	var UnityViewCtrlModule = angular.module('Skateshop.Controllers.UnityViewCtrl', ['SpagEventMediator', 'Skateshop.Services.UnityObject', 'Skateshop.Services.ColorService']);
 
-	var unityViewCtrl = this;
+	UnityViewCtrlModule.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory, ColorService) {
 
-	// Properties
-	this.unity = UnityObjectFactory.getUnity(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
+		var unityViewCtrl = this;
 
-	unityViewCtrl.changeBoardLength = function(event, args) {
-		unityViewCtrl.unity.SendMessage('Skateboard', 'BoardLength', args);
-	};
+		// Properties
+		this.unity = UnityObjectFactory.getUnity(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
 
-	unityViewCtrl.changeNoseShape = function(event, args) {
-		unityViewCtrl.unity.SendMessage('Skateboard', 'NoseShape', args);
-	};
+		unityViewCtrl.changeBoardLength = function(event, args) {
+			unityViewCtrl.unity.SendMessage('Skateboard', 'BoardLength', args);
+		};
 
-	unityViewCtrl.changeTailShape = function(event, args) {
-		unityViewCtrl.unity.SendMessage('Skateboard', 'TailShape', args);
-	};
+		unityViewCtrl.changeNoseShape = function(event, args) {
+			unityViewCtrl.unity.SendMessage('Skateboard', 'NoseShape', args);
+		};
 
-	unityViewCtrl.changeNoseCurve = function(event, args) {
-		unityViewCtrl.unity.SendMessage('Skateboard', 'BendNose', args);
-	};
+		unityViewCtrl.changeTailShape = function(event, args) {
+			unityViewCtrl.unity.SendMessage('Skateboard', 'TailShape', args);
+		};
 
-	unityViewCtrl.changeTailCurve = function(event, args) {
-		unityViewCtrl.unity.SendMessage('Skateboard', 'BendTail', args);
-	};
+		unityViewCtrl.changeNoseCurve = function(event, args) {
+			unityViewCtrl.unity.SendMessage('Skateboard', 'BendNose', args);
+		};
 
-	unityViewCtrl.changeGripColor = function(event, args) {
-		var formattedColor = ColorService.formatRGB(args).toString();
-		unityViewCtrl.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', formattedColor);
-	};
+		unityViewCtrl.changeTailCurve = function(event, args) {
+			unityViewCtrl.unity.SendMessage('Skateboard', 'BendTail', args);
+		};
 
-	unityViewCtrl.changeWheels = function(event, args) {
-		unityViewCtrl.unity.SendMessage('Skateboard', 'ChangeWheels', args);
-	};
+		unityViewCtrl.changeGripColor = function(event, args) {
+			var formattedColor = ColorService.formatRGB(args).toString();
+			unityViewCtrl.unity.SendMessage('/Skateboard/Grip', 'ChangeColor', formattedColor);
+		};
 
-	unityViewCtrl.changeWheelsColor = function(event, args) {
-		var formattedColor = ColorService.formatRGB(args).toString();
-		unityViewCtrl.unity.SendMessage('Skateboard', 'ChangeWheelsColor', formattedColor);
-	};
+		unityViewCtrl.changeWheels = function(event, args) {
+			unityViewCtrl.unity.SendMessage('Skateboard', 'ChangeWheels', args);
+		};
 
-	// Events
-	EventMediator.subscribe($scope, 'boardLength', unityViewCtrl.changeBoardLength);
+		unityViewCtrl.changeWheelsColor = function(event, args) {
+			var formattedColor = ColorService.formatRGB(args).toString();
+			unityViewCtrl.unity.SendMessage('Skateboard', 'ChangeWheelsColor', formattedColor);
+		};
 
-	EventMediator.subscribe($scope, 'noseShape', unityViewCtrl.changeNoseShape);
+		// Events
+		EventMediator.subscribe($scope, 'boardLength', unityViewCtrl.changeBoardLength);
 
-	EventMediator.subscribe($scope, 'tailShape', unityViewCtrl.changeTailShape);
+		EventMediator.subscribe($scope, 'noseShape', unityViewCtrl.changeNoseShape);
 
-	EventMediator.subscribe($scope, 'noseCurve', unityViewCtrl.changeNoseCurve);
+		EventMediator.subscribe($scope, 'tailShape', unityViewCtrl.changeTailShape);
 
-	EventMediator.subscribe($scope, 'tailCurve', unityViewCtrl.changeTailCurve);
+		EventMediator.subscribe($scope, 'noseCurve', unityViewCtrl.changeNoseCurve);
 
-	EventMediator.subscribe($scope, 'gripColor', unityViewCtrl.changeGripColor);
+		EventMediator.subscribe($scope, 'tailCurve', unityViewCtrl.changeTailCurve);
 
-	EventMediator.subscribe($scope, 'wheels', unityViewCtrl.changeWheels);
+		EventMediator.subscribe($scope, 'gripColor', unityViewCtrl.changeGripColor);
 
-	EventMediator.subscribe($scope, 'wheelsColor', unityViewCtrl.changeWheelsColor);
+		EventMediator.subscribe($scope, 'wheels', unityViewCtrl.changeWheels);
 
-});
+		EventMediator.subscribe($scope, 'wheelsColor', unityViewCtrl.changeWheelsColor);
+
+	});
+
+}());

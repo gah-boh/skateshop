@@ -1,15 +1,19 @@
-var UnityObject = angular.module('Skateshop.Services.UnityObject', []);
+(function() {
 
-UnityObject.service('UnityObjectFactory', function() {
+	var UnityObject = angular.module('Skateshop.Services.UnityObject', []);
 
-	var unityObject = new UnityObject2();
+	UnityObject.service('UnityObjectFactory', function() {
 
-	var initUnity = function (selector, webPlayerAddress) {
-		unityObject.initPlugin($(selector)[0], webPlayerAddress);
-		return unityObject.getUnity();
-	};
+		var unityObject = new UnityObject2();
 
-	this.getUnity = function(selector, webPlayerAddress) {
-		return initUnity(selector, webPlayerAddress);
-	}
-});
+		var initUnity = function (selector, webPlayerAddress) {
+			unityObject.initPlugin($(selector)[0], webPlayerAddress);
+			return unityObject.getUnity();
+		};
+
+		this.getUnity = function(selector, webPlayerAddress) {
+			return initUnity(selector, webPlayerAddress);
+		}
+	});
+
+}());
