@@ -152,7 +152,8 @@ body {
 
 .sp-replacer {
 	float: left;
-    margin-top: 6px;
+    clear: left;
+    margin-top: 15px;
     margin-left: 5px;
     border: none;
 }
