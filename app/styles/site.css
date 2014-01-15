@@ -12,6 +12,7 @@ body {
     float: left;
 	background-color: #fcfcfc;
 	width: 60%;
+    max-width: 480px;
 	height: 400px;
 	margin: 10px auto 40px auto;
 }
@@ -19,6 +20,7 @@ body {
 .customize-container {
     float: left;
 	width: 40%;
+    max-width: 320px;
 	margin: 0 auto 0 auto;
 }
 
@@ -92,7 +94,7 @@ body {
 .wheel-preset img {
 	width: 50px;
     display: block;
-    margin: 0 auto 0 0;
+    margin: 0 auto 0 auto;
 }
 
 .two-slider-wrapper {

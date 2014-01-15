@@ -64,7 +64,7 @@ skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
 				name: 'gray',
 				color: 'rgb(90, 90, 90)'
 			},
-            {
+			{
 				name: 'white',
 				color: 'rgb(200, 200, 200)'
 			},
@@ -72,21 +72,45 @@ skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
 				name: 'red',
 				color: 'rgb(255, 0, 0)'
 			},
-            {
+			{
 				name: 'dark red',
 				color: 'rgb(100, 0, 0)'
 			},
-            {
-                name: 'yellow',
-                color: 'rgb(200, 200, 0)'
-            },
-            {
-                name: 'dark yellow',
-                color: 'rgb(155, 155, 0)'
-            },
-            {
+			{
+				name: 'yellow',
+				color: 'rgb(200, 200, 0)'
+			},
+			{
+				name: 'dark yellow',
+				color: 'rgb(155, 155, 0)'
+			},
+			{
 				name: 'yellow green',
 				color: 'rgb(100, 100, 0)'
+			},
+			{
+				name: 'blue',
+				color: 'rgb(0, 0, 200)'
+			},
+			{
+				name: 'dark blue',
+				color: 'rgb(0, 0, 100)'
+			},
+			{
+				name: 'turquoise',
+				color: 'rgb(0, 150, 150)'
+			},
+			{
+				name: 'dark turquoise',
+				color: 'rgb(0, 75, 75)'
+			},
+			{
+				name: 'purple',
+				color: 'rgb(100, 0, 100)'
+			},
+			{
+				name: 'purple skin',
+				color: 'rgb(100, 75, 75)'
 			}
 		],
 		wheels: [
