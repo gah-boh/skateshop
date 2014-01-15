@@ -1,4 +1,6 @@
-skateshop.directive('customizeBar', function() {
+var CustomizationDirectivesModule = angular.module('Skateshop.Directives.Customization', []);
+
+CustomizationDirectivesModule.directive('customizeBar', function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'views/customize-bar.html',
@@ -15,7 +17,7 @@ skateshop.directive('customizeBar', function() {
 	}
 });
 
-skateshop.directive('boardSlider', function() {
+CustomizationDirectivesModule.directive('boardSlider', function() {
 	return {
 		restrict: 'A',
 		scope: {
@@ -47,7 +49,7 @@ skateshop.directive('boardSlider', function() {
 	};
 });
 
-skateshop.directive('colorSelector', function() {
+CustomizationDirectivesModule.directive('colorSelector', function() {
 	return {
 		restrict: 'A',
 		template: '<div ng-click="colorSelected()"></div>',
@@ -71,7 +73,7 @@ skateshop.directive('colorSelector', function() {
 	};
 });
 
-skateshop.directive('colorPicker', function() {
+CustomizationDirectivesModule.directive('colorPicker', function() {
 	return {
 		restrict: 'A',
 		scope: {

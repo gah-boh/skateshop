@@ -5,7 +5,8 @@ describe("Board Slider Specs", function() {
 		element,
 		elementIsolatedScope;
 
-	beforeEach(module("Skateshop"));
+	beforeEach(module("Skateshop.Directives.Customization"));
+
 	beforeEach(inject(function(_$rootScope_, $compile) {
 		$rootScope = _$rootScope_;
 		$scope = _$rootScope_.$new();

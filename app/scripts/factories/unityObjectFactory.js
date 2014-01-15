@@ -1,4 +1,6 @@
-skateshop.service('UnityObjectFactory', function() {
+var UnityObject = angular.module('Skateshop.Services.UnityObject', []);
+
+UnityObject.service('UnityObjectFactory', function() {
 
 	var unityObject = new UnityObject2();
 

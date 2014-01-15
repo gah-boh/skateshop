@@ -3,7 +3,7 @@ describe("Preset Mapper", function() {
 	var sut,
 		mockObject;
 
-	beforeEach(module('Skateshop'));
+	beforeEach(module('Skateshop.Services.PresetMapper'));
 	beforeEach(inject(function(PresetMapper) {
 			sut = PresetMapper;
 			mockObject = [

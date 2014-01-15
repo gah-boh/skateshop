@@ -8,7 +8,7 @@ describe("Color Selector", function() {
 	describe("directive", function() {
 
 		beforeEach(function() {
-			module('Skateshop');
+			module('Skateshop.Directives.Customization');
 			inject(function($compile, _$rootScope_) {
 				$rootScope = _$rootScope_;
 				$scope = $rootScope.$new();
@@ -35,7 +35,7 @@ describe("Color Selector", function() {
 	describe("scope communication", function() {
 
 		beforeEach(function() {
-			module('Skateshop');
+			module('Skateshop.Directives.Customization');
 			inject(function($compile, _$rootScope_) {
 				$rootScope = _$rootScope_;
 				$scope = $rootScope.$new();

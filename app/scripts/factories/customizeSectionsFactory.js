@@ -1,4 +1,6 @@
-skateshop.factory("CustomizeSectionsFactory", function(PresetMapper) {
+var CustomizeSections = angular.module('Skateshop.Factories.CustomizeSections', ['Skateshop.Services.PresetMapper']);
+
+CustomizeSections.factory("CustomizeSectionsFactory", function(PresetMapper) {
 
 	return {
 		mappedPresets: function(mapName) {

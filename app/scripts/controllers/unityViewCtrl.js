@@ -1,4 +1,6 @@
-skateshop.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory, ColorService) {
+var UnityViewCtrlModule = angular.module('Skateshop.Controllers.UnityViewCtrl', ['SpagEventMediator', 'Skateshop.Services.UnityObject', 'Skateshop.Services.ColorService']);
+
+UnityViewCtrlModule.controller('UnityViewCtrl', function($scope, EventMediator, UnityObjectFactory, ColorService) {
 
 	var unityViewCtrl = this;
 

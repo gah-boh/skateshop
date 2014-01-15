@@ -7,7 +7,7 @@ describe("Unity View Ctrl Spec", function() {
 		mockColorService,
 		mockMediator;
 
-	beforeEach(module('Skateshop'));
+	beforeEach(module('Skateshop.Controllers.UnityViewCtrl'));
 
 	beforeEach(function() {
 		mockUnityObjectFactory = {

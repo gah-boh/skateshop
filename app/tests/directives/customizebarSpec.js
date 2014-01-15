@@ -3,7 +3,7 @@ describe("customizeBar", function() {
 	var $scope,
 		element;
 
-	beforeEach(module("Skateshop"));
+	beforeEach(module("Skateshop.Directives.Customization"));
 	beforeEach(module('templates'));
 	beforeEach(inject(function($compile, $rootScope) {
 		$scope = $rootScope;

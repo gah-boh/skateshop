@@ -1,7 +1,7 @@
 describe("Color Service", function() {
 	var sut;
 
-	beforeEach(module('Skateshop'));
+	beforeEach(module('Skateshop.Services.ColorService'));
 
 	beforeEach(inject(function(ColorService) {
 		sut = ColorService;

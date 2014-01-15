@@ -1,4 +1,6 @@
-skateshop.service('ColorService', function() {
+var ColorServiceModule = angular.module('Skateshop.Services.ColorService', []);
+
+ColorServiceModule.service('ColorService', function() {
 
 	this.formatRGB = function(rgb) {
 		return rgb.map(function(channelValue) {
