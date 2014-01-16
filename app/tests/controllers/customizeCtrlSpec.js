@@ -17,7 +17,7 @@ describe("Customize Control Spec", function() {
 
 	describe("Board Controls", function() {
 
-		beforeEach(inject(function($compile, _$rootScope_) {
+		beforeEach(inject(function(_$rootScope_) {
 			$rootScope = _$rootScope_;
 			$scope = $rootScope.$new();
 		}));
