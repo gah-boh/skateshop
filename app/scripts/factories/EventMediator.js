@@ -15,7 +15,7 @@
 				deregistration: deregistration,
 				eventName: eventName,
 				isLive: true
-			}
+			};
 			subscribers[scope.$id].push(eventInfo);
 		};
 
