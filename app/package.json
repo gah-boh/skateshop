@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "karma-ng-html2js-preprocessor": "~0.1.0"
+    "karma-ng-html2js-preprocessor": "^0.1.0",
+    "karma": "^0.12.0",
+    "karma-jasmine": "^0.1.5",
+    "karma-chrome-launcher": "^0.1.2"
   }
 }
