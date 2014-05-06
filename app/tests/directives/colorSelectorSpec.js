@@ -2,18 +2,16 @@ describe("Color Selector", function() {
 
 	var element,
 		sut,
-		$scope,
-		$rootScope;
+		$scope;
 
 	describe("directive", function() {
 
 		beforeEach(function() {
 			module('Skateshop.Directives.Customization');
 			inject(function($compile, _$rootScope_) {
-				$rootScope = _$rootScope_;
-				$scope = $rootScope.$new();
+				$scope = _$rootScope_;
 				element = angular.element('<div color-selector="rgb(255, 255, 255)"></div>');
-				$compile(element)($rootScope);
+				$compile(element)($scope);
 				sut = element.isolateScope();
 			});
 		});
@@ -37,8 +35,7 @@ describe("Color Selector", function() {
 		beforeEach(function() {
 			module('Skateshop.Directives.Customization');
 			inject(function($compile, _$rootScope_) {
-				$rootScope = _$rootScope_;
-				$scope = $rootScope.$new();
+				$scope = _$rootScope_;
 				$scope.color = {test: 'test'};
 				$scope.selectColor = function(selectedColor) {
 					$scope.color = selectedColor;

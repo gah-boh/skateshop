@@ -1,7 +1,6 @@
 describe("Unity View Ctrl Spec", function() {
 
-	var $rootScope,
-		$scope,
+	var $scope,
 		sut,
 		mockUnityObjectFactory,
 		mockColorService,
@@ -14,7 +13,7 @@ describe("Unity View Ctrl Spec", function() {
 			getUnity: function(){
 				return {
 					SendMessage: jasmine.createSpy("unity send message spy")
-				}
+				};
 			}
 		};
 		mockColorService = {
@@ -32,8 +31,7 @@ describe("Unity View Ctrl Spec", function() {
 		});
 	});
 	beforeEach(inject(function(_$rootScope_, $controller) {
-		$rootScope = _$rootScope_;
-		$scope = $rootScope.$new();
+		$scope = _$rootScope_;
 		sut = $controller('UnityViewCtrl', {$scope: $scope});
 		$scope.$digest();
 	}));
@@ -142,7 +140,7 @@ describe("Unity View Ctrl Spec", function() {
 			it("should call the unity object to change the wheels", function() {
 				sut.changeWheels(null, 'medium');
 				expect(sut.unity.SendMessage).toHaveBeenCalledWith('Skateboard', 'ChangeWheels', 'medium');
-			})
+			});
 
 		});
 

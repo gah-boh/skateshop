@@ -43,7 +43,7 @@ describe("Customize Control Spec", function() {
 							tailCurve: 10
 						}
 					}
-				}
+				};
 			},
 			board: {
 				presets: [

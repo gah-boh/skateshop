@@ -1,15 +1,13 @@
 describe("Board Slider Specs", function() {
 
-	var $rootScope,
-		$scope,
+	var $scope,
 		element,
 		elementIsolatedScope;
 
 	beforeEach(module("Skateshop.Directives.Customization"));
 
 	beforeEach(inject(function(_$rootScope_, $compile) {
-		$rootScope = _$rootScope_;
-		$scope = _$rootScope_.$new();
+		$scope = _$rootScope_;
 		$scope.currentValue = 3;
 		element = angular.element('<div board-slider="currentValue" min="45" max="90"></div>');
 		$compile(element)($scope);

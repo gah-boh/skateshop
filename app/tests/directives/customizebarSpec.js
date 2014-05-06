@@ -5,12 +5,12 @@ describe("customizeBar", function() {
 
 	beforeEach(module("Skateshop.Directives.Customization"));
 	beforeEach(module('templates')); // This module is declared in karma.conf.js in the ng-html2js configuration.
-	beforeEach(inject(function($compile, $rootScope) {
-		$scope = $rootScope;
+	beforeEach(inject(function($compile, _$rootScope_) {
+		$scope = _$rootScope_;
 		$scope.testTitle = "TestingTitle";
 		$scope.selection = {title: 'Dude'};
 		element = angular.element('<customize-bar title="{{testTitle}}" active-selection="selection.title"></customize-bar>');
-		$compile(element)($rootScope);
+		$compile(element)($scope);
 		$scope.$digest();
 	}));
 
@@ -40,9 +40,9 @@ describe("customizeBar", function() {
 
 		var secondElement;
 
-		beforeEach(inject(function($compile, $rootScope) {
+		beforeEach(inject(function($compile) {
 			secondElement = angular.element('<customize-bar title="secondElement" active-selection="selection.title"></customize-bar>')
-			$compile(secondElement)($rootScope);
+			$compile(secondElement)($scope);
 			$scope.$digest();
 		}));
 
