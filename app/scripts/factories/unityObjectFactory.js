@@ -13,7 +13,7 @@
 
 		this.getUnity = function(selector, webPlayerAddress) {
 			return initUnity(selector, webPlayerAddress);
-		}
+		};
 	});
 
 }());

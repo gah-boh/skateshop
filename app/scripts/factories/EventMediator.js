@@ -65,7 +65,7 @@
 
 			unsubscribeAllForScope: function (scope) {
 				if (!subscribers.hasOwnProperty(scope.$id)) {
-					return
+					return;
 				}
 				unsubscribeAllEvents(scope);
 				this.removeNullEvents(scope);

@@ -16,7 +16,7 @@
 					scope.activeSelection = scope.title;
 				};
 			}
-		}
+		};
 	});
 
 	CustomizationDirectivesModule.directive('boardSlider', function() {
