@@ -1,9 +1,8 @@
 (function() {
 
-	var CustomizeCtrlModule = angular.module('Skateshop.Controllers.CustomizeCtrl', ['SpagEventMediator',
-																					 'Skateshop.Factories.CustomizeSections']);
+//'Skateshop.Factories.CustomizeSections']);
 
-	CustomizeCtrlModule.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory) {
+	Skateshop.Customize.controller('CustomizeCtrl', function($scope, EventMediator, CustomizeSectionsFactory) {
 
 		var customizeCtrl = this;
 
