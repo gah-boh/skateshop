@@ -1,8 +1,7 @@
 namespace('Skateshop');
 
 Skateshop.App = angular.module('Skateshop', ['Skateshop.Controllers.CustomizeCtrl',
-											 'Skateshop.Controllers.UnityViewCtrl',
+											 'Unity',
 											 'Skateshop.Directives.Customization',
-											 'Skateshop.Services.UnityObject',
 											 'Skateshop.Factories.CustomizeSections']);
 

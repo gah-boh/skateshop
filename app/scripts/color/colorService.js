@@ -1,6 +1,6 @@
 (function() {
 
-	var ColorServiceModule = angular.module('Skateshop.Services.ColorService', []);
+	var ColorServiceModule = angular.module('Color', []);
 
 	ColorServiceModule.service('ColorService', function() {
 

@@ -5,7 +5,7 @@
 	CustomizationDirectivesModule.directive('customizeBar', function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'views/customize-bar.html',
+			templateUrl: '../../views/customize-bar.html',
 			replace: true,
 			scope: {
 				title: '@',
