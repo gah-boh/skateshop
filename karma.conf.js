@@ -19,14 +19,16 @@ module.exports = function(config) {
 	  'bower_components/jquery-ui/ui/jquery-ui.js',
 	  'bower_components/angular/angular.js',
 	  'bower_components/angular-mocks/angular-mocks.js',
+      'scripts/namespace.js',
+      'scripts/customize/customize.js',
+      'scripts/unity/unity.js',
       'scripts/**/*.js',
-      'tests/**/*Spec.js',
 	  'views/*.html'
     ],
 
     // list of files to exclude
     exclude: [
-      
+      'UnityObject2.js'
     ],
 
 	preprocessors: {

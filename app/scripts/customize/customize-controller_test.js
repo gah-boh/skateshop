@@ -6,7 +6,7 @@ describe("Customize Control Spec", function() {
 		element,
 		mockMediator;
 
-	beforeEach(module('Skateshop.Controllers.CustomizeCtrl'));
+	beforeEach(module('Customize'));
 
 	beforeEach(module(function($provide){
 		mockMediator = {
