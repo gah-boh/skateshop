@@ -6,7 +6,7 @@ describe("Unity View Ctrl Spec", function() {
 		mockColorService,
 		mockMediator;
 
-	beforeEach(module('Skateshop.Controllers.UnityViewCtrl'));
+	beforeEach(module('Unity'));
 
 	beforeEach(function() {
 		mockUnityObjectFactory = {
@@ -26,7 +26,7 @@ describe("Unity View Ctrl Spec", function() {
 
 		module(function($provide) {
 			$provide.value('UnityObjectFactory', mockUnityObjectFactory);
-			$provide.value('ColorService', mockColorService);
+			$provide.value('ColorFormatter', mockColorService);
 			$provide.value('EventMediator', mockMediator);
 		});
 	});
