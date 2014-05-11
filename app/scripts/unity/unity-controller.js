@@ -4,7 +4,6 @@ Skateshop.Unity.controller('UnityViewCtrl', function($scope, EventMediator, Unit
 
 	var unityViewCtrl = this;
 
-	// Properties
 	this.unity = UnityObjectFactory.getUnity(".unity-view", "unityPlayer/skateshop/skateshop.unity3d");
 
 	unityViewCtrl.changeBoardLength = function(event, args) {

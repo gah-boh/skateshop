@@ -16,23 +16,23 @@
 			<div class="board-section" ng-show='customCtrl.selection.title == "Board"'>
                 <div class="board-slider customize-sub-section">
                     <span class="customize-sub-section">tail curve: <span ng-bind="customCtrl.boardSettings.tailCurve"></span></span>
-                    <div board-slider="customCtrl.boardSettings.tailCurve" min="0" max="50"></div>
+                    <div slider="customCtrl.boardSettings.tailCurve" min="0" max="50"></div>
                 </div>
                 <div class="board-slider customize-sub-section">
                     <span class="customize-sub-section">nose curve: <span ng-bind="customCtrl.boardSettings.noseCurve"></span></span>
-                    <div board-slider="customCtrl.boardSettings.noseCurve" min="0" max="50"></div>
+                    <div slider="customCtrl.boardSettings.noseCurve" min="0" max="50"></div>
                 </div>
                 <div class="board-slider customize-sub-section">
                     <span class="customize-sub-section">tail shape: <span ng-bind="customCtrl.boardSettings.tailShape"></span></span>
-                    <div board-slider="customCtrl.boardSettings.tailShape" min="-50" max="50"></div>
+                    <div slider="customCtrl.boardSettings.tailShape" min="-50" max="50"></div>
                 </div>
                 <div class="board-slider customize-sub-section">
                     <span class="customize-sub-section">nose shape: <span ng-bind="customCtrl.boardSettings.noseShape"></span></span>
-                    <div board-slider="customCtrl.boardSettings.noseShape" min="0" max="50"></div>
+                    <div slider="customCtrl.boardSettings.noseShape" min="0" max="50"></div>
                 </div>
                 <div class="board-slider full-width customize-sub-section">
                     <span class="customize-sub-section">length: <span ng-bind="customCtrl.boardSettings.boardLength"></span></span>
-                    <div board-slider="customCtrl.boardSettings.boardLength" min="10" max="90"></div>
+                    <div slider="customCtrl.boardSettings.boardLength" min="10" max="90"></div>
                 </div>
 				<div class="board-preset-container">
 					<span class="row customize-sub-section">presets:</span>
@@ -87,7 +87,10 @@
 <script src="scripts/customize/customize-controller.js"></script>
 <script src="scripts/customize/customize-sections-factory.js"></script>
 <script src="scripts/customize/customize-preset-mapping-factory.js"></script>
-<script src="scripts/customize/customize-directives.js"></script>
+<script src="scripts/customize/customize-bar-directive.js"></script>
+<script src="scripts/customize/customize-slider-directive.js"></script>
+<script src="scripts/customize/customize-color-selector-directive.js"></script>
+<script src="scripts/customize/customize-color-picker-directive.js"></script>
 <script src="scripts/color/color.js"></script>
 
 </body>
