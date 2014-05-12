@@ -1,7 +1,7 @@
 Skateshop.Customize.directive('customizeBar', function() {
 	return {
 		restrict: 'E',
-		templateUrl: '../../views/customize-bar.html',
+		templateUrl: 'scripts/customize/customize-bar-directive.html',
 		replace: true,
 		scope: {
 			title: '@',

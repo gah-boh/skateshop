@@ -3,7 +3,7 @@ describe("customizeBar", function() {
 	var $scope,
 		element;
 
-	beforeEach(module("Skateshop.Directives.Customization"));
+	beforeEach(module("Customize"));
 	beforeEach(module('templates')); // This module is declared in karma.conf.js in the ng-html2js configuration.
 	beforeEach(inject(function($compile, _$rootScope_) {
 		$scope = _$rootScope_;
@@ -41,18 +41,20 @@ describe("customizeBar", function() {
 		var secondElement;
 
 		beforeEach(inject(function($compile) {
-			secondElement = angular.element('<customize-bar title="secondElement" active-selection="selection.title"></customize-bar>')
+			secondElement = angular.element('<customize-bar title="secondElement" active-selection="selection.title"></customize-bar>');
 			$compile(secondElement)($scope);
 			$scope.$digest();
 		}));
 
 		it("after click the scopes selection title should be secondElement", function() {
-			secondElement[0].click();
+			secondElement.isolateScope().toggleActive();
+			$scope.$digest();
 			expect($scope.selection.title).toBe("secondElement");
 		});
 
 		it("after click the scopes selection title should NOT be Dude", function() {
-			secondElement[0].click();
+			secondElement.isolateScope().toggleActive();
+			$scope.$digest();
 			expect($scope.selection.title).not.toBe('Dude');
 		});
 	});
@@ -60,7 +62,8 @@ describe("customizeBar", function() {
 	describe("adding active class", function() {
 
 		it("should have the activeSection class when clicked", function() {
-			element[0].click();
+			element.isolateScope().toggleActive();
+			$scope.$digest();
 			expect(element.hasClass("active-section")).toBeTruthy();
 		});
 	});

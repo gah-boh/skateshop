@@ -23,7 +23,7 @@ module.exports = function(config) {
       'scripts/customize/customize.js',
       'scripts/unity/unity.js',
       'scripts/**/*.js',
-	  'views/*.html'
+	  'scripts/**/*.html'
     ],
 
     // list of files to exclude
@@ -32,7 +32,7 @@ module.exports = function(config) {
     ],
 
 	preprocessors: {
-	  'views/*.html': 'ng-html2js'
+	  'scripts/**/*.html': 'ng-html2js'
 	},
 
 	ngHtml2JsPreprocessor: {
