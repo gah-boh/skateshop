@@ -4,7 +4,7 @@ describe("Color Picker Directive", function() {
 		element,
 		sut;
 
-	beforeEach(module('Skateshop.Directives.Customization'));
+	beforeEach(module('Customize'));
 
 	beforeEach(inject(function(_$rootScope_, $compile) {
 		$rootScope = _$rootScope_;

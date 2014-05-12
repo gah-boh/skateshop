@@ -7,7 +7,7 @@ describe("Color Selector", function() {
 	describe("directive", function() {
 
 		beforeEach(function() {
-			module('Skateshop.Directives.Customization');
+			module('Customize');
 			inject(function($compile, _$rootScope_) {
 				$scope = _$rootScope_;
 				element = angular.element('<div color-selector="rgb(255, 255, 255)"></div>');
@@ -33,7 +33,7 @@ describe("Color Selector", function() {
 	describe("scope communication", function() {
 
 		beforeEach(function() {
-			module('Skateshop.Directives.Customization');
+			module('Customize');
 			inject(function($compile, _$rootScope_) {
 				$scope = _$rootScope_;
 				$scope.color = {test: 'test'};
@@ -47,7 +47,7 @@ describe("Color Selector", function() {
 		});
 
 		it("should call the given function with the internal color values", function() {
-			element[0].click();
+			sut.colorSelected();
 			expect($scope.color).toEqual([255, 255, 255]);
 		});
 	});
