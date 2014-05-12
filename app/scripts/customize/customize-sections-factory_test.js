@@ -3,7 +3,7 @@ describe("Customize Section Factory", function() {
 	var sut,
 		presetMapperMock;
 
-	beforeEach(module("Skateshop.Factories.CustomizeSections"));
+	beforeEach(module("Customize"));
 	beforeEach(module(function($provide) {
 		presetMapperMock = jasmine.createSpyObj('PresetMapperMock', ['mapTo']);
 		$provide.value('PresetMapper', presetMapperMock);

@@ -1,10 +1,10 @@
 describe("Color Service", function() {
 	var sut;
 
-	beforeEach(module('Skateshop.Services.ColorService'));
+	beforeEach(module('Color'));
 
-	beforeEach(inject(function(ColorService) {
-		sut = ColorService;
+	beforeEach(inject(function(ColorFormatter) {
+		sut = ColorFormatter;
 	}));
 
 	it("should normalize the colorValues", function() {

@@ -2,7 +2,7 @@ Skateshop.Customize.directive('slider', function() {
 	return {
 		restrict: 'A',
 		scope: {
-			boardSlider: '='
+			slider: '='
 		},
 		link: function (scope, element, attributes) {
 
@@ -19,11 +19,11 @@ Skateshop.Customize.directive('slider', function() {
 			});
 
 			scope.update = function(aValue) {
-				scope.$apply( scope.boardSlider = aValue );
+				scope.$apply( scope.slider = aValue );
 			};
 
 			scope.updateSlider = function() {
-				$(element).slider("value", scope.boardSlider);
+				$(element).slider("value", scope.slider);
 			};
 
 		}
