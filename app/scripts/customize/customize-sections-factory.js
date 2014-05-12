@@ -10,11 +10,6 @@ Skateshop.Customize.factory("CustomizeSectionsFactory", function(PresetMapper) {
 			return results.splice(1);
 		},
 
-		sections: [
-			'Board',
-			'Grip',
-			'Wheels'
-		],
 		board: {
 			presets: [
 				{

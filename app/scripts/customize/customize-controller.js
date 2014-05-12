@@ -2,7 +2,7 @@ Skateshop.Customize.controller('CustomizeCtrl', function($scope, EventMediator, 
 
 	var customizeCtrl = this;
 
-	customizeCtrl.customizeSections = CustomizeSectionsFactory.sections;
+	customizeCtrl.customizeSections = ['Board', 'Grip', 'Wheels'];
 	customizeCtrl.boards = CustomizeSectionsFactory.board;
 	customizeCtrl.colors = CustomizeSectionsFactory.colors;
 	customizeCtrl.boardPresets = CustomizeSectionsFactory.mappedPresets('name');
