@@ -1,9 +1,7 @@
 describe("Customize Control Spec", function() {
 
-	var	$rootScope,
-		$scope,
+	var	$scope,
 		sut,
-		element,
 		mockMediator;
 
 	beforeEach(module('Customize'));
