@@ -12,7 +12,7 @@ Skateshop.Customize.controller('CustomizeCtrl', function($scope, EventMediator, 
 		title: customizeCtrl.customizeSections[0]
 	};
 
-	$scope.boardSettings = customizeCtrl.boardSettings = {
+	customizeCtrl.boardSettings = {
 		boardLength: 0,
 		noseShape: 0,
 		tailShape: 0,
@@ -24,7 +24,9 @@ Skateshop.Customize.controller('CustomizeCtrl', function($scope, EventMediator, 
 	};
 
 	angular.forEach(customizeCtrl.boardSettings, function(value, key) {
-		$scope.$watch('boardSettings.' + key, function(newValue) {
+		$scope.$watch(function() {
+			return customizeCtrl.boardSettings[key];
+		}, function(newValue) {
 			EventMediator.emit(key, newValue);
 		});
 	});

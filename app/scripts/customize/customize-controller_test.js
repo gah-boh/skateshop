@@ -250,7 +250,7 @@ describe("Customize Control Spec", function() {
 
 			it("should change the wheel on the boardSettings", function() {
 				sut.changeWheel('medium');
-				expect($scope.boardSettings.wheels).toEqual('medium');
+				expect(sut.boardSettings.wheels).toEqual('medium');
 			});
 
 			it("should emit and event through the $watch when wheels are changed", function() {
