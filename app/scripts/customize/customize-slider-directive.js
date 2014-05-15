@@ -6,7 +6,7 @@ Skateshop.Customize.directive('slider', function() {
 		},
 		link: function (scope, element, attributes) {
 
-			scope.$watch('boardSlider', function() {
+			scope.$watch('slider', function() {
 				scope.updateSlider();
 			});
 
